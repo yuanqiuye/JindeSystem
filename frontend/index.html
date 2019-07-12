@@ -115,24 +115,25 @@
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
         </div>
 
-        <div class="ts centered center aligned secondary raised segment"></div>
-        <form class="ts form">
-            <div class="field">
-                <label>時間：</label>
-                <select class="ts basic dropdown">
-                    <option>12:00~12:30</option>
-                    <option>12:30~1:00</option>
-                </select>
-            </div>
+        <div class="ts centered center aligned secondary raised segment">
+            <form class="ts form">
+                <div class="field">
+                    <label>時間：</label>
+                    <select class="ts basic dropdown">
+                        <option>12:00~12:30</option>
+                        <option>12:30~1:00</option>
+                    </select>
+                </div>
 
-            <div class="field">
-                <label>人數：</label>
-                <input placeholder="建議一次上限為十人" name="number">
-            </div>
-            <input type="submit" class="ts positive fluid button" value="發送">
-        </form>
+                <div class="field">
+                    <label>人數：</label>
+                    <input placeholder="建議一次上限為十人" name="number">
+                </div>
+                <input type="submit" class="ts positive fluid button" value="發送">
+            </form>
+        </div>
     </div>
-    </div>
+
     <!-- 發送提早進德頁面結束 -->
 
     <!-- 審核提早進德頁面開始 -->
@@ -144,14 +145,35 @@
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <p>未審核：</p><br>
-            <div id="not_checked">
+            <table class="ts small celled definition table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>學號</th>
+                        <th>姓名</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="collapsing">
+                            <div class="ts toggle checkbox">
+                                <input type="checkbox" id="toggle1">
+                                <label for="toggle1"></label>
+                            </div>
+                        </td>
+                        <td>21</td>
+                        <td>21212</td>
+                    </tr>
 
-            </div>
-            <p>已審核：</p><br>
-            <div id="checked">
+                </tbody>
+                <tfoot class="full-width">
 
-            </div>
+                    <div class="ts small button">
+                        核准
+                    </div>
+
+                </tfoot>
+            </table>
         </div>
     </div>
     <!-- 審核提早進德頁面結束 -->
@@ -164,7 +186,7 @@
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
         </div>
         <div class="ts centered center aligned secondary raised segment">
-            <table class="ts table">
+            <table class="ts small celled table">
                 <thead>
                     <tr>
                         <th>學號</th>
@@ -216,5 +238,9 @@
     </div>
     <!-- 下載紀錄頁面結束 -->
 
-    <!-- 下載紀錄頁面結束 -->
+    <!-- 學生查看頁面開始 -->
+    <div class="student">
+
+    </div>
+
 </body>
