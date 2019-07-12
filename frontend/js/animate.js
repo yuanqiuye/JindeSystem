@@ -1,6 +1,6 @@
 function animate(direction){
-    const $start = document.getElementById('now');
-    const $end = document.getElementsByClassName(direction);
+    const $start = $('#now');
+    const $end = $('.'+direction);
     
     $start.attr('id', '');
     $end.attr('id', 'now');
