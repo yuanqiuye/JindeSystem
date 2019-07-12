@@ -12,7 +12,7 @@ function this_monday()
 
 $host = 'localhost';
 $user = 'root';
-$password = file_get_contents("password.txt");
+$password = file_get_contents("../../../password.txt");
 $db_name = 'd' . this_monday();
 $check_db = file_get_contents("../../database/week.sql");
 
