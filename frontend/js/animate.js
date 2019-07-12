@@ -5,6 +5,8 @@ function animate(direction){
     $start.attr('id', '');
     $end.attr('id', 'now');
 
-    $start.fadeOut(500);
-    $end.fadeIn(500); 
+    $start.fadeOut(500, function(){
+        $end.fadeIn(500); 
+    });
+    
 }
