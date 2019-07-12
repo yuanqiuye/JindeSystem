@@ -1,0 +1,220 @@
+<html>
+<title>板中進德系統</title>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="板橋高中提早進德系統">
+    <meta name="keywords" content="進德,板橋高中">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+        .segment {
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ts tertiary menu">
+        <div class="right menu">
+            <a class="item" href="index.php">返回</a>
+            <a class="item" href="changepw.php">更改密碼</a>
+            <a class="item" href="logout.php">登出</a>
+            <a class="item" href="http://www.pcsh.ntpc.edu.tw/">本校首頁</a>
+        </div>
+    </div>
+    <!-- 登入頁面開始 -->
+    <div class="login">
+
+        <div class="ts huge center aligned header">
+            歡迎來到進德系統
+            <div class="sub header" style="color:red">首次登入請更改密碼</div>
+            <div class="sub header">以免影響自身權益及造成不必要的麻煩</div>
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered secondary segment">
+            <form class="ts form">
+
+                <div class="field">
+                    <label>帳號：</label>
+                    <input type="text" placeholder="例:710999" name="user">
+                </div>
+
+                <div class="field">
+                    <label>密碼：</label>
+                    <input type="password" placeholder="預設為身分證後六碼" name="password">
+                </div>
+                <input type="submit" class="ts positive fluid button" value="登入">
+
+            </form>
+        </div>
+    </div>
+    <!-- 登入頁面結束 -->
+
+    <!-- 教師與教官頁面開始 -->
+    <div class="selection">
+        <div class="ts huge center aligned header">
+            請選擇選項
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+        <br>
+        <div class="ts centered center aligned secondary raised segment">
+            <button class='ts large button'>登記學生進德</button>
+            <br><br><button class='ts large button'>發送提早進德</button>
+            <br><br><button class='ts large button'>審核提早進德</button>
+            <br><br><button class='ts large button'>大量銷進德</button>
+            <br><br><button class='ts large button'>上傳遲到紀錄</button>
+            <br><br><button class='ts large button'>匯出進德紀錄</button>
+        </div>
+    </div>
+    <!-- 教師與教官頁面結束 -->
+
+    <!-- 登記進德頁面開始 -->
+    <div class="apply_jinde">
+        <div class="ts huge center aligned header">
+            登記進德
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered secondary segment">
+            <form class="ts form">
+                <div class="field">
+                    <label>學號：</label>
+                    <input type="text" placeholder="例:710999" name="SID">
+                </div>
+
+                <div class="ts checkboxes">
+                    <div class="ts radio checkbox">
+                        <input type="radio" name="gender" id="male">
+                        <label for="male">男性</label>
+                    </div>
+                    <div class="ts radio checkbox">
+                        <input type="radio" name="gender" id="female">
+                        <label for="female">女性</label>
+                    </div>
+                    <div class="ts radio checkbox">
+                        <input type="radio" name="gender" id="third">
+                        <label for="third">第三性</label>
+                    </div>
+                </div>
+                <input type="submit" class="ts positive fluid button" value="送出">
+            </form>
+        </div>
+    </div>
+    <!-- 登記進德頁面結束 -->
+
+    <!-- 發送提早進德頁面開始 -->
+    <div class="apply_early_jinde">
+        <div class="ts huge center aligned header">
+            登記提早進德
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered center aligned secondary raised segment"></div>
+        <form class="ts form">
+            <div class="field">
+                <label>時間：</label>
+                <select class="ts basic dropdown">
+                    <option>12:00~12:30</option>
+                    <option>12:30~1:00</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>人數：</label>
+                <input placeholder="建議一次上限為十人" name="number">
+            </div>
+            <input type="submit" class="ts positive fluid button" value="發送">
+        </form>
+    </div>
+    </div>
+    <!-- 發送提早進德頁面結束 -->
+
+    <!-- 審核提早進德頁面開始 -->
+    <div class="check_early_jinde">
+        <div class="ts huge center aligned header">
+            審核提早進德
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered center aligned secondary raised segment">
+            <p>未審核：</p><br>
+            <div id="not_checked">
+
+            </div>
+            <p>已審核：</p><br>
+            <div id="checked">
+
+            </div>
+        </div>
+    </div>
+    <!-- 審核提早進德頁面結束 -->
+
+    <!-- 大量銷進德頁面開始 -->
+    <div class="huge_check_jinde">
+        <div class="ts huge center aligned header">
+            大量銷進德
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+        <div class="ts centered center aligned secondary raised segment">
+            <table class="ts table">
+                <thead>
+                    <tr>
+                        <th>學號</th>
+                        <th>隻數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input name="SID"></input></td>
+                        <td><input name="times"></input></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2">已銷人數：</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="ts positive fluid button">發送</button>
+        </div>
+    </div>
+    <!-- 大量銷進德頁面結束 -->
+
+    <!-- 上傳遲到頁面開始 -->
+    <div class="upload">
+        <div class="ts huge center aligned header">
+            上傳遲到紀錄
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered center aligned secondary raised segment">
+            <button class="ts positive fluid button">上傳</button>
+        </div>
+    </div>
+    <!-- 上傳遲到頁面結束 -->
+
+    <!-- 下載紀錄頁面開始 -->
+    <div class="upload">
+        <div class="ts huge center aligned header">
+            下載進德紀錄
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered center aligned secondary raised segment">
+            <button class="ts positive fluid button">下載</button>
+        </div>
+    </div>
+    <!-- 下載紀錄頁面結束 -->
+
+    <!-- 下載紀錄頁面結束 -->
+</body>
