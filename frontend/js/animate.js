@@ -1,7 +1,7 @@
 function animate(direction, url, data){
     const $start = $('#now');
     const $end = $('.'+direction);
-    const $animation = $('#animation')
+    const $animation = $('#animation');
     
     $start.attr('id', '');
     $end.attr('id', 'now');
