@@ -1,0 +1,50 @@
+.flickr-loader {
+    position: relative;
+    width: 110px;
+    height: 50px;
+  }
+  
+  @keyframes pink {
+    0% {
+      z-index: 1;
+    }
+   50% {
+      left:50px;
+    }
+  }
+  @keyframes blue {
+    50% {
+      right:50px;
+    }
+  }
+
+  .dot-pink,
+  .dot-blue {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+  
+  
+  .dot-pink {
+    background: #ff2e92;
+    left: 0;
+    animation: 1s ease-in-out infinite;
+    animation-name: pink;
+  }
+  
+  
+  .dot-blue {
+   background: #007bdc;
+   right: 0;
+   animation: 1s ease-in-out infinite;
+   animation-name: blue;
+  }
+
+  
+
+  .segment {
+    max-width: 300px;
+  }   
