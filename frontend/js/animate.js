@@ -7,11 +7,9 @@ function animate(direction, url, data){
     $end.attr('id', 'now');
 
     $start.fadeOut(500, function(){
-        $animation.fadeIn(500, function(){
-            $animation.fadeOut(500, function(){
-                $end.fadeIn(500); 
-            })
-        })
+        $animation.fadeIn(500);
+        $animation.fadeOut(500);
+        $end.fadeIn(500); 
     });
     
 }
