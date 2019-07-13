@@ -3,20 +3,6 @@
     width: 110px;
     height: 50px;
   }
-  
-  @keyframes pink {
-    0% {
-      z-index: 1;
-    }
-   50% {
-      left:50px;
-    }
-  }
-  @keyframes blue {
-    50% {
-      right:50px;
-    }
-  }
 
   .dot-pink,
   .dot-blue {
@@ -43,7 +29,19 @@
    animation-name: blue;
   }
 
-  
+  @keyframes pink {
+    0% {
+      z-index: 1;
+    }
+   50% {
+      left:50px;
+    }
+  }
+  @keyframes blue {
+    50% {
+      right:50px;
+    }
+  }
 
   .segment {
     max-width: 300px;
