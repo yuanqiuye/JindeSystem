@@ -1,21 +1,21 @@
-function animate(direction, url, data) {
+function animate_havadata(url, send) {
     const $start = $('#now');
-    const $end = $('.' + direction);
     const $animation = $('.animation');
-
     $start.attr('id', '');
-    $end.attr('id', 'now');
 
-    $start.fadeOut(500, function() {
+    $start.fadeOut(400, function() {
         $animation.fadeIn();
-        callserver(url, data, function(status) {
-            if (status == none) {
-                $end.fadeIn(500);
+        callserver(url, send, () => {
+            if (dowhat.status == null) {
+                $animation.fadeOut(400, function() {
+                    const $end = $('.' + dowhat.direction);
+                    $end.attr('id', 'now');
+                    $end.fadeIn(400);
+                });
             } else {
-                //待處理
+                //待處理(重導向利用下面方法)statusdandler
+
             }
         })
-
     });
-
 }

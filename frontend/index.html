@@ -49,7 +49,7 @@
                     <label>密碼：</label>
                     <input type="password" placeholder="預設為身分證後六碼" name="password">
                 </div>
-                <input type="submit" class="ts positive fluid button" value="登入">
+                <button class="ts positive fluid button">登入</button>
 
             </form>
         </div>
@@ -65,12 +65,18 @@
         </div>
         <br>
         <div class="ts centered center aligned secondary raised segment">
-            <button class='ts large button'>登記學生進德</button>
-            <br><br><button class='ts large button'>發送提早進德</button>
-            <br><br><button class='ts large button'>審核提早進德</button>
-            <br><br><button class='ts large button'>大量銷進德</button>
-            <br><br><button class='ts large button'>上傳遲到紀錄</button>
-            <br><br><button class='ts large button'>匯出進德紀錄</button>
+            <div id="low">
+                <button class='ts large button'>發送提早進德</button>
+                <br><br><button class='ts large button'>審核提早進德</button>
+            </div>
+            <div id="middle">
+                <br><br><button class='ts large button' id="middle">登記學生進德</button>
+            </div>
+            <div id="high">
+                <br><br><button class='ts large button'>大量銷進德</button>
+                <br><br><button class='ts large button'>上傳遲到紀錄</button>
+                <br><br><button class='ts large button'>匯出進德紀錄</button>
+            </div>
         </div>
     </div>
     <!-- 教師與教官頁面結束 -->
@@ -90,9 +96,9 @@
                     <input type="text" placeholder="例:710999" name="SID">
                 </div>
 
-                <div class="ts checkboxes">
+                <div class="ts checkboxes" id="reason">
                     <div class="ts radio checkbox">
-                        <input type="radio" name="gender" id="male">
+                        <input type="radio" id="male">
                         <label for="male">男性</label>
                     </div>
                     <div class="ts radio checkbox">
@@ -103,8 +109,13 @@
                         <input type="radio" name="gender" id="third">
                         <label for="third">第三性</label>
                     </div>
+
+                    <div class="field">
+                        <label>次數：</label>
+                        <input type="text" placeholder="1~10" name="times">
+                    </div>
                 </div>
-                <input type="submit" class="ts positive fluid button" value="送出">
+                <button class="ts positive fluid button">發送</button>
             </form>
         </div>
     </div>
@@ -122,9 +133,9 @@
             <form class="ts form">
                 <div class="field">
                     <label>時間：</label>
-                    <select class="ts basic dropdown">
-                        <option>12:00~12:30</option>
-                        <option>12:30~1:00</option>
+                    <select class="ts basic dropdown" name="time">
+                        <option id=1>12:00~12:30</option>
+                        <option id=2>12:30~1:00</option>
                     </select>
                 </div>
 
@@ -132,7 +143,7 @@
                     <label>人數：</label>
                     <input placeholder="建議一次上限為十人" name="number">
                 </div>
-                <input type="submit" class="ts positive fluid button" value="發送">
+                <button class="ts positive fluid button">發送</button>
             </form>
         </div>
     </div>
@@ -191,9 +202,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input name="SID"></input>
+                        <td><input name="who"></input>
                         </td>
-                        <td><input name="times"></input>
+                        <td><input name="how"></input>
                         </td>
                     </tr>
                 </tbody>
@@ -203,6 +214,8 @@
                     </tr>
                 </tfoot>
             </table>
+            <button class="ts positive fluid button">增加行</button>
+            <button class="ts positive fluid button">刪除行</button>
             <button class="ts positive fluid button">發送</button>
         </div>
     </div>
@@ -245,10 +258,10 @@
         </div>
         <div class="ts centered center aligned secondary raised segment">
             <div class="ts negative statistic">
-                <div class="value">13</div>
+                <div class="value" id="jindetimes">13</div>
                 <div class="label">這周進德</div>
             </div>
-            <table class="ts table">
+            <table class="ts table" id="student">
                 <thead>
                     <tr>
                         <th>日期</th>
@@ -279,8 +292,11 @@
             <div class="ts header">
                 載入中, 請稍後
             </div>
+            <br>
         </div>
     </div>
     <!-- 動畫頁面結束 -->
+
+    <!-- error及成功頁面待補充 -->
 
 </body>
