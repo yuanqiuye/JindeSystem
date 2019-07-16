@@ -14,13 +14,6 @@
         .segment {
             max-width: 300px;
         }
-
-        td>input {
-            width: 100%;
-            box-sizing: border-box;
-            /* 使元素的寬度包括padding margin, border*/
-            -moz-box-sizing: border-box;
-        }
     </style>
 </head>
 
@@ -198,8 +191,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input name="SID"></input></td>
-                        <td><input name="times"></input></td>
+                        <td><input name="SID"></input>
+                        </td>
+                        <td><input name="times"></input>
+                        </td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -273,10 +268,8 @@
     <!-- 學生查看頁面結束 -->
 
     <!-- 動畫頁面開始 -->
-    <div class="animation" style="display:none">
-        <div class="flickr-loader">
-            <b class="dot-pink"></b>
-            <b class="dot-blue"></b>
+    <div class="cssload-wrap3" style="display:none">
+        <div class="cssload-dots">
         </div>
     </div>
 
