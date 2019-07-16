@@ -8,6 +8,13 @@ function animate(direction, url, data) {
 
     $start.fadeOut(500, function() {
         $animation.fadeIn();
+        callserver(url, data, function(status) {
+            if (status == none) {
+                $end.fadeIn(500);
+            } else {
+                //待處理
+            }
+        })
 
     });
 
