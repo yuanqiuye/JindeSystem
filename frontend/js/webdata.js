@@ -37,12 +37,19 @@ class webdata {
         animate_havadata("apply_early_jinde.php", data);
     }
 
+    static check_inform() {
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
+        var data = ["user" = user, "jwt" = jwt];
+        animate_havadata("check_inform.php", data);
+    }
+
     static check_early_jinde() {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
         var data = ["user" = user, "jwt" = jwt, "name" = {}, "times" = {}];
         var checked = $("checkbox:checked");
-        for (var i = 0; i <= checked.length; i++) {
+        for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
             var name = nowrow.cells[1];
             var times = nowrow.cells[2];
@@ -59,7 +66,7 @@ class webdata {
         var data = ["user" = user, "jwt" = jwt, "name" = {}, "times" = {}];
         var name = $("input[name='who']");
         var times = $("input[name='how']");
-        for (var i = 0; i <= name.length; i++) {
+        for (var i = 0; i < name.length; i++) {
             if (name[i] !== null && times[i] !== null) {
                 data["name"].push(name[i]);
                 data["times"].push(times[i]);
