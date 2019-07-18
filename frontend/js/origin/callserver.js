@@ -2,7 +2,7 @@ dowhat = new process();
 
 function callserver(url, send) {
     var request = JSON.stringify(send);
-    var destination = "172.24.75.86:8787/backend/php";
+    var destination = "172.24.75.86:8787/JindeSystem/backend/php";
 
     $.ajax({
         type: "POST",
@@ -10,7 +10,7 @@ function callserver(url, send) {
         dataType: "json",
         url: destination + url,
         contentType: 'application/json; charset=UTF-8',
-        data: sJson,
+        data: send,
         success: function(get) {
             dowhat.freshdata(get);
             if (get["err"] !== null) {
