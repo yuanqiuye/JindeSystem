@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src='js/animate.js'></script>
-    <script src='js/getdata.js'></script>
-    <style type="text/css">
-        .segment {
-            max-width: 300px;
-        }
-    </style>
+    <!--
+        <script>段待所有js撰寫完畢, 安排匯入順序
+    -->
 </head>
 
 <body>
+
     <div class="ts tertiary menu">
         <div class="right menu">
-            <a class="item" href="index.php">返回</a>
-            <a class="item" href="changepw.php">更改密碼</a>
-            <a class="item" href="logout.php">登出</a>
+            <div id="logined" style="display:none">
+                <a class="item" id="back">返回</a>
+                <!-- 
+                    等待之後有時間再做, 目前沒有急迫性
+                    <a class="item" href="changepw.php">更改密碼</a> 
+                -->
+                <a class="item" href="logout.php" id="logout">登出</a>
+            </div>
             <a class="item" href="http://www.pcsh.ntpc.edu.tw/">本校首頁</a>
         </div>
     </div>
+
     <!-- 登入頁面開始 -->
     <div class="login" id="now">
 
@@ -49,12 +52,11 @@
                     <label>密碼：</label>
                     <input type="password" placeholder="預設為身分證後六碼" name="password">
                 </div>
-                <button class="ts positive fluid button">登入</button>
+                <button class="ts positive fluid button" id="login">登入</button>
 
             </form>
         </div>
     </div>
-    <!-- 登入頁面結束 -->
 
     <!-- 教師與教官頁面開始 -->
     <div class="selection" style="display:none">
@@ -66,20 +68,19 @@
         <br>
         <div class="ts centered center aligned secondary raised segment">
             <div id="low">
-                <button class='ts large button'>發送提早進德</button>
-                <br><br><button class='ts large button'>審核提早進德</button>
+                <button class='ts large button' id="apply_early_jinde">發送提早進德</button>
+                <br><br><button class='ts large button' id="check_early_jinde">審核提早進德</button>
             </div>
             <div id="middle">
-                <br><br><button class='ts large button' id="middle">登記學生進德</button>
+                <br><br><button class='ts large button' id="middle" id="apply_jinde">登記學生進德</button>
             </div>
             <div id="high">
-                <br><br><button class='ts large button'>大量銷進德</button>
-                <br><br><button class='ts large button'>上傳遲到紀錄</button>
-                <br><br><button class='ts large button'>匯出進德紀錄</button>
+                <br><br><button class='ts large button' id="huge_check_jinde">大量銷進德</button>
+                <br><br><button class='ts large button' id="upload">上傳遲到紀錄</button>
+                <br><br><button class='ts large button' id="download">匯出進德紀錄</button>
             </div>
         </div>
     </div>
-    <!-- 教師與教官頁面結束 -->
 
     <!-- 登記進德頁面開始 -->
     <div class="apply_jinde" style="display:none">
@@ -97,18 +98,7 @@
                 </div>
 
                 <div class="ts checkboxes" id="reason">
-                    <div class="ts radio checkbox">
-                        <input type="radio" id="male">
-                        <label for="male">男性</label>
-                    </div>
-                    <div class="ts radio checkbox">
-                        <input type="radio" name="gender" id="female">
-                        <label for="female">女性</label>
-                    </div>
-                    <div class="ts radio checkbox">
-                        <input type="radio" name="gender" id="third">
-                        <label for="third">第三性</label>
-                    </div>
+
                 </div>
 
                 <div class="field">
@@ -116,12 +106,11 @@
                     <input type="text" placeholder="1~10" name="times">
                 </div>
 
-                <button class="ts positive fluid button">發送</button>
+                <button class="ts positive fluid button" id="send_apply_jinde">發送</button>
 
             </form>
         </div>
     </div>
-    <!-- 登記進德頁面結束 -->
 
     <!-- 發送提早進德頁面開始 -->
     <div class="apply_early_jinde" style="display:none">
@@ -145,12 +134,10 @@
                     <label>人數：</label>
                     <input placeholder="建議一次上限為十人" name="number">
                 </div>
-                <button class="ts positive fluid button">發送</button>
+                <button class="ts positive fluid button" id="send_apply_early_jinde">發送</button>
             </form>
         </div>
     </div>
-
-    <!-- 發送提早進德頁面結束 -->
 
     <!-- 審核提早進德頁面開始 -->
     <div class="check_early_jinde" style="display:none">
@@ -182,10 +169,9 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="ts positive fluid button">核准</button>
+            <button class="ts positive fluid button" id="send_check_early_jinde">核准</button>
         </div>
     </div>
-    <!-- 審核提早進德頁面結束 -->
 
     <!-- 大量銷進德頁面開始 -->
     <div class="huge_check_jinde" style="display:none">
@@ -216,12 +202,11 @@
                     </tr>
                 </tfoot>
             </table>
-            <button class="ts positive fluid button">增加行</button>
-            <button class="ts positive fluid button">刪除行</button>
-            <button class="ts positive fluid button">發送</button>
+            <button class="ts positive fluid button" id="increase">增加行</button>
+            <button class="ts positive fluid button" id="decrease">刪除行</button>
+            <button class="ts positive fluid button" id="send_huge_check_jinde">發送</button>
         </div>
     </div>
-    <!-- 大量銷進德頁面結束 -->
 
     <!-- 上傳遲到頁面開始 -->
     <div class="upload" style="display:none">
@@ -232,13 +217,14 @@
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <button class="ts positive fluid button">上傳</button>
+            <input type="file" id="file-uploader" accept="text/csv" class="ts positive fluid button">
+            <br>
+            <button class="ts positive fluid button" id="send_upload">上傳</button>
         </div>
     </div>
-    <!-- 上傳遲到頁面結束 -->
 
     <!-- 下載紀錄頁面開始 -->
-    <div class="upload" style="display:none">
+    <div class="download" style="display:none">
         <div class="ts huge center aligned header">
             下載進德紀錄
             <div class="sub header">若有使用上的疑問或系統故障</div>
@@ -246,10 +232,9 @@
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <button class="ts positive fluid button">下載</button>
+            <button class="ts positive fluid button" id="send_download">下載</button>
         </div>
     </div>
-    <!-- 下載紀錄頁面結束 -->
 
     <!-- 學生查看頁面開始 -->
     <div class="student" style="display:none">
@@ -277,10 +262,10 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="ts positive fluid button">登記提早進德</button>
+            <!-- <button class="ts positive fluid button" >登記提早進德</button>
+            這功能竟然忽略了哈哈 -->
         </div>
     </div>
-    <!-- 學生查看頁面結束 -->
 
     <!-- 動畫頁面開始 -->
     <div class="animation" style="display:none">
@@ -297,8 +282,27 @@
             <br>
         </div>
     </div>
-    <!-- 動畫頁面結束 -->
 
-    <!-- error及成功頁面待補充 -->
+    <!-- error頁面開始 -->
+    <div class="err" style="display:none">
+        <div class="ts centered center aligned secondary raised segment">
+            <br>
+            <div class="ts negative header" id="err">
+
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <!-- 成功頁面開始 -->
+    <div class="success" style="display:none">
+        <div class="ts centered center aligned secondary raised segment">
+            <br>
+            <div class="ts positive header" id="success">
+
+            </div>
+            <br>
+        </div>
+    </div>
 
 </body>

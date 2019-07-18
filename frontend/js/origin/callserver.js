@@ -14,11 +14,32 @@ function callserver(url, send) {
         success: function(get) {
             dowhat.freshdata(get);
             if (get["err"] !== null) {
-                //待處理 errhandler
+                status_handler(get["err"], "err");
             } else {
                 switch (get["type"]) {
                     case "login":
                         dowhat.login();
+                        break;
+                    case "reason_inform":
+                        dowhat.reason_inform();
+                        break;
+                    case "apply_jinde":
+                        dowhat.apply_jinde();
+                        break;
+                    case "apply_early_jinde":
+                        dowhat.apply_early_jinde();
+                        break;
+                    case "check_inform":
+                        dowhat.check_inform();
+                        break;
+                    case "check_early_jinde":
+                        dowhat.check_early_jinde();
+                        break;
+                    case "check_early_jinde":
+                        dowhat.check_early_jinde();
+                        break;
+                    case "output_jinde":
+                        dowhat.output_jinde();
                         break;
                 }
             }

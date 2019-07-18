@@ -13,8 +13,7 @@ function animate_havadata(url, send) {
                     $end.fadeIn(400);
                 });
             } else {
-                //待處理(重導向利用下面方法)statusdandler
-
+                status_handler(dowhat.status, dowhat.direction);
             }
         })
     });

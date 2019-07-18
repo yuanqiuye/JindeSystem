@@ -29,6 +29,7 @@ class process {
                 }
                 document.cookie = "user:" + this.data["user"];
                 document.cookie = "jwt:" + this.data["jwt"];
+                document.getElementById('logined').setAttribute("style", "-1");
 
                 this.direction = "student";
                 this.status = "loginsuccess";
@@ -47,6 +48,7 @@ class process {
                 }
                 document.cookie = "user:" + this.data["user"];
                 document.cookie = "jwt:" + this.data["jwt"];
+                document.getElementById('logined').setAttribute("style", "-1");
 
                 this.direction = "selection";
                 this.status = "loginsuccess";
@@ -123,5 +125,21 @@ class process {
         this.direction = "check_early_jinde";
     }
 
-    //待繼續(am 0:21)
+    check_early_jinde() {
+        this.status = "applysuccess";
+        this.direction = "selection";
+    }
+
+    huge_check_jinde() {
+        this.status = "applysuccess";
+        this.direction = "selection";
+    }
+
+    output_jinde() {
+        csv_output(this.data);
+        this.direction = "selection";
+    }
+
+
+    //待上傳
 }
