@@ -3,14 +3,14 @@ class webdata {
         var user = $("input[name='user']");
         var password = $("input[name='password']");
 
-        var data = ["user" = user, "password" = password];
+        var data = { "user": user, "password": password };
         animate_havedata("login.php", data);
     }
 
     static reason_infrom() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = ["user" = user, "jwt" = jwt];
+        var data = { "user": user, "jwt": jwt };
 
         animate_havedata("reason_inform.php", data);
     }
@@ -23,7 +23,7 @@ class webdata {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
 
-        var data = ["user" = user, "jwt" = jwt, "SID" = SID, "RID" = RID, "times" = times, ];
+        var data = { "user": user, "jwt": jwt, "SID": SID, "RID": RID, "times": times };
         animate_havadata("apply_jinde.php", data);
     }
 
@@ -33,21 +33,21 @@ class webdata {
         var number = $("input[name='number']");
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = ["user" = user, "jwt" = jwt, "timeID" = timeID, "number" = number];
+        var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
         animate_havadata("apply_early_jinde.php", data);
     }
 
     static check_inform() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = ["user" = user, "jwt" = jwt];
+        var data = { "user": user, "jwt": jwt };
         animate_havadata("check_inform.php", data);
     }
 
     static check_early_jinde() {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
-        var data = ["user" = user, "jwt" = jwt, "name" = {}, "times" = {}];
+        var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
         var checked = $("checkbox:checked");
         for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
@@ -63,7 +63,7 @@ class webdata {
     static huge_check_jinde() {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
-        var data = ["user" = user, "jwt" = jwt, "name" = {}, "times" = {}];
+        var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
         var name = $("input[name='who']");
         var times = $("input[name='how']");
         for (var i = 0; i < name.length; i++) {
@@ -76,5 +76,26 @@ class webdata {
         animate_havadata("check_early_jinde.php", data);
     }
 
-    //上傳及下載頁面待補充
+    static check_jinde() {
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
+        var data = { "user": user, "jwt": jwt };
+        animate_havadata("check_jinde.php", data);
+    }
+
+    static upload_jinde() {
+        const fileUploader = document.querySelector('#file-uploader');
+        var result = null;
+        fileUploader.addEventListener('change', (e) => {
+            var reader = new FileReader();
+            reader.onload = function() {
+                result = csv_input(reader.result);
+            }
+            reader.readAsText(e.target.files);
+        });
+        var data = { "user": user, "jwt": jwt, "time": result[0], "SID": result[1] };
+        animate_havadata("upload_jinde.php", data);
+    }
+
+    //上傳頁面待補充
 }

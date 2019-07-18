@@ -22,8 +22,8 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
 
-  if ($con -> select_db($db_name) === false){
-      $con -> query($check_db);
-  }else{
-      die("Unexpected error!");
+  if ($con -> select_db($db_name) === true){
+  }else if($con -> query($check_db) === false){
+    die("Unexpected error!");
   }
+  
