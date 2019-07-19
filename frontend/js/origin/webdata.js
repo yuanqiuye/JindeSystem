@@ -98,7 +98,7 @@ class webdata {
         var jwt = readcookie("jwt");
         const fileUploader = document.querySelector('#file-uploader');
         var result = null;
-        if (fileUploader.files !== null) {
+        if (fileUploader.files !== "") {
             var reader = new FileReader();
 
             reader.onload = function() {
@@ -106,7 +106,7 @@ class webdata {
             }
             reader.readAsText(fileUploader.files[0]);
 
-            var data = { "user": user, "jwt": jwt, "time": result[0], "SID": result[1] };
+            var data = { "user": user, "jwt": jwt, "time": result, "SID": result };
             animate_havadata("upload_jinde.php", data);
         } else {
             alert("尚未選擇檔案!");

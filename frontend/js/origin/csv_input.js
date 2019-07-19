@@ -15,5 +15,5 @@ function csv_input(text) {
             SID.push(result[i][2]);
         }
     }
-    return [time, SID];
+    return time;
 }
