@@ -50,6 +50,9 @@ function callserver(url, send) {
                 }
             }
         },
+        err: function(oResult, textStatus, errorThrown) {
+            animate_nondata("login", "403");
+        },
         statusCode: {
             403: function(response) {
                 animate_nondata("login", "403");

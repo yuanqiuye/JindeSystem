@@ -5,9 +5,12 @@
     <meta charset="utf-8" />
     <meta name="description" content="板橋高中提早進德系統">
     <meta name="keywords" content="進德,板橋高中">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+    <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
     <div class="ts tertiary menu">
         <div class="right menu">
             <div id="logined" style="display:none">
@@ -34,7 +37,7 @@
         </div>
 
         <div class="ts centered secondary segment">
-            <form class="ts form" method="POST">
+            <form class="ts form" method="POST" target="rfFrame">
 
                 <div class="field">
                     <label>帳號：</label>
@@ -84,7 +87,7 @@
         </div>
 
         <div class="ts centered secondary segment">
-            <form class="ts form">
+            <form class="ts form" method="POST" target="rfFrame">
                 <div class="field">
                     <label>學號：</label>
                     <input type="text" placeholder="例:710999" name="SID">
@@ -114,7 +117,7 @@
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <form class="ts form">
+            <form class="ts form" method="POST" target="rfFrame">
                 <div class="field">
                     <label>時間：</label>
                     <select class="ts basic dropdown" name="teacher_time">
@@ -205,7 +208,7 @@
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <input type="file" id="file-uploader" accept="text/csv" class="ts positive fluid button">
+            <input type="file" id="file-uploader" accept="text/*" class="ts positive fluid button">
             <br>
             <button class="ts positive fluid button" id="send_upload">上傳</button>
         </div>
@@ -263,7 +266,7 @@
         </div>
 
         <div class="ts centered secondary segment">
-            <form class="ts form">
+            <form class="ts form" method="POST" target="rfFrame">
 
                 <div class="field">
                     <label>申請隻數：</label>
@@ -329,8 +332,7 @@
         </div>
     </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" />
-    <link rel="stylesheet" href="css/style.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/plugin/FileSaver.js"></script>
     <script src="js/plugin/jquery.csv.min.js"></script>

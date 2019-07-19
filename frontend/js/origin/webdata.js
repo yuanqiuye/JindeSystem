@@ -94,6 +94,8 @@ class webdata {
     }
 
     static upload_jinde() {
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
         const fileUploader = document.querySelector('#file-uploader');
         var result = null;
         if (fileUploader.files !== null) {
@@ -102,7 +104,7 @@ class webdata {
             reader.onload = function() {
                 result = csv_input(reader.result);
             }
-            reader.readAsText(fileUploader.files);
+            reader.readAsText(fileUploader.files[0]);
 
             var data = { "user": user, "jwt": jwt, "time": result[0], "SID": result[1] };
             animate_havadata("upload_jinde.php", data);
