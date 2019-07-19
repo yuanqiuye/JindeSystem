@@ -4,7 +4,7 @@ class webdata {
         var password = $("input[name='password']").val();
 
         var data = { "user": user, "password": password };
-        animate_havedata("login.php", data);
+        animate_havadata("login.php", data);
     }
 
     static reason_infrom() {
@@ -12,7 +12,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt };
 
-        animate_havedata("reason_inform.php", data);
+        animate_havadata("reason_inform.php", data);
     }
 
     static apply_jinde() {
