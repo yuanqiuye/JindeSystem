@@ -42,7 +42,7 @@ $(document).ready(function() {
     });
 
     $("#download").on('click', function() {
-        animate_nondata("upload", null);
+        animate_nondata("download", null);
     });
 
     $("#send_apply_jinde").on('click', function() {
@@ -73,13 +73,13 @@ $(document).ready(function() {
         var table = document.getElementById('huge_check');
         var num = table.rows.length;
         var tr = table.insertRow(num);
-        tr.innerHTML = "<td><input name='who'></input></td>td><input name='how'></input></td>"
+        tr.innerHTML = "<td><input name='who'></input></td><td><input name='how'></input></td>"
     });
 
     $("#decrease").on('click', function() {
         var table = document.getElementById('huge_check');
         var num = table.rows.length;
-        if (num - 1 <= 0) {
+        if (num - 2 <= 0) {
             alert("行數至少要有一列");
         } else {
             table.deleteRow(table.rows.length - 1);

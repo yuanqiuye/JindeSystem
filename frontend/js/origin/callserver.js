@@ -53,6 +53,9 @@ function callserver(url, send) {
         statusCode: {
             403: function(response) {
                 animate_nondata("login", "403");
+            },
+            304: function(response) {
+                animate_nondata("login", "403");
             }
         }
     });
