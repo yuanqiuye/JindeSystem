@@ -1,7 +1,7 @@
 class webdata {
     static login() {
-        var user = $("input[name='user']");
-        var password = $("input[name='password']");
+        var user = $("input[name='user']").val();
+        var password = $("input[name='password']").val();
 
         var data = { "user": user, "password": password };
         animate_havedata("login.php", data);
@@ -16,10 +16,10 @@ class webdata {
     }
 
     static apply_jinde() {
-        var SID = $("input[name='SID']");
-        var checked = $("radio:checked");
+        var SID = $("input[name='SID']").val();
+        var checked = $("radio:checked").val();
         var RID = checked.getAttribute("id");
-        var times = $("input[name='times']");
+        var times = $("input[name='times']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
 
@@ -28,9 +28,9 @@ class webdata {
     }
 
     static apply_early_jinde() {
-        var time = $("input[name='teacher_time']");
+        var time = $("input[name='teacher_time']").val();
         var timeID = time.getAttribute("id");
-        var number = $("input[name='number']");
+        var number = $("input[name='number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
@@ -38,9 +38,9 @@ class webdata {
     }
 
     static student_apply_early_jinde() {
-        var time = $("input[name='student_time']");
+        var time = $("input[name='student_time']").val();
         var timeID = time.getAttribute("id");
-        var number = $("input[name='jinde_number']");
+        var number = $("input[name='jinde_number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
@@ -58,7 +58,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
         var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
-        var checked = $("checkbox:checked");
+        var checked = $("checkbox:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
             var name = nowrow.cells[1];
@@ -74,8 +74,8 @@ class webdata {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
         var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
-        var name = $("input[name='who']");
-        var times = $("input[name='how']");
+        var name = $("input[name='who']").val();
+        var times = $("input[name='how']").val();
         for (var i = 0; i < name.length; i++) {
             if (name[i] !== null && times[i] !== null) {
                 data["name"].push(name[i]);
