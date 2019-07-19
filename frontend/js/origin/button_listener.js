@@ -95,7 +95,7 @@ $(document).ready(function() {
     });
 
     $("#send_download").on('click', function() {
-        webdata.upload_jinde();
+        webdata.output_jinde();
     });
 
     $("#student_apply_early_jinde").on('click', function() {
