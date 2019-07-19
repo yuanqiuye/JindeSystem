@@ -2,15 +2,15 @@ dowhat = new process();
 
 function callserver(url, send) {
     var request = JSON.stringify(send);
-    var destination = "172.24.75.86:8787/JindeSystem/backend/php/";
+    var destination = "25.10.211.133:8787/JindeSystem/backend/php/";
 
     $.ajax({
         type: "POST",
         async: false,
         dataType: "json",
-        url: destination + url,
+        url: (destination + url),
         contentType: 'application/json; charset=UTF-8',
-        data: send,
+        data: request,
         success: function(get) {
             dowhat.freshdata(get);
             if (get["err"] !== "") {
