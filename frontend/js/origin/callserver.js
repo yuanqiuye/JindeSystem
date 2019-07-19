@@ -2,7 +2,7 @@ dowhat = new process();
 
 function callserver(url, send) {
     var request = JSON.stringify(send);
-    var destination = "172.24.75.86:8787/JindeSystem/backend/php";
+    var destination = "172.24.75.86:8787/JindeSystem/backend/php/";
 
     $.ajax({
         type: "POST",
