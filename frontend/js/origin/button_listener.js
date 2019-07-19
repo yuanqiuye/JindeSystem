@@ -1,110 +1,114 @@
-$("#back").on('click', function() {
-    animate_nondata("selection", null);
-});
+$(document).ready(function() {
 
-$("#logout").on('click', function() {
-    $("#logined").hide();
-    document.cookie = "user=-1";
-    document.cookie = "jwt=-1";
-    animate_nondata("login", null);
-});
+    $("#back").on('click', function() {
+        animate_nondata("selection", null);
+    });
 
-$("#login").on('click', function() {
-    var user = $("input[name='user']").val();
-    var password = $("input[name='password']").val();
-    if (user === "" || password === "") {
-        alert("輸入不能為空！");
-    } else {
-        webdata.login();
-    }
-});
+    $("#logout").on('click', function() {
+        $("#logined").hide();
+        document.cookie = "user=-1";
+        document.cookie = "jwt=-1";
+        animate_nondata("login", null);
+    });
 
-$("#apply_early_jinde").on('click', function() {
-    animate_nondata("apply_early_jinde", null);
-});
+    $("#login").on('click', function() {
+        var user = $("input[name='user']").val();
+        var password = $("input[name='password']").val();
+        if (user === "" || password === "") {
+            alert("輸入不能為空！");
+        } else {
+            webdata.login();
+        }
+    });
 
-$("#check_early_jinde").on('click', function() {
-    webdata.check_inform();
-});
+    $("#apply_early_jinde").on('click', function() {
+        animate_nondata("apply_early_jinde", null);
+    });
 
-$("#apply_jinde").on('click', function() {
-    webdata.reason_infrom();
-});
+    $("#check_early_jinde").on('click', function() {
+        webdata.check_inform();
+    });
 
-$("#huge_check_jinde").on('click', function() {
-    animate_nondata("huge_check_jinde", null);
-});
+    $("#apply_jinde").on('click', function() {
+        webdata.reason_infrom();
+    });
 
-$("#upload").on('click', function() {
-    animate_nondata("upload", null);
-});
+    $("#huge_check_jinde").on('click', function() {
+        animate_nondata("huge_check_jinde", null);
+    });
 
-$("#download").on('click', function() {
-    animate_nondata("upload", null);
-});
+    $("#upload").on('click', function() {
+        animate_nondata("upload", null);
+    });
 
-$("#send_apply_jinde").on('click', function() {
-    var SID = $("input[name='SID']").val();
-    var checked = $("radio:checked").val();
-    var times = $("input[name='times']").val();
-    if (SID === "" || checked === "" || times == "" || parseInt(times) < 0) {
-        alert("欄位不能為空!");
-    } else {
-        webdata.apply_jinde();
-    }
-});
+    $("#download").on('click', function() {
+        animate_nondata("upload", null);
+    });
 
-$("#send_apply_early_jinde").on('click', function() {
-    var times = $("input[name='number']").val();
-    if (times == "" || parseInt(times) < 0) {
-        alert("欄位不能為空!");
-    } else {
-        webdata.apply_early_jinde();
-    }
-});
+    $("#send_apply_jinde").on('click', function() {
+        var SID = $("input[name='SID']").val();
+        var checked = $("radio:checked").val();
+        var times = $("input[name='times']").val();
+        if (SID === "" || checked === "" || times == "" || parseInt(times) < 0) {
+            alert("欄位不能為空!");
+        } else {
+            webdata.apply_jinde();
+        }
+    });
 
-$("#send_check_early_jinde").on('click', function() {
-    webdata.check_early_jinde();
-});
+    $("#send_apply_early_jinde").on('click', function() {
+        var times = $("input[name='number']").val();
+        if (times == "" || parseInt(times) < 0) {
+            alert("欄位不能為空!");
+        } else {
+            webdata.apply_early_jinde();
+        }
+    });
 
-$("#increase").on('click', function() {
-    var table = document.getElementById('huge_check');
-    var num = table.rows.length;
-    var tr = table.insertRow(num);
-    tr.innerHTML = "<td><input name='who'></input></td>td><input name='how'></input></td>"
-});
+    $("#send_check_early_jinde").on('click', function() {
+        webdata.check_early_jinde();
+    });
 
-$("#decrease").on('click', function() {
-    var table = document.getElementById('huge_check');
-    var num = table.rows.length;
-    if (num - 1 <= 0) {
-        alert("行數至少要有一列");
-    } else {
-        table.deleteRow(table.rows.length - 1);
-    }
-});
+    $("#increase").on('click', function() {
+        var table = document.getElementById('huge_check');
+        var num = table.rows.length;
+        var tr = table.insertRow(num);
+        tr.innerHTML = "<td><input name='who'></input></td>td><input name='how'></input></td>"
+    });
 
-$("#send_huge_check_jinde").on('click', function() {
-    webdata.huge_check_jinde();
-});
+    $("#decrease").on('click', function() {
+        var table = document.getElementById('huge_check');
+        var num = table.rows.length;
+        if (num - 1 <= 0) {
+            alert("行數至少要有一列");
+        } else {
+            table.deleteRow(table.rows.length - 1);
+        }
+    });
 
-$("#send_upload").on('click', function() {
-    webdata.upload_jinde();
-});
+    $("#send_huge_check_jinde").on('click', function() {
+        webdata.huge_check_jinde();
+    });
 
-$("#send_download").on('click', function() {
-    webdata.upload_jinde();
-});
+    $("#send_upload").on('click', function() {
+        webdata.upload_jinde();
+    });
 
-$("#student_apply_early_jinde").on('click', function() {
-    animate_nondata("student_apply_early_jinde", null);
-});
+    $("#send_download").on('click', function() {
+        webdata.upload_jinde();
+    });
 
-$("#send_student_apply_early_jinde").on('click', function() {
-    var times = $("input[name='jinde_number']").val();
-    if (times !== "" || 3 > parseInt(times) > 0) {
-        webdata.student_apply_early_jinde();
-    } else {
-        alert("欄位不能為空!");
-    }
+    $("#student_apply_early_jinde").on('click', function() {
+        animate_nondata("student_apply_early_jinde", null);
+    });
+
+    $("#send_student_apply_early_jinde").on('click', function() {
+        var times = $("input[name='jinde_number']").val();
+        if (times !== "" || 3 > parseInt(times) > 0) {
+            webdata.student_apply_early_jinde();
+        } else {
+            alert("欄位不能為空!");
+        }
+    });
+
 });
