@@ -35,18 +35,24 @@ function callserver(url, send) {
                     case "check_early_jinde":
                         dowhat.check_early_jinde();
                         break;
-                    case "check_early_jinde":
-                        dowhat.check_early_jinde();
+                    case "huge_check_jinde":
+                        dowhat.huge_check_jinde();
                         break;
                     case "output_jinde":
                         dowhat.output_jinde();
+                        break;
+                    case "upload_jinde":
+                        dowhat.upload_jinde();
+                        break;
+                    case "student_apply_early_jinde":
+                        dowhat.student_apply_early_jinde();
                         break;
                 }
             }
         },
         statusCode: {
             403: function(response) {
-                //待處理
+                animate_nondata("login", "403");
             }
         }
     });

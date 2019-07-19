@@ -6,7 +6,7 @@ function animate_nondata(direction, middle) {
     if (middle !== null) {
         $animation.fadeOut(400, function() {
             $middle.fadeIn(300, function() {
-                $middle.fadeOut(300, function() {
+                $middle.fadeOut(4000, function() {
                     $end.attr('id', 'now');
                     $end.fadeIn(400);
                 });

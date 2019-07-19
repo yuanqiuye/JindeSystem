@@ -28,13 +28,23 @@ class webdata {
     }
 
     static apply_early_jinde() {
-        var time = $("input[name='time']");
+        var time = $("input[name='teacher_time']");
         var timeID = time.getAttribute("id");
         var number = $("input[name='number']");
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
         animate_havadata("apply_early_jinde.php", data);
+    }
+
+    static student_apply_early_jinde() {
+        var time = $("input[name='student_time']");
+        var timeID = time.getAttribute("id");
+        var number = $("input[name='jinde_number']");
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
+        var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
+        animate_havadata("student_apply_early_jinde.php", data);
     }
 
     static check_inform() {
@@ -86,16 +96,25 @@ class webdata {
     static upload_jinde() {
         const fileUploader = document.querySelector('#file-uploader');
         var result = null;
-        fileUploader.addEventListener('change', (e) => {
+        if (fileUploader.files !== null) {
             var reader = new FileReader();
+
             reader.onload = function() {
                 result = csv_input(reader.result);
             }
-            reader.readAsText(e.target.files);
-        });
-        var data = { "user": user, "jwt": jwt, "time": result[0], "SID": result[1] };
-        animate_havadata("upload_jinde.php", data);
+            reader.readAsText(fileUploader.files);
+
+            var data = { "user": user, "jwt": jwt, "time": result[0], "SID": result[1] };
+            animate_havadata("upload_jinde.php", data);
+        } else {
+            alert("尚未選擇檔案!");
+        }
     }
 
-    //上傳頁面待補充
+    static output_jinde() {
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
+        var data = { "user": user, "jwt": jwt };
+        animate_havadata("output_jinde.php", data);
+    }
 }
