@@ -27,8 +27,8 @@ class process {
                     td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["reason"][i];
                 }
-                document.cookie = "user:" + this.data["user"];
-                document.cookie = "jwt:" + this.data["jwt"];
+                document.cookie = "user=" + this.data["user"];
+                document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
 
                 this.direction = "student";
@@ -92,6 +92,16 @@ class process {
         this.direction = "selection";
     }
 
+    student_apply_early_jinde() {
+        var spage = document.getElementById('success');
+        if (this.data["failed_times"] !== 0) {
+            spage.innerHTML += this.data["failed"]["times"] + "隻申請失敗, 可能該處室名額為滿\n"
+        }
+        spage.innerHTML += "成功申請! 地點:" + this.data["success_location"];
+        this.status = "studentsuccess";
+        this.direction = "selection";
+    }
+
     check_inform() {
         var table = document.getElementById('teacher');
         var check_number = this.data["SID"].length;
@@ -131,6 +141,14 @@ class process {
     }
 
     huge_check_jinde() {
+        if (this.data["failed_times"] !== 0) {
+            spage.innerHTML += this.data["failed_times"] + "隻消除失敗, 可能查無此學號, 或根本沒那麼多隻可以消XDD\n"
+        }
+        this.status = "applysuccess";
+        this.direction = "selection";
+    }
+
+    upload_jinde() {
         this.status = "applysuccess";
         this.direction = "selection";
     }

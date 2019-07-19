@@ -7,6 +7,8 @@ function status_handler(status, direction) {
     } else if (status === "applysuccess") {
         spage.innerHTML = "資料發送成功！";
         animate_nondata(direction, "success");
+    } else if (status === "studentsuccess") {
+        animate_nondata(direction, "success");
     } else {
         epage.innerHTML = status;
         animate_nondata(direction, "err");

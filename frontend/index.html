@@ -8,9 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--
-        <script>段待所有js撰寫完畢, 安排匯入順序
-    -->
+    <script src="js/plugin/FileSaver.js"></script>
+    <script src="js/plugin/jquery.csv.min.js"></script>
+    <script src="js/plugin/jquery.csv.min.js"></script>
+    <script src="js/origin/csv_input.js"></script>
+    <script src="js/origin/csv_output.js"></script>
+    <script src="js/origin/readcookie.js"></script>
+    <script src="js/origin/process.js"></script>
+    <script src="js/origin/animate_nondata.js"></script>
+    <script src="js/origin/status_handler.js"></script>
+    <script src="js/origin/callserver.js"></script>
+    <script src="js/origin/animate_havedata.js"></script>
+    <script src="js/origin/webdata.js"></script>
+    <script src="js/origin/button_listener.js"></script>
 </head>
 
 <body>
@@ -23,7 +33,7 @@
                     等待之後有時間再做, 目前沒有急迫性
                     <a class="item" href="changepw.php">更改密碼</a> 
                 -->
-                <a class="item" href="logout.php" id="logout">登出</a>
+                <a class="item" id="logout">登出</a>
             </div>
             <a class="item" href="http://www.pcsh.ntpc.edu.tw/">本校首頁</a>
         </div>
@@ -124,7 +134,7 @@
             <form class="ts form">
                 <div class="field">
                     <label>時間：</label>
-                    <select class="ts basic dropdown" name="time">
+                    <select class="ts basic dropdown" name="teacher_time">
                         <option id=1>12:00~12:30</option>
                         <option id=2>12:30~1:00</option>
                     </select>
@@ -181,7 +191,7 @@
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
         </div>
         <div class="ts centered center aligned secondary raised segment">
-            <table class="ts collapsing table">
+            <table class="ts collapsing table" id="huge_check">
                 <thead>
                     <tr>
                         <th>學號</th>
@@ -196,11 +206,6 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="2">已銷人數：</th>
-                    </tr>
-                </tfoot>
             </table>
             <button class="ts positive fluid button" id="increase">增加行</button>
             <button class="ts positive fluid button" id="decrease">刪除行</button>
@@ -262,8 +267,33 @@
                     </tr>
                 </tbody>
             </table>
-            <!-- <button class="ts positive fluid button" >登記提早進德</button>
-            這功能竟然忽略了哈哈 -->
+            <button class="ts positive fluid button" id="student_apply_early_jinde">登記提早進德</button>
+        </div>
+    </div>
+
+    <!-- 學生登記提早進德頁面開始 -->
+    <div class="student_apply_early_jinde" style="display:none">
+        <div class="ts huge center aligned header">
+            學生登記提早進德
+            <div class="sub header">若有使用上的疑問或系統故障</div>
+            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+        </div>
+
+        <div class="ts centered secondary segment">
+            <form class="ts form">
+
+                <div class="field">
+                    <label>申請隻數：</label>
+                    <input type="text" placeholder="1~2" name="jinde_number">
+                </div>
+
+                <select class="ts basic dropdown" name="student_time">
+                        <option id=1>12:00~12:30</option>
+                        <option id=2>12:30~1:00</option>
+                </select>
+                <button class="ts positive fluid button" id="send_student_apply_early_jinde">申請</button>
+
+            </form>
         </div>
     </div>
 
@@ -305,4 +335,14 @@
         </div>
     </div>
 
+    <!-- 403頁面開始 -->
+    <div class="403" style="display:none">
+        <div class="ts centered center aligned secondary raised segment">
+            <br>
+            <div class="ts negative header">
+                網站掛掉啦OAO
+            </div>
+            <br>
+        </div>
+    </div>
 </body>
