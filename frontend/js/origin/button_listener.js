@@ -12,7 +12,7 @@ $("#logout").on('click', function() {
 $("#login").on('click', function() {
     var user = $("input[name='user']").val();
     var password = $("input[name='password']").val();
-    if (user.value === null || password.value === null) {
+    if (user === null || password === null) {
         alert("輸入不能為空！");
     } else {
         webdata.login();
