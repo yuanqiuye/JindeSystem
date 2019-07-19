@@ -13,7 +13,7 @@ function callserver(url, send) {
         data: send,
         success: function(get) {
             dowhat.freshdata(get);
-            if (get["err"] !== null) {
+            if (get["err"] !== "") {
                 status_handler(get["err"], "err");
             } else {
                 switch (get["type"]) {

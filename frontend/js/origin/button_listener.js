@@ -12,7 +12,7 @@ $("#logout").on('click', function() {
 $("#login").on('click', function() {
     var user = $("input[name='user']").val();
     var password = $("input[name='password']").val();
-    if (user === null || password === null) {
+    if (user === "" || password === "") {
         alert("輸入不能為空！");
     } else {
         webdata.login();
@@ -47,7 +47,7 @@ $("#send_apply_jinde").on('click', function() {
     var SID = $("input[name='SID']").val();
     var checked = $("radio:checked").val();
     var times = $("input[name='times']").val();
-    if (SID === null || checked === null || times == null || times < 0) {
+    if (SID === "" || checked === "" || times == "" || parseInt(times) < 0) {
         alert("欄位不能為空!");
     } else {
         webdata.apply_jinde();
@@ -56,7 +56,7 @@ $("#send_apply_jinde").on('click', function() {
 
 $("#send_apply_early_jinde").on('click', function() {
     var times = $("input[name='number']").val();
-    if (times == null || times < 0) {
+    if (times == "" || parseInt(times) < 0) {
         alert("欄位不能為空!");
     } else {
         webdata.apply_early_jinde();
@@ -102,7 +102,7 @@ $("#student_apply_early_jinde").on('click', function() {
 
 $("#send_student_apply_early_jinde").on('click', function() {
     var times = $("input[name='jinde_number']").val();
-    if (times !== null || 3 > times > 0) {
+    if (times !== "" || 3 > parseInt(times) > 0) {
         webdata.student_apply_early_jinde();
     } else {
         alert("欄位不能為空!");

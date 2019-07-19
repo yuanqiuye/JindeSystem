@@ -77,7 +77,7 @@ class webdata {
         var name = $("input[name='who']").val();
         var times = $("input[name='how']").val();
         for (var i = 0; i < name.length; i++) {
-            if (name[i] !== null && times[i] !== null) {
+            if (name[i] !== "" && times[i] !== "") {
                 data["name"].push(name[i]);
                 data["times"].push(times[i]);
             }
