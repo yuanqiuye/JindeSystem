@@ -6,6 +6,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $password = $data["password"];
 echo gettype($user) ;
+echo $password;
 $return = array(
     "type"=>"",
     "err" => "",
@@ -15,6 +16,7 @@ $return = array(
 
 $con -> select_db("resourse");
 
+$sd -> close();
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
