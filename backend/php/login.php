@@ -17,7 +17,7 @@ $return = array(
 if($con -> select_db("resourse")){
 
 }else{
-    die($con->error_list);
+    die(print_r($mysqli->error_list));
 }
 
 
