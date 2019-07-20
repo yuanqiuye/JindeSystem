@@ -58,7 +58,7 @@ if($sdr->num_rows > 0){
 
     );
 
-    while($row=mysql_fetch_array($sjinder)){
+    while($row=mysqli_fetch_array($sjinder)){
         $RID = $row["RID"];
         $con -> select_db("resourse");
         $reasonresult = $con -> query("SELECT description FROM reason WHERE RID = $RID");
