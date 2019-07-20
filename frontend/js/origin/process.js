@@ -36,7 +36,7 @@ class process {
                 break;
             case "teacher":
                 var level = this.data["level"];
-                if (level === "middle") {
+                if (level === "2") {
                     var nop = document.getElementById('high');
                     nop.setAttribute("style", "display:none");
                 } else {

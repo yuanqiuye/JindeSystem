@@ -1,8 +1,9 @@
 create table if not exists jinde(
     JID int not null AUTO_INCREMENT,
-    YID varchar(50) not null,
+    RID varchar(50) not null,
     UID varchar(50) not null,
     SID int not null,
+    finished bit DEFAULT 0,
     applytime date not null DEFAULT now(),
     PRIMARY KEY(JID)
 );

@@ -11,18 +11,19 @@ function this_monday()
 }
 
 $host = 'localhost';
-$user = 'root';
+$sqluser = 'root';
 $password = file_get_contents("../../../password.txt");
 $db_name = 'd' . this_monday();
 $check_db = file_get_contents("../../database/week.sql");
 
-$con = mysqli_connect($host, $user, $password);
+$con = mysqli_connect($host, $sqluser, $password);
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
   if ($con -> select_db($db_name) === true){
+    
   }else if($con -> query($check_db) === false){
     die("Unexpected error!");
   }

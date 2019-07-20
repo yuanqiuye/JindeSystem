@@ -3,11 +3,11 @@ function animate_havadata(url, send) {
     const $animation = $('.animation');
     $start.attr('id', '');
 
-    $start.fadeOut(400, function() {
-        $animation.fadeIn();
+    $start.fadeOut(200, function() {
+        $animation.fadeIn(10);
         callserver(url, send, () => {
             if (dowhat.status == null) {
-                $animation.fadeOut(400, function() {
+                $animation.fadeOut(600, function() {
                     const $end = $('.' + dowhat.direction);
                     $end.attr('id', 'now');
                     $end.fadeIn(400);
