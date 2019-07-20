@@ -17,7 +17,7 @@ $return = array(
 if($con -> select_db("resourse")){
 
 }else{
-    die(print_r($con->error_list));
+    die(printf("Error message: %s\n", $con->error));
 }
 
 
