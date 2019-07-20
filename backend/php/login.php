@@ -3,7 +3,7 @@ include ("../sql/mysql_connect.php");
 include ("jwt.php");
 
 $data = json_decode(file_get_contents('php://input'), true);
-
+echo $data;
 $user = $data["user"];
 $password = $data["password"];
 echo $user, $password;
