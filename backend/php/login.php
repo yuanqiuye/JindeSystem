@@ -16,8 +16,8 @@ $return = array(
 
 $con -> select_db("resourse");
 
-$sd -> close();
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
+echo var_dump($sd);
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
 $sdr = $sd->get_result();
