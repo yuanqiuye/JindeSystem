@@ -26,10 +26,16 @@ if (!$con)
     if($con -> multi_query($check_table) === false){
       die("Unexpected error!");
     }else{
-      do{
-      $result = $con->store_result();
-      $result->free();
-      }while($con->next_result());
+      do {
+        /* store first result set */
+        if ($result = $con->store_result()) {
+            while ($row = $result->fetch_row()) {
+                printf("%s\n", $row[0]);
+            }
+            $result->free();
+        }
+       
+    } while ($con->next_result());
     }
   }else{
     $con -> query("CREATE DATABASE $db_name");
