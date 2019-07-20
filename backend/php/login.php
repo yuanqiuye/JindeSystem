@@ -26,11 +26,13 @@ $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
 $sdr = $sd->get_result();
+$sd->close();
 
 $td = $con->prepare("SELECT UID, level FROM teacher WHERE UID = ? AND pwd = ?");
 $td->bind_param("ss", $user, $password);
 $td->execute();
-$tdr = $sd->get_result();
+$tdr = $td->get_result();
+$td->close();
 
 if($sdr->num_rows > 0){
     $jwt = encode_jwt($user, 10);
@@ -46,6 +48,7 @@ if($sdr->num_rows > 0){
     $sjinde->bind_param("s", $user);
     $sjinde->execute();
     $sjinder = $sjinde->get_result();
+    $sjinde->close();
 
     $applytimearray = array(
 

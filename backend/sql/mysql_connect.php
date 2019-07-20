@@ -25,6 +25,11 @@ if (!$con)
   if ($con -> select_db($db_name) === true){
     if($con -> multi_query($check_table) === false){
       die("Unexpected error!");
+    }else{
+      do{
+      $result = $con->store_result();
+      $result->free();
+      }while($con->next_result());
     }
   }else{
     $con -> query("CREATE DATABASE $db_name");
