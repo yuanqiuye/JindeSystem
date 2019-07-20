@@ -12,6 +12,7 @@ function callserver(url, send) {
         contentType: 'application/json; charset=UTF-8',
         data: request,
         success: function(get) {
+            console.log('my message' + get);
             dowhat.freshdata(get);
             if (get["err"] !== "") {
                 status_handler(get["err"], "err");
