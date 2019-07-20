@@ -14,11 +14,13 @@ $return = array(
     "member" => "",
     "jwt" => "");
 
-echo $con -> select_db("resourse");
+$var2 = $con -> select_db("resourse");
+echo var_dump($var2);
 
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 echo var_dump($sd);
-echo $sd -> error_list();
+$var3 = $sd -> error_list();
+echo $var3;
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
 $sdr = $sd->get_result();
