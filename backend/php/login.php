@@ -5,7 +5,7 @@ include ("jwt.php");
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $password = $data["password"];
-echo $user + "<br>" + $password;
+echo $user ;
 $return = array(
     "type"=>"",
     "err" => "",
