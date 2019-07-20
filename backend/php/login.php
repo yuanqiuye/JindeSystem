@@ -12,9 +12,10 @@ $return = array(
     "user" => "",
     "member" => "",
     "jwt" => "");
+
 $con -> select_db("resourse");
 
-$sd = $con->prepare("SELECT SID FROM stuedent WHERE SID = ? AND pwd = ?");
+$sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param("ss", $user, $password);
 $sd->execute();
 $sdr = $sd->get_result();
