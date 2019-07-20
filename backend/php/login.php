@@ -80,5 +80,8 @@ if($sdr->num_rows > 0){
     $return["level"] = $tlevel;
 
     echo json_encode($return);
+}else{
+    $return["err"] = "帳號或密碼錯誤!";
+    echo json_encode($return);
 }
 
