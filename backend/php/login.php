@@ -14,14 +14,7 @@ $return = array(
     "member" => "",
     "jwt" => "");
 
-if($con -> select_db("resourse")){
-
-}else{
-    die(printf("Error message: %s\n", $con->error));
-}
-
-
-
+$con -> select_db("resourse");
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
@@ -38,7 +31,7 @@ if($sdr->num_rows > 0){
     $jwt = encode_jwt($user, 10);
 
     $return["user"] = $user;
-    $retuen["member"] = "student";
+    $return["member"] = "student";
     $return["jwt"] = $jwt;
     $return["type"] = "login";
     $return["err"] = "";
@@ -84,7 +77,7 @@ if($sdr->num_rows > 0){
     $jwt = encode_jwt($user, 10);
 
     $return["user"] = $user;
-    $retuen["member"] = "teacher";
+    $return["member"] = "teacher";
     $return["jwt"] = $jwt;
     $return["type"] = "login";
     $return["err"] = "";
