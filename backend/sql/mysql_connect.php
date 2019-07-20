@@ -30,7 +30,7 @@ if (!$con)
     $con -> query("CREATE DATABASE $db_name");
     $con -> select_db("$db_name");
     if($con -> query($check_table) === false){
-      die("Unexpected error!");
+      die("expected error!");
     }
   }
     
