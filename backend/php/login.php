@@ -62,7 +62,7 @@ if($sdr->num_rows > 0){
         $RID = $row["RID"];
         $con -> select_db("resourse");
         $reasonresult = $con -> query("SELECT description FROM reason WHERE RID = $RID");
-        $reasonrow = mysql_fetch_array($reasonresult);
+        $reasonrow = mysqli_fetch_array($reasonresult);
 
         $reason = $reasonrow["description"];
         $applytime = $row["applytime"];
@@ -78,7 +78,7 @@ if($sdr->num_rows > 0){
 }else if($tdr->num_rows > 0){
     $con -> select_db("resourse");
     $tlevelresult = $con -> query("SELECT level FROM teacher WHERE UID = $user");
-    $tlevelrow = mysql_fetch_array($reasonresult);
+    $tlevelrow = mysqli_fetch_array($reasonresult);
 
     $tlevel = $tlevelrow["level"];
     $jwt = encode_jwt($user, 10);
