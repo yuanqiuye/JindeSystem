@@ -6,6 +6,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 $user = $data["user"];
 $password = $data["password"];
+echo $user, $password;
 $return = array(
     "type"=>"",
     "err" => "",
