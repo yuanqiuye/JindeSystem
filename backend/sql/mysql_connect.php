@@ -15,6 +15,7 @@ $sqluser = 'root';
 $password = file_get_contents("../../../password.txt");
 $db_name = 'd' . this_monday();
 $check_table = file_get_contents("../../database/week.sql");
+echo $check_table;
 
 $con = mysqli_connect($host, $sqluser, $password);
 if (!$con)
@@ -28,7 +29,7 @@ if (!$con)
     }
   }else{
     $con -> query("CREATE DATABASE $db_name");
-    $con -> select_db("$db_name");
+    $con -> select_db($db_name);
     if($con -> query($check_table) === false){
       die("expected error!");
     }
