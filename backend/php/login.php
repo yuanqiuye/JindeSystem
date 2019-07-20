@@ -15,8 +15,8 @@ $return = array(
     "jwt" => "");
 
 $con -> select_db("resourse");
-
-$sd = $con->prepare("SELECT SID FROM student WHERE SID = ''");
+$var = "student";
+$sd = $con->prepare("SELECT SID FROM $var WHERE SID = ?");
 echo var_dump($sd);
 $sd->bind_param('s', $user);
 $sd->execute();
