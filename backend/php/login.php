@@ -17,7 +17,7 @@ $return = array(
 if($con -> select_db("resourse")){
 
 }else{
-    die('Can\'t use foo : ' . mysqli_error($con -> select_db("resourse")));
+    die($con->error_list);
 }
 
 
