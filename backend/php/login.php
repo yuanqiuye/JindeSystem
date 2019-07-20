@@ -16,7 +16,7 @@ $return = array(
 
 $con -> select_db("resourse");
 
-$sd = $con->prepare("SELECT SID FROM student WHERE SID = ?");
+$sd = $con->prepare("SELECT SID FROM student WHERE SID = ''");
 echo var_dump($sd);
 $sd->bind_param('s', $user);
 $sd->execute();
