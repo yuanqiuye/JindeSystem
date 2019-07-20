@@ -14,8 +14,13 @@ $return = array(
     "member" => "",
     "jwt" => "");
 
-$var2 = $con -> select_db("resourse");
-echo var_dump($var2);
+if($con -> select_db("resourse")){
+
+}else{
+    die('Can\'t use foo : ' . mysql_error());
+}
+
+
 
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
