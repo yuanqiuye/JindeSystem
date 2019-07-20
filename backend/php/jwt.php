@@ -1,4 +1,5 @@
 <?php
+require("../../../vendor/autoload.php");
 use \Firebase\JWT\JWT;
 
 function encode_jwt($user, $lastminute){
