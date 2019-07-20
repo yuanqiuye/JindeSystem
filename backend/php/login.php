@@ -15,13 +15,13 @@ $return = array(
 $con -> select_db("resourse");
 
 $sd = $con->prepare("SELECT SID FROM stuedent WHERE SID = ? AND pwd = ?");
-$td = $con->prepare("SELECT UID, level FROM teacher WHERE UID = ? AND pwd = ?");
-
 $sd->bind_param("ss", $user, $password);
-$td->bind_param("ss", $user, $password);
 $sd->execute();
-$td->execute();
 $sdr = $sd->get_result();
+
+$td = $con->prepare("SELECT UID, level FROM teacher WHERE UID = ? AND pwd = ?");
+$td->bind_param("ss", $user, $password);
+$td->execute();
 $tdr = $sd->get_result();
 
 if($sdr->num_rows > 0){
