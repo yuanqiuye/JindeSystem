@@ -4,7 +4,7 @@ create table if not exists jinde(
     UID varchar(50) not null,
     SID int not null,
     finished bit DEFAULT 0,
-    applytime date not null DEFAULT now(),
+    applytime date not null,
     PRIMARY KEY(JID)
 );
 
