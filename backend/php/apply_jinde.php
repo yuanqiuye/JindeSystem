@@ -36,11 +36,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
         $ar -> execute();
         $arr = $ar -> get_result();
         $ar -> close();
-        if($arr === false){
-            die($con->error);
-        }else{
-            echo json_encode($return);
-        }
+        echo json_encode($return);
+        
     }
     
 }
