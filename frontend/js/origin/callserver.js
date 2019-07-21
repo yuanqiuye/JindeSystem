@@ -9,8 +9,9 @@ function callserver(url, send, callback) {
         async: false,
         url: (destination + url),
         data: request,
+        dataType: "json",
+        cache: false,
         success: function(get) {
-            JSON.parse(get);
             console.log('my message' + get);
             dowhat.freshdata(get);
             if (get["err"] !== "") {
