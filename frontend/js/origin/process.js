@@ -17,7 +17,7 @@ class process {
                 var table = document.getElementById('student');
 
                 document.getElementById('jindetimes').innerHTML = jindetimes;
-                while (table.row.length) {
+                while (table.rows.length) {
                     table.deleteRow(table.rows.length - 1);
                 }
                 for (var i = 0; i < jindetimes; i++) {
