@@ -28,8 +28,8 @@ class webdata {
     }
 
     static apply_early_jinde() {
-        var timeID = $("#techer_time").val();
-        var weekID = $("#techer_week").val();
+        var timeID = $("#teacher_time").val();
+        var weekID = $("#teacher_week").val();
         var number = $("input[name='number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
