@@ -10,7 +10,7 @@ class process {
     }
 
     login() {
-        member = this.data["member"];
+        var member = this.data["member"];
         switch (memeber) {
             case "student":
                 var jindetimes = this.data["jindeapplytime"].length;
