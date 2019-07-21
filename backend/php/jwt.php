@@ -2,10 +2,11 @@
 require("../../../vendor/autoload.php");
 use \Firebase\JWT\JWT;
 
-function encode_jwt($user, $lastminute){
+function encode_jwt($user, $lastminute,$level){
 
     $token = array(
         "user" => $user,
+        "level" => $level,
         "expire" => time() + ($lastminute * 60)
     );
     $privatekey = file_get_contents("../../../privatekey.txt");
@@ -20,5 +21,5 @@ function decode_jwt($user, $jwt){
     if($token["user"] !== $user || $token["expire"] < time() ) {
         return false;
     }
-    return true;
+    return $token["level"];
 }

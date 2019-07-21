@@ -26,7 +26,7 @@ $tdr = $td->get_result();
 $td->close();
 
 if($sdr->num_rows > 0){
-    $jwt = encode_jwt($user, 10);
+    $jwt = encode_jwt($user, 10, "0");
 
     $return["user"] = $user;
     $return["member"] = "student";
@@ -79,7 +79,7 @@ if($sdr->num_rows > 0){
     $tlevelrow = mysqli_fetch_array($tlevelresult);
 
     $tlevel = $tlevelrow["level"];
-    $jwt = encode_jwt($user, 10);
+    $jwt = encode_jwt($user, 10, $tlevel);
 
     $return["user"] = $user;
     $return["member"] = "teacher";
