@@ -19,7 +19,7 @@ $return = array(
     )
 );
 
-if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) > 0){
+if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{

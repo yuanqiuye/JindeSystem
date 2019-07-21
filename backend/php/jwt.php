@@ -19,7 +19,6 @@ function decode_jwt($user, $jwt){
     $publickey = file_get_contents("publickey.txt");
     $token = JWT::decode($jwt, $publickey, array('RS256'));
     $token =  json_decode(json_encode($token),true);
-    print_r($token);
     if($token["user"] !== $user || $token["expire"] < time() ) {
         return false;
     }
