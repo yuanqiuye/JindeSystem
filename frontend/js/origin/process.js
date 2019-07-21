@@ -59,7 +59,7 @@ class process {
     }
 
     reason_inform() {
-        var reason_number = data["reason"]["name"].length;
+        var reason_number = this.data["reason"]["name"].length;
         var checkbox = document.getElementById('reason');
 
         var boxes = document.createElement("DIV");
