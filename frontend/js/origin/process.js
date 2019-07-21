@@ -46,8 +46,8 @@ class process {
                     var nop = document.getElementById('middle');
                     nop.setAttribute("style", "display:none");
                 }
-                document.cookie = "user:" + this.data["user"];
-                document.cookie = "jwt:" + this.data["jwt"];
+                document.cookie = "user=" + this.data["user"];
+                document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
 
                 this.direction = "selection";
