@@ -61,12 +61,14 @@ class process {
     reason_inform() {
         var reason_number = this.data["reason"]["name"].length;
         var checkbox = document.getElementById('reason');
+        checkbox.innerHTML = "";
 
         var boxes = document.createElement("DIV");
         boxes.setAttribute("class", "ts radio checkbox");
 
         var input = document.createElement("INPUT");
         input.setAttribute("type", "radio");
+        input.setAttribute("name", "reason");
 
         var label = document.createElement("LABEL");
 
@@ -107,7 +109,6 @@ class process {
 
     check_inform() {
         var table = document.getElementById('teacher');
-        var check_number = this.data["SID"].length;
 
         var div = document.createElement("DIV");
         div.setAttribute("class", "ts toggle checkbox");
