@@ -13,7 +13,7 @@ class process {
         var member = this.data["member"];
         switch (member) {
             case "student":
-                var jindetimes = this.data["jindeapplytime"].length;
+                var jindetimes = this.data["applytime"].length;
                 var table = document.getElementById('student');
 
                 document.getElementById('student').innerHTML = jindetimes;
@@ -22,7 +22,7 @@ class process {
                     var tr = table.insertRow(num);
 
                     td = tr.insertCell(tr.cells.length);
-                    td.innerHTML = this.data["jindeapplytime"][i];
+                    td.innerHTML = this.data["applytime"][i];
 
                     td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["reason"][i];
