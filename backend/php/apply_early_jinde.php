@@ -8,10 +8,10 @@ $jwt = $data["jwt"];
 $weekID = $data["weekID"];
 $timeID = $data["timeID"];
 $number = $data["number"];
-$nowtime = date("Y-m-d");
 
 $return = array(
-    "type"=> "apply_jinde",
+    "type"=> "apply_early_jinde",
     "err" => "",
     "user" => $user
 );
+
