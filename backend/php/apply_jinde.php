@@ -31,7 +31,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
         echo json_encode($return);
     }else{
         $con -> select_db($db_name);
-        for($i = $time; $i == 0 ; $i--){
+        for($i = $time; $i < 1 ; $i--){
             $ar = $con -> prepare("INSERT INTO jinde (UID, SID, RID, applytime) VALUES (?, ?, ?, ?)");
             $ar -> bind_param("ssss", $user, $SID, $RID, $applytime);
             $ar -> execute();
