@@ -62,10 +62,6 @@ $(document).ready(function() {
 
     $("#send_apply_early_jinde").on('click', function() {
         var times = $("input[name='number']").val();
-        //取ID範例(還有一個week) and send_student_apply_early_jinde也要檢查時間
-        var week = $("input[name='teacher_week']").get();
-        var weekID = week.getAttribute("id");
-        //
         if (times == "" || parseInt(times) < 0) {
             alert("欄位不能為空!");
         } else {

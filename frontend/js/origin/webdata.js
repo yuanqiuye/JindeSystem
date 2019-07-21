@@ -28,10 +28,8 @@ class webdata {
     }
 
     static apply_early_jinde() {
-        var time = $("input[name='teacher_time']").get();
-        var timeID = time.getAttribute("id");
-        var week = $("input[name='teacher_week']").get();
-        var weekID = week.getAttribute("id");
+        var timeID = $("#techer_time").val();
+        var weekID = $("#techer_week").val();
         var number = $("input[name='number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
@@ -40,8 +38,7 @@ class webdata {
     }
 
     static student_apply_early_jinde() {
-        var time = $("input[name='student_time']").get();
-        var timeID = time.getAttribute("id");
+        var timeID = $("#student_time").val();
 
         var number = $("input[name='jinde_number']").val();
         var user = readcookie("user");
