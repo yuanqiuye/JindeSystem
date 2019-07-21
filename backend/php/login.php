@@ -68,7 +68,11 @@ if($sdr->num_rows > 0){
     echo json_encode($return);
 }else if($tdr->num_rows > 0){
     $con -> select_db("resourse");
-    $tlevelresult = $con -> query("SELECT level FROM teacher WHERE UID = $user");
+    $tlevelresultp = $con -> prepare("SELECT level FROM teacher WHERE UID = ?");
+    $tlevelresultp->bind_param("s", $user);
+    $tlevelresultp->execute();
+    $tlevelresult = $tlevelresultp->get_result();
+
     if($tlevelresult === false){
         die(printf($con -> error));
     }
