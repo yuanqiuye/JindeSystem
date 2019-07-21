@@ -24,6 +24,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     echo json_encode($return);
 }else{
     $reasonresult = $con -> query("SELECT * FROM reason");
+    if($reasonresult === false){
+        die($con->error);
+    }
     while($reasonrow = mysqli_fetch_array($reasonresult)){
         array_push($return["reason"]["name"], $reasonrow["description"]);
         array_push($return["reason"]["RID"], $reasonrow["RID"]);
