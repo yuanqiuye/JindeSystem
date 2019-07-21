@@ -119,6 +119,16 @@
 
         <div class="ts centered center aligned secondary raised segment">
             <form class="ts form" method="POST" target="rfFrame">
+
+                <div class="field">
+                    <label>星期：</label>
+                    <select class="ts basic dropdown" name="teacher_week">
+                        <option id=1>星期一</option>
+                        <option id=2>星期二</option>
+                        <option id=2>星期三</option>
+                    </select>
+                </div>
+
                 <div class="field">
                     <label>時間：</label>
                     <select class="ts basic dropdown" name="teacher_time">
@@ -271,10 +281,14 @@
                     <input type="text" placeholder="1~2" name="jinde_number">
                 </div>
 
-                <select class="ts basic dropdown" name="student_time">
+                <div class="field">
+                    <label>時間：</label>
+                    <select class="ts basic dropdown" name="student_time">
                         <option id=1>12:00~12:30</option>
                         <option id=2>12:30~1:00</option>
-                </select>
+                    </select>
+                </div>
+
                 <button class="ts positive fluid button" id="send_student_apply_early_jinde">申請</button>
 
             </form>

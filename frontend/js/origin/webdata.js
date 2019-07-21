@@ -28,18 +28,21 @@ class webdata {
     }
 
     static apply_early_jinde() {
-        var time = $("input[name='teacher_time']").val();
+        var time = $("input[name='teacher_time']").get();
         var timeID = time.getAttribute("id");
+        var week = $("input[name='teacher_week']").get();
+        var weekID = week.getAttribute("id");
         var number = $("input[name='number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = { "user": user, "jwt": jwt, "timeID": timeID, "number": number };
+        var data = { "user": user, "jwt": jwt, "timeID": timeID, "weekID": weekID, "number": number };
         animate_havadata("apply_early_jinde.php", data);
     }
 
     static student_apply_early_jinde() {
-        var time = $("input[name='student_time']").val();
+        var time = $("input[name='student_time']").get();
         var timeID = time.getAttribute("id");
+
         var number = $("input[name='jinde_number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
