@@ -15,8 +15,11 @@ class process {
             case "student":
                 var jindetimes = this.data["applytime"].length;
                 var table = document.getElementById('student');
-                table.innerHTML = "";
+
                 document.getElementById('jindetimes').innerHTML = jindetimes;
+                while (table.row.length) {
+                    table.deleteRow(table.rows.length - 1);
+                }
                 for (var i = 0; i < jindetimes; i++) {
                     var num = table.rows.length;
                     var tr = table.insertRow(num);
