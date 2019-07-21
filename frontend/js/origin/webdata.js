@@ -12,7 +12,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt };
 
-        animate_havadata("reason_inform.php", data);
+        animate_havadata("reason_infrom.php", data);
     }
 
     static apply_jinde() {
