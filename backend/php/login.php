@@ -63,7 +63,7 @@ if($sdr->num_rows > 0){
         $applytime = $row["applytime"];
 
         array_push($reasonarray, $reason);
-        array_push($reasonarray, $applytime);
+        array_push($applytimearray, $applytime);
     }
 
     $return["reason"] = $reasonarray;
