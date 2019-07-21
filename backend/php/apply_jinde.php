@@ -35,7 +35,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
             $ar = $con -> prepare("INSERT INTO jinde (UID, SID, RID, applytime) VALUES (?, ?, ?, ?)");
             $ar -> bind_param("ssss", $user, $SID, $RID, $applytime);
             $ar -> execute();
-            $arr = $ar -> get_result();
             $ar -> close();
         }
     
