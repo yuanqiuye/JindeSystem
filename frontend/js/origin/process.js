@@ -21,10 +21,10 @@ class process {
                     var num = table.rows.length;
                     var tr = table.insertRow(num);
 
-                    td = tr.insertCell(tr.cells.length);
+                    var td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["applytime"][i];
 
-                    td = tr.insertCell(tr.cells.length);
+                    var td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["reason"][i];
                 }
                 document.cookie = "user=" + this.data["user"];
