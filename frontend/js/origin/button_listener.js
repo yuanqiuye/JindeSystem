@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
     $("#back").on('click', function() {
-        animate_nondata("selection", null);
+        if (dawhat.data['member'] == "student") {
+            animate_nondata("student", null);
+        } else {
+            animate_nondata("selection", null);
+        }
     });
 
     $("#logout").on('click', function() {

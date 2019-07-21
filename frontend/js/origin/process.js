@@ -16,7 +16,7 @@ class process {
                 var jindetimes = this.data["applytime"].length;
                 var table = document.getElementById('student');
 
-                document.getElementById('student').innerHTML = jindetimes;
+                document.getElementById('jindetimes').innerHTML = jindetimes;
                 for (var i = 0; i < jindetimes; i++) {
                     var num = table.rows.length;
                     var tr = table.insertRow(num);
