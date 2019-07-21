@@ -17,7 +17,7 @@ class webdata {
 
     static apply_jinde() {
         var SID = $("input[name='SID']").val();
-        var checked = $("radio:checked").val();
+        var checked = $("radio:checked").get(0);
         var RID = checked.getAttribute("id");
         var times = $("input[name='times']").val();
         var user = readcookie("user");
