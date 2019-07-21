@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $("#back").on('click', function() {
-        if (dawhat.data['member'] == "student") {
+        if (dowhat.data['member'] == "student") {
             animate_nondata("student", null);
         } else {
             animate_nondata("selection", null);

@@ -17,7 +17,7 @@ function callserver(url, send, callback) {
         console.log(get);
         dowhat.freshdata(get);
         if (get["err"] !== "") {
-            status_handler(get["err"], "err");
+            status_handler(get["err"], "login");
         } else {
             switch (get["type"]) {
                 case "login":
