@@ -39,7 +39,6 @@ class webdata {
 
     static student_apply_early_jinde() {
         var timeID = $("#student_time").val();
-
         var number = $("input[name='jinde_number']").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
