@@ -69,6 +69,9 @@ if($sdr->num_rows > 0){
 }else if($tdr->num_rows > 0){
     $con -> select_db("resourse");
     $tlevelresult = $con -> query("SELECT level FROM teacher WHERE UID = $user");
+    if($televelresult === false){
+        die(printf($con -> error));
+    }
     $tlevelrow = mysqli_fetch_array($tlevelresult);
 
     $tlevel = $tlevelrow["level"];
