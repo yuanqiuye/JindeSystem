@@ -108,7 +108,7 @@ $(document).ready(function() {
 
     $("#send_student_apply_early_jinde").on('click', function() {
         var times = $("input[name='jinde_number']").val();
-        if (times !== "" || 3 > parseInt(times) > 0) {
+        if (times !== "" && 3 > parseInt(times) > 0) {
             webdata.student_apply_early_jinde();
         } else {
             alert("欄位不能為空!");

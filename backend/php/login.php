@@ -69,7 +69,7 @@ if($sdr->num_rows > 0){
 }else if($tdr->num_rows > 0){
     $con -> select_db("resourse");
     $tlevelresult = $con -> query("SELECT level FROM teacher WHERE UID = $user");
-    $tlevelrow = mysqli_fetch_array($reasonresult);
+    $tlevelrow = mysqli_fetch_array($tlevelresult);
 
     $tlevel = $tlevelrow["level"];
     $jwt = encode_jwt($user, 10);

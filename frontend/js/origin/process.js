@@ -39,7 +39,7 @@ class process {
                 if (level === "2") {
                     var nop = document.getElementById('high');
                     nop.setAttribute("style", "display:none");
-                } else {
+                } else if (level === "1") {
                     var nop = document.getElementById('high');
                     nop.setAttribute("style", "display:none");
 
