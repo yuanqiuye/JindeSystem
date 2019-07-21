@@ -11,7 +11,7 @@ class process {
 
     login() {
         var member = this.data["member"];
-        switch (memeber) {
+        switch (member) {
             case "student":
                 var jindetimes = this.data["jindeapplytime"].length;
                 var table = document.getElementById('student');
