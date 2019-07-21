@@ -82,6 +82,7 @@ class process {
             checkbox.appendChild(boxes);
         }
         this.direction = "apply_jinde";
+        this.status = null;
     }
 
     apply_jinde() {
@@ -135,6 +136,7 @@ class process {
             td.innerHTML = this.data["times"][i];
         }
         this.direction = "check_early_jinde";
+        this.status = null;
     }
 
     check_early_jinde() {
@@ -158,6 +160,7 @@ class process {
     output_jinde() {
         csv_output(this.data);
         this.direction = "selection";
+        this.status = null;
     }
 
 
