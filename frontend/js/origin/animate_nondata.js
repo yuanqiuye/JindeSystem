@@ -4,9 +4,9 @@ function animate_nondata(direction, middle) {
     const $animation = $('.animation');
     const $middle = $('.' + middle)
     if (middle !== null) {
-        $animation.fadeOut(400, function() {
+        $animation.fadeOut(100, function() {
             $middle.fadeIn(300, function() {
-                $middle.fadeOut(4000, function() {
+                $middle.fadeOut(1000, function() {
                     $end.attr('id', 'now');
                     $end.fadeIn(400);
                 });
