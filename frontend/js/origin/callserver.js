@@ -10,10 +10,11 @@ function callserver(url, send, callback) {
         async: true,
         url: (destination + url),
         data: request,
-        datatype: "json",
         cache: false,
-    }).done(function(get) {
-        console.log('my message' + get);
+    }).done(function(data) {
+        console.log('my message' + data);
+        get = JSON.parse(data);
+        console.log(get);
         dowhat.freshdata(get);
         if (get["err"] !== "") {
             status_handler(get["err"], "err");
