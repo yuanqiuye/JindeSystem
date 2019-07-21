@@ -26,7 +26,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
     $sd->execute();
     $sdr = $sd->get_result();
     $sd -> close();
-    if($sdr->num_rows = 0){
+    if($sdr->num_rows === 0){
         $return["err"] += "找不到" + $SID + "這個學號!";
         echo json_encode($return);
     }else{
