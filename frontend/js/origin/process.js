@@ -52,7 +52,9 @@ class process {
 
                 this.direction = "selection";
                 this.status = "loginsuccess";
+                console.log(document.cookie);
                 break;
+
         }
     }
 
