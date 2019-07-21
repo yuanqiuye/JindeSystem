@@ -28,8 +28,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     $arrow = mysqli_fetch_array($arr);
     $office = $arrow["office"];
     $con -> select_db($db_name);
-    for($i = $times; $i >= 0 ; $i--){
-        $ar = $con -> prepare("INSERT INTO event (teacher, wantday, wanttime, office) VALUES (?, ?, ?)");
+    for($i = $number; $i >= 0 ; $i--){
+        $ar = $con -> prepare("INSERT INTO event (teacher, wantday, wanttime, office) VALUES (?, ?, ?,?)");
         $ar -> bind_param("ssss", $user, $weekID, $timeID, $office);
         $ar -> execute();
         $ar -> close();
