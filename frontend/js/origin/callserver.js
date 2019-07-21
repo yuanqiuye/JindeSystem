@@ -54,7 +54,7 @@ function callserver(url, send, callback) {
             if (typeof callback === 'function') {
                 callback();
             }
-            dtd.resolve(res);
+            dtd.resolve(data);
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         animate_nondata("login", "403");
