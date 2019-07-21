@@ -22,12 +22,12 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
 }else{
     $con -> select_db("resourse");
     $sd = $con->prepare("SELECT SID FROM student WHERE SID = ?");
-    $sd->bind_param('s', $user);
+    $sd->bind_param('s', $SID);
     $sd->execute();
     $sdr = $sd->get_result();
     $sd -> close();
     if($sdr->num_rows === 0){
-        $return["err"] += "找不到" + $SID + "這個學號!";
+        $return["err"] += "找不到" + (string)$SID + "這個學號!";
         echo json_encode($return);
     }else{
         $con -> select_db($db_name);
