@@ -46,7 +46,7 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     if($officecheckpr->num_rows === 0 || $sjpr->num_rows === 0){
         die("no result");
     }
-    while($sjprr = mysqli_fetch_assoc($sjpr) &&  
+    while($sjprr=mysqli_fetch_assoc($sjpr) &&  
     $officecheckprr = mysqli_fetch_assoc($officecheckpr)
     && $number !== 0){
 
