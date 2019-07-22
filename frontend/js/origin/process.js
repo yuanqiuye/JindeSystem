@@ -128,6 +128,7 @@ class process {
         for (var i = 0; i < checknumber; i++) {
 
             input.setAttribute("id", this.data["EID"][i]);
+            input.setAttribute("type", "checkbox");
             label.setAttribute("for", this.data["EID"][i]);
             div.appendChild(input);
             div.appendChild(label);
