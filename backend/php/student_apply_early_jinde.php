@@ -50,9 +50,15 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     $officecheckprr = mysqli_fetch_array($officecheckpr)
     && $number !== 0){
 
-        $JID = $sjprr["JID"]; 
-        $office = $officecheckprr["office"];
-        $EID = $officecheckprr["EID"];
+        $JID = $sjprr[0]; 
+        $office = $officecheckprr[0];
+        $EID = $officecheckprr[1];
+        if($JID === null && $office === null && $EID === null){
+            print_r($sjpr);
+            print_r($officecheckpr);
+            die();
+        }
+        echo $JID, $office, $EID;
 
         print_r($sjpr);
         print_r($officecheckpr);
