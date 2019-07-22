@@ -41,7 +41,8 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     $officecheckp -> execute();
     $officecheckpr = $officecheckp -> get_result();
     $officecheckp -> close();
-
+    $office = "";
+    
     while($sjprr = mysqli_fetch_array($sjpr) &&  
     $officecheckprr = mysqli_fetch_array($officecheckpr)
     && $number !== 0){
