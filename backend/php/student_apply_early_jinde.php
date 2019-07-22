@@ -8,7 +8,7 @@ $SID = $data["user"];
 $number = $data["number"];
 $timeID = $data["timeID"];
 $nowday = date("w"); //Sunday, 0~6
-$nowdate = date('Y-m-d');
+$nowdate = date("Y-m-d");
 
 $return = array(
     "type" => "student_apply_early_jinde",
@@ -83,6 +83,9 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $return["success_location"] = $office;
 
     $con->select_db("resourse");
-    $con-> query("UPDATE student SET applyday = $nowdate WHERE SID = $SID");
+    $dp = $con-> prepare("UPDATE student SET applyday = ? WHERE SID = $SID");
+    $dp -> bind_param("s", $nowdate);
+    $dp -> execute();
+    $dp -> close();
     echo json_encode($return);
 }
