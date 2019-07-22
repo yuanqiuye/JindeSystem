@@ -60,7 +60,7 @@ class webdata {
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
-            var SID = nowrow.cells[1];
+            var SID = nowrow.cells[1].textContent;
             var EID = checked[i].getAttribute("id");
             data["SID"].push(SID);
             data["EID"].push(EID);
