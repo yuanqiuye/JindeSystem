@@ -25,6 +25,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
     $sd->bind_param('s', $SID);
     $sd->execute();
     $sdr = $sd->get_result();
+    print_r($sdr);
     $sd -> close();
     if($sdr->num_rows === 0){
         $return["err"] += "找不到" + (string)$SID + "這個學號!";
