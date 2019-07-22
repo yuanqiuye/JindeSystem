@@ -8,6 +8,7 @@ $SID = $data["user"];
 $number = $data["number"];
 $timeID = $data["timeID"];
 $nowday = date("w"); //Sunday, 0~6
+$nowdate = date('Y-m-d');
 
 $return = array(
     "type" => "student_apply_early_jinde",
@@ -21,6 +22,16 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 } else {
+
+    $con->select_db("resourse");
+    $checkdo = $con-> query("SELECT applyday FROM student WHERE SID = $SID");
+    $checkdor = mysqli_fetch_array($checkdo);
+    if($checkdor["applyday"] === $nowdate){
+        $return["failed_times"] = $number;
+        echo json_encode($return);
+        exit();
+    }
+        
     $con->select_db($db_name);
 
     $sjp = $con->prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
@@ -69,8 +80,11 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
             break;
         }
     }
+
     $return["failed_times"] = $number;
     $return["success_location"] = $office;
 
+    $con->select_db("resourse");
+    $con-> query("UPDATE student SET applyday = $nowdate WHERE SID = $SID");
     echo json_encode($return);
 }
