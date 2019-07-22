@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $password = $data["password"];
 $return = array(
-    "type"=>"",
+    "type"=>"login",
     "err" => "",
     "user" => "",
     "member" => "",
@@ -33,7 +33,6 @@ if($sdr->num_rows > 0){
     $return["user"] = $user;
     $return["member"] = "student";
     $return["jwt"] = $jwt;
-    $return["type"] = "login";
     $return["err"] = "";
 
     $con -> select_db($db_name);
@@ -90,7 +89,6 @@ if($sdr->num_rows > 0){
     $return["user"] = $user;
     $return["member"] = "teacher";
     $return["jwt"] = $jwt;
-    $return["type"] = "login";
     $return["err"] = "";
     $return["level"] = $tlevel;
 

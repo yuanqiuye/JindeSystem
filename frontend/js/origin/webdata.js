@@ -56,14 +56,14 @@ class webdata {
     static check_early_jinde() {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
-        var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
+        var data = { "user": user, "jwt": jwt, "SID": [], "EID": [] };
         var checked = $("checkbox:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
-            var name = nowrow.cells[1];
-            var times = nowrow.cells[2];
-            data["name"].push(name);
-            data["times"].push(times);
+            var SID = nowrow.cells[1];
+            var EID = checked[i].getAttribute("id");
+            data["SID"].push(SID);
+            data["EID"].push(EID);
         }
 
         animate_havadata("check_early_jinde.php", data);

@@ -121,11 +121,13 @@ class process {
 
         var input = document.createElement("INPUT");
         var label = document.createElement("LABEL");
-
+        while (table.rows.length - 1) {
+            table.deleteRow(table.rows.length - 1);
+        }
         for (var i = 0; i < checknumber; i++) {
 
-            input.setAttribute("id", i);
-            label.setAttribute("for", i);
+            input.setAttribute("id", this.data["EID"][i]);
+            label.setAttribute("for", this.data["EID"][i]);
             div.appendChild(input);
             div.appendChild(label);
 
@@ -139,8 +141,7 @@ class process {
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = this.data["SID"][i];
 
-            td = tr.insertCell(tr.cells.length);
-            td.innerHTML = this.data["times"][i];
+
         }
         this.direction = "check_early_jinde";
         this.status = null;
