@@ -132,13 +132,13 @@ class process {
             label.setAttribute("for", this.data["EID"][i]);
             div.appendChild(input);
             div.appendChild(label);
-
+            var div2 = div;
             var num = table.rows.length;
             var tr = table.insertRow(num);
 
             var td = tr.insertCell(tr.cells.length);
             td.setAttribute("class", "collapsing");
-            td.appendChild(div);
+            td.appendChild(div2);
 
             var td = tr.insertCell(tr.cells.length);
             td.innerHTML = this.data["SID"][i];
