@@ -54,8 +54,8 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
         $office = $officecheckprr[0];
         $EID = $officecheckprr[1];
         if($JID === null && $office === null && $EID === null){
-            print_r($sjpr);
-            print_r($officecheckpr);
+            print_r($sjprr);
+            print_r($officecheckprr);
             die();
         }
         echo $JID, $office, $EID;
