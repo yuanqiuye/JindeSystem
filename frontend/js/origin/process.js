@@ -135,11 +135,11 @@ class process {
             var num = table.rows.length;
             var tr = table.insertRow(num);
 
-            td = tr.insertCell(tr.cells.length);
+            var td = tr.insertCell(tr.cells.length);
             td.setAttribute("class", "collapsing");
             td.appendChild(div);
 
-            td = tr.insertCell(tr.cells.length);
+            var td = tr.insertCell(tr.cells.length);
             td.innerHTML = this.data["SID"][i];
 
 
