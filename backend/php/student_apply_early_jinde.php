@@ -54,7 +54,8 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
         $office = $officecheckprr["office"];
         $EID = $officecheckprr["EID"];
 
-        echo $JID, $office, $EID;
+        print_r($sjprr);
+        print_r($officecheckprr);
 
         $ep = $con -> prepare("UPDATE event SET JID = ? WHERE EID = ? AND office = ? AND wantday = ? AND wanttime = ?");
         $ep -> bind_param("sssss", $JID, $EID, $office, $nowday, $timeID);
