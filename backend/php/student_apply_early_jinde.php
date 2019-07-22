@@ -24,7 +24,7 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     $con -> select_db($db_name);
 
     $sjp = $con -> prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0");
-    $sjp = bind_param("s", $SID);
+    $sjp -> bind_param("s", $SID);
     $sjp -> execute();
     $sjpr = $sjp -> get_result();
     $sjp -> close();
