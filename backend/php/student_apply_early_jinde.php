@@ -6,7 +6,6 @@ $data = json_decode(file_get_contents('php://input'), true);
 $jwt = $data["jwt"];
 $SID = $data["user"];
 $number = $data["number"];
-echo $number;
 $timeID = $data["timeID"];
 $nowday = date("w"); //Sunday, 0~6
 
@@ -33,7 +32,7 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     $sjpr = $sjp -> get_result();
     $sjp -> close();
 
-    $officecheckp = $con -> prepare("SELECT office FROM event WHERE JID = null");
+    $officecheckp = $con -> prepare("SELECT office FROM event WHERE JID is null");
     if($officecheckp === false){
         $return["failed_times"] = $number;
         echo json_encode($return);
