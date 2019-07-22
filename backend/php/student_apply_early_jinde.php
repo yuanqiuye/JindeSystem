@@ -47,7 +47,7 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
         die("no result");
     }
     while($sjprr=mysqli_fetch_array($sjpr)
-    && $number !== 0){
+    ){
 
         $JID = $sjprr["JID"]; 
         
