@@ -44,9 +44,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $officecheckp->close();
     $office = "";
 
-    if ($officecheckpr->num_rows === 0 || $sjpr->num_rows === 0) {
-        die("no result");
-    }
+    
     while ($sjprr = mysqli_fetch_array($sjpr)) {
         if ($officecheckprr = mysqli_fetch_array($officecheckpr)) {
             if ($number !== 0) {
