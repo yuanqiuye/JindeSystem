@@ -116,29 +116,31 @@ class process {
     check_inform() {
         var table = document.getElementById('teacher');
 
-        var div = document.createElement("DIV");
-        div.setAttribute("class", "ts toggle checkbox");
-
-        var input = document.createElement("INPUT");
-        var label = document.createElement("LABEL");
         while (table.rows.length - 1) {
             table.deleteRow(table.rows.length - 1);
         }
         var checknumber = this.data["SID"].length;
         for (var i = 0; i < checknumber; i++) {
+            var div = document.createElement("DIV");
+            div.setAttribute("class", "ts toggle checkbox");
+
+            var input = document.createElement("INPUT");
+            var label = document.createElement("LABEL");
 
             input.setAttribute("id", this.data["EID"][i]);
             input.setAttribute("type", "checkbox");
+
             label.setAttribute("for", this.data["EID"][i]);
+
             div.appendChild(input);
             div.appendChild(label);
-            var div2 = div;
+
             var num = table.rows.length;
             var tr = table.insertRow(num);
 
             var td = tr.insertCell(tr.cells.length);
             td.setAttribute("class", "collapsing");
-            td.appendChild(div2);
+            td.appendChild(div);
 
             var td = tr.insertCell(tr.cells.length);
             td.innerHTML = this.data["SID"][i];
