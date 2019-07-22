@@ -19,10 +19,14 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     echo json_encode($return);
 }else{
     $con -> select_db($db_name);
-    $cr = $con -> query("SELECT EID, JID FROM event WHERE teacher = $user");
-    while($crr = mysqli_fetch_array($cr)){
-        $EID = $crr["EID"];
-        $JID = $crr["JID"];
+    $cp = $con -> prepare("SELECT EID, JID FROM event WHERE teacher = ?");
+    $cp -> bind_param("s", $user);
+    $cp -> execute();
+    $cpr = $cp -> get_result();
+    $cp -> close();
+    while($cprr = mysqli_fetch_array($cpr)){
+        $EID = $cprr["EID"];
+        $JID = $cprr["JID"];
         $sr = $con -> query("SELECT SID FROM jinde WHERE JID = $JID");
         $srr = mysqli_fetch_array($sr);
         $SID = $srr["SID"];
