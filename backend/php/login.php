@@ -1,4 +1,6 @@
 <?php
+use function PHPSTORM_META\type;
+
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
 
@@ -50,7 +52,7 @@ if($sdr->num_rows > 0){
     );
 
     while($row=mysqli_fetch_array($sjinder)){
-        echo typeof($row);
+        echo gettype($row);
         $RID = $row["RID"];
         $con -> select_db("resourse");
         $reasonp = $con -> prepare("SELECT description FROM reason WHERE RID = ?");
