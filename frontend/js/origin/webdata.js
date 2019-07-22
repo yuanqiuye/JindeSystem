@@ -57,7 +57,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
         var data = { "user": user, "jwt": jwt, "SID": [], "EID": [] };
-        var checked = $("checkbox:checked").get();
+        var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var nowrow = checked[i].parentElement.parentElement.parentElement;
             var SID = nowrow.cells[1];
