@@ -18,7 +18,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     echo json_encode($return);
 }else{
     $con -> select_db($db_name);
-     $checklength = $EID.length;
+     $checklength = sizeof($EID);
      for($i = 0; $i < $checklength; $i++){
         $nowEID = $EID[$i];
         $con -> query("UPDATE event SET finished = 1 WHERE EID = $nowEID");
