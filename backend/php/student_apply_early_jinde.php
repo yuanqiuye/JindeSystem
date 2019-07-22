@@ -6,6 +6,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $jwt = $data["jwt"];
 $SID = $data["user"];
 $number = $data["number"];
+echo $number;
 $timeID = $data["timeID"];
 $nowday = date("w"); //Sunday, 0~6
 
