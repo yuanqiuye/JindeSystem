@@ -103,7 +103,7 @@ class process {
     student_apply_early_jinde() {
         var spage = document.getElementById('success');
         if (this.data["failed_times"] !== 0) {
-            spage.innerHTML += this.data["failed"]["times"] + "隻申請失敗, 可能該處室名額為滿\n"
+            spage.innerHTML += this.data["failed_times"] + "隻申請失敗, 可能該處室名額為滿, \n或你申請太多隻了\n"
         }
         spage.innerHTML += "成功申請! 地點:" + this.data["success_location"];
         this.status = "studentsuccess";
