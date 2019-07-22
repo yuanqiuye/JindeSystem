@@ -126,7 +126,7 @@ class process {
         }
         var checknumber = this.data["SID"].length;
         for (var i = 0; i < checknumber; i++) {
-
+            div.innerHTML = "";
             input.setAttribute("id", this.data["EID"][i]);
             input.setAttribute("type", "checkbox");
             label.setAttribute("for", this.data["EID"][i]);
