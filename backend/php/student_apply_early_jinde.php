@@ -62,15 +62,13 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
                 $JID = $sjprr["JID"];
                 $office = $officecheckprr["office"];
                 $EID = $officecheckprr["EID"];
+                echo $JID,$office,$EID,$nowday,$timeID;
 
                 $ep = $con->prepare("UPDATE event SET JID = ? WHERE EID = ? AND office = ? AND wantday = ? AND wanttime = ?");
                 $ep->bind_param("sssss", $JID, $EID, $office, $nowday, $timeID);
                 $ep->execute();
                 $epr = $ep->get_result();
-                if ($ep === false) break;
-                if (mysqli_affected_rows($con) === 0) {
-                    die("no");
-                }
+                if ($ep === false || mysql_affected_rows($con) === 0) break;
                 $ep->close();
                 $number--;
             } else {
