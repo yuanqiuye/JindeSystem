@@ -59,7 +59,11 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
         $ep = $con -> prepare("UPDATE event SET JID = ? WHERE EID = ? AND office = ? AND wantday = ? AND wanttime = ?");
         $ep -> bind_param("sssss", $JID, $EID, $office, $nowday, $timeID);
         $ep -> execute();
+        $epr = $ep -> get_result();
         if ($ep === false) break;
+        if(mysqli_affected_rows($con) === 0){
+            die(print_r($eqr));
+        }
         $ep -> close();
         $number--;
     }
