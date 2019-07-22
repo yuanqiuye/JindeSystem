@@ -77,12 +77,12 @@ class webdata {
         var times = $("input[name='how']").get();
         for (var i = 0; i < SID.length; i++) {
             if (name[i] !== "" && times[i] !== "") {
-                data["SID"].push(SID[i].textContent);
-                data["times"].push(times[i].textContent);
+                data["SID"].push(SID[i].value);
+                data["times"].push(times[i].value);
             }
         }
 
-        animate_havadata("check_early_jinde.php", data);
+        animate_havadata("huge_check_jinde.php", data);
     }
 
     static check_jinde() {
