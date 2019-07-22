@@ -124,6 +124,7 @@ class process {
         while (table.rows.length - 1) {
             table.deleteRow(table.rows.length - 1);
         }
+        var checknumber = this.data["SID"].length;
         for (var i = 0; i < checknumber; i++) {
 
             input.setAttribute("id", this.data["EID"][i]);
