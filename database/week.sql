@@ -10,7 +10,7 @@ create table if not exists jinde(
 
 create table if not exists event(
     EID int NOT NULL AUTO_INCREMENT,
-    JID int DEFAULT null,
+    JID int DEFAULT null UNIQUE,
     teacher varchar(50) not null,
     office varchar(50) not null, 
     wantday int not null,
