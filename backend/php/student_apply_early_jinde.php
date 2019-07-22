@@ -68,7 +68,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
                 $ep->bind_param("sssss", $JID, $EID, $office, $nowday, $timeID);
                 $ep->execute();
                 $epr = $ep->get_result();
-                if ($ep === false || mysql_affected_rows($con) === 0) break;
+                if ($ep === false || mysqli_affected_rows($con) === 0) break;
                 $ep->close();
                 $number--;
             } else {
