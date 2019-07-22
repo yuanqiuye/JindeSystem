@@ -72,13 +72,13 @@ class webdata {
     static huge_check_jinde() {
         var jwt = readcookie("jwt");
         var user = readcookie("user");
-        var data = { "user": user, "jwt": jwt, "name": [], "times": [] };
-        var name = $("input[name='who']").val();
-        var times = $("input[name='how']").val();
-        for (var i = 0; i < name.length; i++) {
+        var data = { "user": user, "jwt": jwt, "SID": [], "times": [] };
+        var SID = $("input[name='who']").get();
+        var times = $("input[name='how']").get();
+        for (var i = 0; i < SID.length; i++) {
             if (name[i] !== "" && times[i] !== "") {
-                data["name"].push(name[i]);
-                data["times"].push(times[i]);
+                data["SID"].push(SID[i].textContent);
+                data["times"].push(times[i].textContent);
             }
         }
 
