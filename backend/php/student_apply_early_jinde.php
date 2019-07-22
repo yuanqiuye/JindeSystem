@@ -42,7 +42,7 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
     $officecheckpr = $officecheckp -> get_result();
     $officecheckp -> close();
     $office = "";
-    
+
     while($sjprr = mysqli_fetch_array($sjpr) &&  
     $officecheckprr = mysqli_fetch_array($officecheckpr)
     && $number !== 0){
@@ -50,6 +50,8 @@ if(decode_jwt($SID, $jwt) === false || (int)decode_jwt($SID, $jwt) !== 0){
         $JID = $sjprr["JID"]; 
         $office = $officecheckprr["office"];
         $EID = $officecheckprr["EID"];
+
+        echo $JID, $office, $EID;
 
         $ep = $con -> prepare("UPDATE event SET JID = ? WHERE EID = ? AND office = ? AND wantday = ? AND wanttime = ?");
         $ep -> bind_param("sssss", $JID, $EID, $office, $nowday, $timeID);
