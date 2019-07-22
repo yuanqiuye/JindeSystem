@@ -108,7 +108,7 @@ class process {
         }
         spage.innerHTML += "成功申請! 地點:" + this.data["success_location"];
         this.status = "studentsuccess";
-        this.direction = "selection";
+        this.direction = "student";
     }
 
     check_inform() {
