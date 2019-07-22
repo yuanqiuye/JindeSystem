@@ -30,6 +30,11 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) !== 0){
     $sjp -> close();
 
     $officecheckp = $con -> prepare("SELECT office FROM event WHERE JID = null");
+    if($officecheckp === false){
+        $return["failed_times"] = $number;
+        echo json_encode($return);
+        exit();
+    }
     $officecheckp -> execute();
     $officecheckpr = $officecheckp -> get_result();
     $officecheckp -> close();
@@ -37,11 +42,11 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) !== 0){
     $office = $officecheckprr["office"];
 
     while($sjpr = mysqli_fetch_array($sjpr) && $number !== 0){
-        $ep = $con -> prepare("UPDATE event SET JID = ? WHERE JID = NULL AND office = ?");
-        if ($ep === false) break;
+        $ep = $con -> prepare("UPDATE event SET JID = ? WHERE JID = NULL AND office = ? AND wantday = ? AND wanttime = ?");
         $notsuccess--;
-        $ep -> bind_param("ss", $sjpr["JID"], $office);
+        $ep -> bind_param("ss", $sjpr["JID"], $office, $nowday, $timeID);
         $ep -> execute();
+        if ($ep === false) break;
         $ep -> close();
         $number--;
     }
