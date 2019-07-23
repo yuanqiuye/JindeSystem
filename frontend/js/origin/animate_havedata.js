@@ -7,7 +7,7 @@ function animate_havadata(url, send) {
         $animation.fadeIn(100);
         callserver(url, send, () => {
             if (dowhat.status == null) {
-                $animation.fadeOut(100, function() {
+                $animation.fadeOut(1000, function() {
                     const $end = $('.' + dowhat.direction);
                     $end.attr('id', 'now');
                     $end.fadeIn(400);
