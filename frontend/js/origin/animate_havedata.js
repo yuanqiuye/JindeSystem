@@ -4,7 +4,7 @@ function animate_havadata(url, send) {
     $start.attr('id', '');
 
     $start.fadeOut(200, function() {
-        $animation.fadeIn(10);
+        $animation.fadeIn(100);
         callserver(url, send, () => {
             if (dowhat.status == null) {
                 $animation.fadeOut(100, function() {
