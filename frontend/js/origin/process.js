@@ -66,16 +66,16 @@ class process {
         var checkbox = document.getElementById('reason');
         checkbox.innerHTML = "";
 
-        var boxes = document.createElement("DIV");
-        boxes.setAttribute("class", "ts radio checkbox");
-
-        var input = document.createElement("INPUT");
-        input.setAttribute("type", "radio");
-        input.setAttribute("name", "reason");
-
         var label = document.createElement("LABEL");
 
         for (var i = 0; i < reason_number; i++) {
+            var boxes = document.createElement("DIV");
+            boxes.setAttribute("class", "ts radio checkbox");
+
+            var input = document.createElement("INPUT");
+            input.setAttribute("type", "radio");
+            input.setAttribute("name", "reason");
+
             input.setAttribute("id", this.data["reason"]["RID"][i]);
 
             label.setAttribute("for", this.data["reason"]["RID"][i]);
