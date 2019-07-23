@@ -41,7 +41,7 @@ class webdata {
         var timeID = $("input[name='student_time']:checked").get();
         var timeIDarray = [];
         for(var i = 0; i < timeID.length; i++){
-            timeIDarray.push(timeID[i]);
+            timeIDarray.push(timeID[i].getAttribute("id"));
         }
         var user = readcookie("user");
         var jwt = readcookie("jwt");
