@@ -108,7 +108,7 @@ $(document).ready(function() {
     });
 
     $("#send_student_apply_early_jinde").on('click', function() {
-        var timeID = $('input[name=student_time]:checked').val();
+        var timeID = $('input[name=student_time]:checked').get();
         if (timeID.length > 0) {
             webdata.student_apply_early_jinde();
         } else {

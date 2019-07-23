@@ -38,7 +38,7 @@ class webdata {
     }
 
     static student_apply_early_jinde() {
-        var timeID = $("input[type='radio']:checked").val();
+        var timeID = $('input[name=student_time]:checked').get();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var data = { "user": user, "jwt": jwt, "timeID": timeID};
