@@ -78,8 +78,8 @@ class process {
             input.setAttribute("id", this.data["reason"]["RID"][i]);
 
             label.setAttribute("for", this.data["reason"]["RID"][i]);
-            label.innerHTML = "";
-            label.innerHTML = this.data["reason"]["name"];
+            label.innerHTML = "";t
+            label.innerHTML = this.data["reason"]["name"][i];
 
             boxes.appendChild(input);
             boxes.appendChild(label);
