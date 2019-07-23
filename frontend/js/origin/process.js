@@ -66,9 +66,8 @@ class process {
         var checkbox = document.getElementById('reason');
         checkbox.innerHTML = "";
 
-        var label = document.createElement("LABEL");
-
         for (var i = 0; i < reason_number; i++) {
+            var label = document.createElement("LABEL");
             var boxes = document.createElement("DIV");
             boxes.setAttribute("class", "ts radio checkbox");
 
