@@ -62,7 +62,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
         echo json_encode($return);
         exit();
     }
-    $officecheckp -> bind_param("ss", $nowday, $timeID)
+    $officecheckp -> bind_param("ss", $nowday, $timeID);
     $officecheckp->execute();
     $officecheckpr = $officecheckp->get_result();
     $officecheckp->close();
