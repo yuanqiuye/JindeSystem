@@ -10,7 +10,7 @@ function animate_havadata(url, send) {
                 $animation.fadeOut(1000, function() {
                     const $end = $('.' + dowhat.direction);
                     $end.attr('id', 'now');
-                    $end.fadeIn(400);
+                    $end.fadeIn(1000);
                 });
             } else {
                 status_handler(dowhat.status, dowhat.direction);
