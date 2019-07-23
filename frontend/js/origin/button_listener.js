@@ -109,10 +109,10 @@ $(document).ready(function() {
 
     $("#send_student_apply_early_jinde").on('click', function() {
         var timeID = $('input[name=student_time]:checked').val();
-        if (timeID.length > 0) {
-            webdata.student_apply_early_jinde();
-        } else {
+        if (!timeID) {
             alert("欄位不能為空!");
+        } else {
+            webdata.student_apply_early_jinde();
         }
         //檢查
     });
