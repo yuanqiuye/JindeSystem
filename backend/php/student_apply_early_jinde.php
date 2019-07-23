@@ -5,10 +5,10 @@ include("jwt.php");
 $data = json_decode(file_get_contents('php://input'), true);
 $jwt = $data["jwt"];
 $SID = $data["user"];
-$number = $data["number"];
 $timeID = $data["timeID"];
 $nowday = date("w"); //Sunday, 0~6
 $nowdate = date("Y-m-d");
+$number = sizeof($timeID);
 
 $return = array(
     "type" => "student_apply_early_jinde",
@@ -44,12 +44,13 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $sjpr = $sjp->get_result();
     $sjp->close();
 
-    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null");
+    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ?");
     if ($officecheckp === false) {
         $return["failed_times"] = $number;
         echo json_encode($return);
         exit();
     }
+    $officecheckp -> bind_param("ss", $nowday, $timeID[])
     $officecheckp->execute();
     $officecheckpr = $officecheckp->get_result();
     $officecheckp->close();
