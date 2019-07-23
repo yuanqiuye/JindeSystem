@@ -277,20 +277,16 @@
 
         <div class="ts centered secondary segment">
             <form class="ts form" method="POST" target="rfFrame">
-
-                <div class="field">
-                    <label>申請隻數：</label>
-                    <input type="text" placeholder="1~2" name="jinde_number">
+                <br>
+                <div class="ts checkboxes">
+                    <input type="checknox" id="1" name="student_time">
+                    <label for="1">12:00~12:30</label>
                 </div>
-
-                <div class="field">
-                    <label>時間：</label>
-                    <select class="ts basic dropdown" id="student_time">
-                        <option value=1>12:00~12:30</option>
-                        <option value=2>12:30~1:00</option>
-                    </select>
+                <div class="ts checkboxes">
+                    <input type="checkbox" id="2" name="student_time">
+                    <label for="2">12:30~13:00</label>
                 </div>
-
+                <br>
                 <button class="ts positive fluid button" id="send_student_apply_early_jinde">申請</button>
 
             </form>
