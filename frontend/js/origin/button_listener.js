@@ -108,11 +108,11 @@ $(document).ready(function() {
     });
 
     $("#send_student_apply_early_jinde").on('click', function() {
-        var times = $("input[name='jinde_number']").val();
-        if (times !== "" && 3 > parseInt(times) > 0) {
+        var timeID = $("input[name='student_time']:checked").get();
+        if (timeID.length > 0) {
             webdata.student_apply_early_jinde();
         } else {
-            alert("欄位不能為空, 或一次不能申請那麼多!");
+            alert("欄位不能為空!");
         }
         //給你寫檢查
     });
