@@ -67,7 +67,7 @@ $(document).ready(function() {
         } else {
             webdata.apply_early_jinde();
         }
-        //給你寫檢查
+        //檢查
     });
 
     $("#send_check_early_jinde").on('click', function() {
@@ -108,13 +108,13 @@ $(document).ready(function() {
     });
 
     $("#send_student_apply_early_jinde").on('click', function() {
-        var timeID = $("input[name='student_time']:checked").get();
+        var timeID = $("input[type='radio']:checked").val();
         if (timeID.length > 0) {
             webdata.student_apply_early_jinde();
         } else {
             alert("欄位不能為空!");
         }
-        //給你寫檢查
+        //檢查
     });
 
 });

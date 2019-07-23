@@ -9,7 +9,9 @@ create table if not exists student(
     SID int not null unique,
     class int not null,
     name varchar(50) not null,
-    pwd varchar(50) not null
+    pwd varchar(50) not null,
+    applyday1 DATE null,
+    applyday2 DATE null
     );
     
 create table if not exists reason(

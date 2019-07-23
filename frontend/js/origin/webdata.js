@@ -38,14 +38,10 @@ class webdata {
     }
 
     static student_apply_early_jinde() {
-        var timeID = $("input[name='student_time']:checked").get();
-        var timeIDarray = [];
-        for(var i = 0; i < timeID.length; i++){
-            timeIDarray.push(timeID[i].getAttribute("id"));
-        }
+        var timeID = $("input[type='radio']:checked").val();
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = { "user": user, "jwt": jwt, "timeID": timeIDarray};
+        var data = { "user": user, "jwt": jwt, "timeID": timeID};
         animate_havadata("student_apply_early_jinde.php", data);
     }
 
