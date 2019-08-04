@@ -107,19 +107,9 @@ $(document).ready(function() {
         animate_nondata("student_apply_early_jinde", null);
     });
 
-    $("#send_student_apply_early_jinde").on('click', function() {
-        var timeID = $('input[name=student_time]:checked').val();
-        if (!timeID) {
-            alert("欄位不能為空!");
-        } else {
-            webdata.student_apply_early_jinde();
-        }
-        //檢查
-    });
-
 
     $("#send_student_apply_early_jinde").on('click', function() {
-        z
+
         var Today = new Date();
 
         if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() >= 11) {
