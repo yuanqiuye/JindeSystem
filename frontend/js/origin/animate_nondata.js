@@ -17,18 +17,13 @@ function animate_nondata(direction, middle) {
 
     }
 
-    $("#Sconfirm").on("click", function() {
+    $("#confirm").on("click", function() {
         $middle.fadeOut(1000, function() {
             $end.attr('id', 'now');
             $end.fadeIn(400);
         });
     })
 
-    $("#Fconfirm").on("click", function() {
-        $middle.fadeOut(1000, function() {
-            $end.attr('id', 'now');
-            $end.fadeIn(400);
-        });
-    })
+
 
 }
