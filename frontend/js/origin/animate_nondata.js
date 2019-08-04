@@ -17,7 +17,7 @@ function animate_nondata(direction, middle) {
 
     }
 
-    $("#confirm").on("click", function() {
+    $("button[id='confirm']").on("click", function() {
         $middle.fadeOut(1000, function() {
             $end.attr('id', 'now');
             $end.fadeIn(400);
