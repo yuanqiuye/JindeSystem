@@ -4,10 +4,15 @@ function animate_nondata(direction, middle) {
     const $animation = $('.animation');
     const $middle = $('.' + middle)
     if (middle !== null) {
-        $start.attr('id', '');
-        $end.attr('id', 'now');
         $animation.fadeOut(100, function() {
-            $middle.fadeIn(300);
+            $middle.fadeIn(300, function() {
+                $("#confirm").on("click", function() {
+                    $middle.fadeOut(1000, function() {
+                        $end.attr('id', 'now');
+                        $end.fadeIn(400);
+                    });
+                })
+            });
         })
     } else {
         $start.attr('id', '');
@@ -18,13 +23,5 @@ function animate_nondata(direction, middle) {
         });
 
     }
-
-    $("button[id='confirm']").on("click", function() {
-        $middle.fadeOut(1000, function() {
-            $end.fadeIn(400);
-        });
-    })
-
-
 
 }
