@@ -46,7 +46,7 @@
 
                 <div class="field">
                     <label>密碼：</label>
-                    <input type="password" placeholder="預設為學號" name="password">
+                    <input type="password" placeholder="預設為身分證後六碼" name="password">
                 </div>
                 <button class="ts positive fluid button" id="login">登入</button>
 
@@ -81,7 +81,7 @@
     <!-- 登記進德頁面開始 -->
     <div class="apply_jinde" style="display:none">
         <div class="ts huge center aligned header">
-            教職員登記進德
+            登記進德
             <div class="sub header">若有使用上的疑問或系統故障</div>
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
         </div>
@@ -112,11 +112,9 @@
     <!-- 發送提早進德頁面開始 -->
     <div class="apply_early_jinde" style="display:none">
         <div class="ts huge center aligned header">
-            教職員登記提早進德
+            登記提早進德
             <div class="sub header">若有使用上的疑問或系統故障</div>
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
-            <div class="sub header" style="color:red">注意!!請務必記得您所登記的時段及人數</div>
-            <div class="sub header" style="color:red">系統不提供複查</div>
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
@@ -167,7 +165,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        
+                        <td class="collapsing">
+                            <div class="ts toggle checkbox">
+                                <input type="checkbox" id="1">
+                                <label for="1"></label>
+                            </div>
+                        </td>
+                        <td>21</td>
 
                     </tr>
                 </tbody>
@@ -267,25 +271,15 @@
             學生登記提早進德
             <div class="sub header">若有使用上的疑問或系統故障</div>
             <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
-            <div class="sub header" style="color:red">注意!!請務必記得您所登記的時段</div>
+            <div class="sub header" style="color:red">注意!!請務必記得自己登記的時段</div>
             <div class="sub header" style="color:red">系統不提供複查</div>
         </div>
 
         <div class="ts centered secondary segment">
             <form class="ts form" method="POST" target="rfFrame">
-                <br><br>
-                <div class="ts checkboxes">
-                    <div class="ts radio checkbox">
-                        <input type="radio" id="1" name="student_time" value="1">
-                        <label for="1">12:00~12:30</label>
-                    </div>
-                    <div class="ts radio checkbox">
-                        <input type="radio" id="2" name="student_time" value="2">
-                        <label for="2">12:30~13:00</label>
-                    </div>
-                </div>
 
-                <br><br>
+                <input type="radio" name="reason" id="test">
+
                 <button class="ts positive fluid button" id="send_student_apply_early_jinde">申請</button>
 
             </form>
@@ -316,6 +310,7 @@
 
             </div>
             <br>
+            <button class="ts positive fluid button" id="confirm">確認</button>
         </div>
     </div>
 
@@ -327,6 +322,8 @@
 
             </div>
             <br>
+            <button class="ts positive fluid button" id="confirm">確認</button>
+
         </div>
     </div>
 

@@ -9,12 +9,20 @@ function this_monday()
     return $now_start;
 }
 
+function next_monday(){
+  $this_monday = this_monday();
+  return date("md", strtotime("$this_monday + 7 days"));
+}
+
 $host = 'localhost';
 $sqluser = 'root';
 $password = file_get_contents("../../../password.txt");
 $db_name = 'd' . this_monday();
+$next_db_name = 'd' . next_monday();
 $check_table = file_get_contents("../../database/week.sql");
 
+
+// 之後可以再做優化
 $con = mysqli_connect($host, $sqluser, $password);
 if (!$con)
   {
@@ -39,6 +47,30 @@ if (!$con)
   }else{
     $con -> query("CREATE DATABASE $db_name");
     $con -> select_db($db_name);
+    if($con -> query($check_table) === false){
+      die("expected error!");
+    }
+  }
+
+
+  if ($con -> select_db($next_db_name) === true){
+    if($con -> multi_query($check_table) === false){
+      die("Unexpected error!");
+    }else{
+      do {
+        /* store first result set */
+        if ($result = $con->store_result()) {
+            while ($row = $result->fetch_row()) {
+                printf("%s\n", $row[0]);
+            }
+            $result->free();
+        }
+       
+    } while ($con->next_result());
+    }
+  }else{
+    $con -> query("CREATE DATABASE $next_db_name");
+    $con -> select_db($next_db_name);
     if($con -> query($check_table) === false){
       die("expected error!");
     }

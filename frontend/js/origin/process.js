@@ -40,14 +40,10 @@ class process {
             case "teacher":
                 var level = this.data["level"];
                 if (level === "2") {
-                    var nop = document.getElementById('high');
-                    nop.setAttribute("style", "display:none");
+                    document.getElementById('high').setAttribute("style", "display:none");
                 } else if (level === "1") {
-                    var nop = document.getElementById('high');
-                    nop.setAttribute("style", "display:none");
-
-                    var nop = document.getElementById('middle');
-                    nop.setAttribute("style", "display:none");
+                    document.getElementById('high').setAttribute("style", "display:none");
+                    document.getElementById('middle').setAttribute("style", "display:none");
                 }
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
@@ -157,8 +153,8 @@ class process {
     }
 
     huge_check_jinde() {
-        if (this.data["failed_times"] !== 0) {
-            spage.innerHTML += this.data["failed_times"] + "隻消除失敗, 可能查無此學號, 或根本沒那麼多隻可以消XDD\n"
+        if (this.data["failed_SID"] !== 0) {
+            spage.innerHTML += this.data["failed_SID"] + "消除失敗, 可能查無此學號, 或根本沒那麼多隻可以消XDD\n"
         }
         this.status = "applysuccess";
         this.direction = "selection";

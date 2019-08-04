@@ -11,7 +11,10 @@ $times = $data["times"];
 $return = array(
     "type"=>"huge_check_jinde",
     "err" => "",
-    "user" => $user
+    "user" => $user,
+    "failed_SID" => array(
+
+    )
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -24,12 +27,14 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         $con -> select_db("resourse");
         $SIDr = $con -> query("SELECT SID FROM student WHERE SID = $nowSID");
         if ($SIDr->num_rows < 1){
-            $return["err"] += "找不到學號" + $nowSID + "!\n";
+            $return["failed_SID"] += $nowSID;
         }else{
             $nowtimes = $times[$i];
-            //提出ＪＩＤ
-            for($i = 0; $i < $nowtimes; $i++){
-                $con -> query("");
+            $result = $con -> query("SELECT JID FROM jinde WHERE SID = $nowSID");
+            $JIDr = $result -> fetch_array();
+            $JIDlength = sizeof($JIDr);
+            for($i = 0; $i < $nowtimes && $JIDlength > 0 ; $i++){
+                $con -> query("UPDATE ");
                 // check if NO JID or times is none
             }
         }
