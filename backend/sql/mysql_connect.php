@@ -1,4 +1,6 @@
 <?php
+// known bug
+// when you create a whole new database, will get problem, process multiquery
 function this_monday()
 {
     $date = date('Y-m-d');  
