@@ -112,7 +112,7 @@ $(document).ready(function() {
 
         var Today = new Date();
 
-        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() >= 11) {
+        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() <= 7 || Today.getHours() >= 11) {
             alert("火車不見了~~");
         } else {
 
