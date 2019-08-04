@@ -71,9 +71,9 @@
                 <br><br><button class='ts large button' id="apply_jinde">登記學生進德</button>
             </div>
             <div id="high">
-                <br><br><button class='ts large button' id="huge_check_jinde">大量銷進德</button>
-                <!-- <br><br><button class='ts large button' id="upload">上傳遲到紀錄</button> -->
-                <br><br><button class='ts large button' id="download">匯出進德紀錄</button>
+                <!-- <br><br><button class='ts large button' id="huge_check_jinde">大量銷進德</button>
+                <br><br><button class='ts large button' id="upload">上傳遲到紀錄</button>
+                <br><br><button class='ts large button' id="download">匯出進德紀錄</button> -->
             </div>
         </div>
     </div>
@@ -278,7 +278,13 @@
         <div class="ts centered secondary segment">
             <form class="ts form" method="POST" target="rfFrame">
 
-                <input type="radio" name="reason" id="test">
+                <div class="field">
+                    <label>時間：</label>
+                    <select class="ts basic dropdown" id="student_time">                                                                                                                                                                     ">
+                        <option value="1">12:00~12:30</option>
+                        <option value="2">12:30~1:00</option>
+                    </select>
+                </div>
 
                 <button class="ts positive fluid button" id="send_student_apply_early_jinde">申請</button>
 

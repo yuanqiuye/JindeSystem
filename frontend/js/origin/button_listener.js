@@ -117,4 +117,18 @@ $(document).ready(function() {
         //檢查
     });
 
+
+    $("#send_student_apply_early_jinde").on('click', function() {
+        z
+        var Today = new Date();
+
+        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() >= 11) {
+            alert("火車不見了~~");
+        } else {
+
+            webdata.student_apply_early_jinde();
+
+        }
+        //給你寫檢查
+    });
 });
