@@ -19,6 +19,7 @@ function animate_nondata(direction, middle) {
 }
 
 $("#confirm").on("click", function() {
+    const $middle = $('.' + middle)
     $middle.fadeOut(1000, function() {
         $end.attr('id', 'now');
         $end.fadeIn(400);
