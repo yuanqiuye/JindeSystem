@@ -34,8 +34,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $result = $con -> query("SELECT JID FROM jinde WHERE SID = $nowSID && finished != 1");
             $JIDr = $result -> fetch_array();
             $JIDlength = sizeof($JIDr);
-            if (){
-            }
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
                 $ar -> bind_param("s", $JIDr[$ii]);
