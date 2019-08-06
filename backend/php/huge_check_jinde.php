@@ -15,7 +15,9 @@ $return = array(
     "failed_SID" => array(
 
     ),
-    "test" =>array()
+    "test" =>array(),
+    "time" =>array(),
+    "JIDleng" =>array()
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -37,6 +39,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $JIDlength = sizeof($JIDr);
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
                 array_push($return["test"], (string)$JIDr[$ii]);
+                array_push($return["time"], (string)$nowtimes);
+                array_push($return["JIDleng"], (string)$JIDlength);
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
                 $ar -> bind_param("s", $JIDr[$ii]);
                 $ar -> execute();
