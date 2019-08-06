@@ -14,8 +14,7 @@ $return = array(
     "user" => $user,
     "failed_SID" => array(
 
-    ),
-    "result" =>array()
+    )
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -32,9 +31,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
-            $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0)");
-            $JIDr = mysqli_fetch_array($result,MYSQLI_NUM);
-            $return["result"] = $JIDr;
             $JIDlength = sizeof($JIDr);
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
                 $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0)");
