@@ -31,7 +31,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
-            for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
+            for($ii = 0; $ii < $nowtimes ; $ii++){
                 $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0)");
                 $JIDr = mysqli_fetch_array($result,MYSQLI_NUM);
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
