@@ -27,7 +27,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         $con -> select_db("resourse");
         $SIDr = $con -> query("SELECT SID FROM student WHERE SID = $nowSID");
         if ($SIDr->num_rows < 1){
-            array_push($return["failed_SID"], $nowSID);
+            array_push($return["failed_SID"], (string)$nowSID);
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
@@ -39,7 +39,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
                 $ar -> bind_param("s", $JIDr[$ii]);
                 $ar -> execute();
                 $ar -> close();
-                $JIDlength--;
+                $nowtimes--;
                 // check if NO JID or times is none
             }
         }
