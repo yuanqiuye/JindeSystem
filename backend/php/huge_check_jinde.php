@@ -30,13 +30,19 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $return["failed_SID"] += $nowSID;
         }else{
             $nowtimes = $times[$i];
+            $con -> select_db($db_name);
             $result = $con -> query("SELECT JID FROM jinde WHERE SID = $nowSID");
             $JIDr = $result -> fetch_array();
             $JIDlength = sizeof($JIDr);
             for($i = 0; $i < $nowtimes && $JIDlength > 0 ; $i++){
-                $con -> query("UPDATE ");
+                $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
+                $ar -> bind_param("s", $JIDr[$i]);
+                $ar -> execute();
+                $ar -> close();
+                $JIDlength--;
                 // check if NO JID or times is none
             }
+            echo json_encode($return);
         }
 
     }
