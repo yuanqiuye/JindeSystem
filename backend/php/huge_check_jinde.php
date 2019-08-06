@@ -35,11 +35,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $JIDr = $result -> fetch_array();
             $JIDlength = sizeof($JIDr);
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
-                $con -> select_db($db_name);
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
                 $ar -> bind_param("s", $JIDr[$ii]);
                 $ar -> execute();
-                $ar -> close();
             }
         }
         echo json_encode($return);
