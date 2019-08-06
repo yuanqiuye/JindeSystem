@@ -42,9 +42,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
                 $JIDlength--;
                 // check if NO JID or times is none
             }
-            echo json_encode($return);
         }
-
+        echo json_encode($return);
     }
     
 }
