@@ -31,7 +31,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
-            $result = $con -> query("SELECT JID FROM jinde WHERE SID = $nowSID");
+            $result = $con -> query("SELECT JID FROM jinde WHERE SID = $nowSID && finished != 1");
             $JIDr = $result -> fetch_array();
             $JIDlength = sizeof($JIDr);
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
