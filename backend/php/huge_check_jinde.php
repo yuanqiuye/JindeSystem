@@ -17,7 +17,8 @@ $return = array(
     ),
     "test" =>array(),
     "time" =>array(),
-    "JIDleng" =>array()
+    "JIDleng" =>array(),
+    "result" =>""
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -35,6 +36,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
             $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0)");
+            $return["result"]+=$result;
             $JIDr = $result -> fetch_array();
             $JIDlength = sizeof($JIDr);
             for($ii = 0; $ii < $nowtimes && $JIDlength > 0 ; $ii++){
