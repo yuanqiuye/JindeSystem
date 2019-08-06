@@ -157,9 +157,10 @@ class process {
         spage.innerHTML = "";
         if (this.data["failed_SID"] !== 0) {
             spage.innerHTML += this.data["failed_SID"] + "消除失敗, 可能查無此學號, 或根本沒那麼多隻可以消XDD\n"
-        }
+        }else{
         this.status = "applysuccess";
         this.direction = "selection";
+        }
     }
 
     upload_jinde() {
