@@ -38,8 +38,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
                 $ar -> bind_param("s", $JIDr[$ii]);
                 $ar -> execute();
-                $ar -> close();
             }
+            $ar -> close();
         }
         echo json_encode($return);
     }
