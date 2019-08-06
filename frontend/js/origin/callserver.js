@@ -13,7 +13,7 @@ function callserver(url, send, callback) {
         cache: false,
     }).done(function(data) {
         console.log('my message' + data);
-        get = JSON.parse(data);
+        var get = JSON.parse(data);
         console.log(get);
         dowhat.freshdata(get);
         if (get["err"] !== "") {
