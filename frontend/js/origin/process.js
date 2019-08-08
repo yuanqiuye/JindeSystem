@@ -39,7 +39,8 @@ class process {
                 break;
             case "teacher":
                 var level = this.data["level"];
-                if (level == 2) {
+                if(level == 3){}
+                else if (level == 2) {
                     document.getElementById('high').setAttribute("style", "display:none");
                 } else if (level == 1) {
                     document.getElementById('high').setAttribute("style", "display:none");
