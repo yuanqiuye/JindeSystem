@@ -12,8 +12,7 @@ function this_monday()
 }
 
 function next_monday(){
-  $this_monday = this_monday();
-  return date("md", strtotime("$this_monday + 7 days"));
+  return date("md",strtotime("next Monday"));
 }
 
 $host = 'localhost';
