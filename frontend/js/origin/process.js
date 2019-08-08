@@ -39,9 +39,9 @@ class process {
                 break;
             case "teacher":
                 var level = this.data["level"];
-                if (level === "2") {
+                if (level === 2) {
                     document.getElementById('high').setAttribute("style", "display:none");
-                } else if (level === "1") {
+                } else if (level === 1) {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:none");
                 }
