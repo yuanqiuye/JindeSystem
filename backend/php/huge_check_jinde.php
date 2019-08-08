@@ -26,7 +26,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         $SIDr = $con -> query("SELECT SID FROM student WHERE SID = $nowSID");
         if ($SIDr->num_rows < 1){
             $sp = ',';
-            $return["failed_SID"] += (string)$nowSID.$sp;
+            $return["failed_SID"] += $nowSID.$sp;
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
