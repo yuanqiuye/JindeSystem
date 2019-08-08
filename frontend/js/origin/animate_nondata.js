@@ -6,12 +6,12 @@ function animate_nondata(direction, middle) {
     if (middle !== null) {
         $animation.fadeOut(100, function() {
             $middle.fadeIn(100, function() {
-                //$("button[id='confirm']").on("click", function() {
+                $("button[id='confirm']").on("click", function() {
                 $middle.fadeOut(8000, function() {
                     $end.attr('id', 'now');
                     $end.fadeIn(400);
                 });
-                //})
+                })
             });
         })
     } else {
