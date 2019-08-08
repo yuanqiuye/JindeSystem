@@ -11,6 +11,6 @@ function status_handler(status, direction) {
         animate_nondata(direction, "success");
     } else {
         epage.innerHTML = status;
-        animate_nondata(direction, "err");
+        err_animate_nondata(direction, "err");
     }
 }
