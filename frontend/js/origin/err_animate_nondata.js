@@ -1,4 +1,4 @@
-function animate_nondata(direction, middle) {
+function err_animate_nondata(direction, middle) {
     const $start = $('#now');
     const $end = $('.' + direction);
     const $animation = $('.animation');
