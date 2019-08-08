@@ -12,7 +12,7 @@ $return = array(
     "type"=>"huge_check_jinde",
     "err" => "",
     "user" => $user,
-    "failed_SID" =>""
+    "failed_SID" =>array()
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -25,8 +25,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         $con -> select_db("resourse");
         $SIDr = $con -> query("SELECT SID FROM student WHERE SID = $nowSID");
         if ($SIDr->num_rows < 1){
-            $sp = ",";
-            $return["failed_SID"] .= (string)$nowSID.$sp;
+            array_push($return["failed_SID"],(string)$nowSID);
         }else{
             $nowtimes = $times[$i];
             $con -> select_db($db_name);
