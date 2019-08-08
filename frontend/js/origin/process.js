@@ -164,7 +164,7 @@ class process {
         spage.innerHTML = "";
         if (this.data["failed_SID"].length !=0 ) {
             for(var i=0;i<this.data["failed_SID"].length;i++){
-                spage.innerHTML += this.data["failed_SID"][i] + "消除失敗, 可能查無此學號, 或根本沒那麼多隻可以消XDD\n"
+                spage.innerHTML += this.data["failed_SID"][i] + "查無此學號XDD\n"
             }
             this.status = "studentsuccess";
         }
