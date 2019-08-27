@@ -17,7 +17,7 @@ function next_monday(){
 
 $host = 'localhost';
 $sqluser = 'qiuye';
-$password = file_get_contents(__DIR__ ."/../../../password.txt");
+$password = file_get_contents(__DIR__ ."/../../../password.txt", FALSE, NULL, 0, 10);
 $db_name = 'd' . this_monday();
 $next_db_name = 'd' . next_monday();
 $check_table = file_get_contents(__DIR__ ."/../../database/week.sql");
