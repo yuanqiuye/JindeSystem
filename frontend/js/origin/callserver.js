@@ -3,7 +3,7 @@ dowhat = new process();
 function callserver(url, send, callback) {
     var dtd = $.Deferred();
     var request = JSON.stringify(send);
-    var destination = "http://jinde.sys.nctu.me/JindeSystem/backend/php/";
+    var destination = "http://jindesys.nctu.me/JindeSystem/backend/php/";
 
     $.ajax({
         type: "POST",
