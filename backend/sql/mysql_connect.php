@@ -16,7 +16,7 @@ function next_monday(){
 }
 
 $host = 'localhost';
-$sqluser = 'root';
+$sqluser = 'qiuye';
 $password = file_get_contents(__DIR__ ."/../../../password.txt");
 $db_name = 'd' . this_monday();
 $next_db_name = 'd' . next_monday();
