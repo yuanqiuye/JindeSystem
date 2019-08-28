@@ -13,7 +13,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$applytime=$_POST["date"];
 	//if($data==null){$data="";}
 	$con -> select_db($db_name);
-    	$ar = $con -> prepare("SELECT RID,UID,SID,finished,applytime FROM jinde WHERE RID=? &SID=? & finished=? & applytime=?");
+    	$ar = $con -> prepare("SELECT `RID`,`UID`,`SID`,`finished`,`applytime` FROM `jinde` WHERE `RID`=? & `SID`=? & `finished`=? & `applytime`=?");
 	$ar -> bind_param("ssis", $RID ,$SID,$finished,$applytime);
 	$ar -> execute();
 	$arr = $ar -> get_result();
