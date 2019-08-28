@@ -13,6 +13,7 @@ $(document).ready(function() {
         document.cookie = "user=-1";
         document.cookie = "jwt=-1";
         animate_nondata("login", null);
+        location.reload();
     });
 
     $("#login").on('click', function() {
