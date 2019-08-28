@@ -11,8 +11,8 @@ class process {
 
     login() {
         var member = this.data["member"];
-        document.getElementByClassName('selection').setAttribute("style", "display:none");
-        document.getElementByClassName('student').setAttribute("style", "display:none");
+        document.getElementById('selection').setAttribute("style", "display:none");
+        document.getElementById('student').setAttribute("style", "display:none");
         switch (member) {
             case "student":
                 var jindetimes = this.data["applytime"].length;
