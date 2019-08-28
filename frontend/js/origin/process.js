@@ -57,6 +57,7 @@ class process {
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
+                document.getElementById('show_user').append(this.data["user"]);
 
                 this.direction = "selection";
                 this.status = "loginsuccess";
