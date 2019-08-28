@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors','off');
+//ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
 /*$data = json_decode(file_get_contents('php://input'), true);
@@ -37,7 +37,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 				  <option value="r17">其他</option>
 				  <option value="g1">遲到</option>
 				</select>
-			日期<input type="date" id="date"/>
+			日期<input type="date" name="date"/>
 			<br><br><input type="submit"/>
 		</form>';
 
