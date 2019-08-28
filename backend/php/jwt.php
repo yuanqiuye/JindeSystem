@@ -9,7 +9,7 @@ function encode_jwt($user, $lastminute,$level){
         "level" => $level,
         "expire" => time() + ($lastminute * 60)
     );
-    $privatekey = file_get_contents(__DIR__ ."/../../../privatekey.txt");
+    $privatekey = file_get_contents(__DIR__ ."/../../../../privatekey.txt");
     $jwt = JWT::encode($token, $privatekey, 'RS256');
 
     return $jwt;
