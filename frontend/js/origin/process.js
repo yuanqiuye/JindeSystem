@@ -48,6 +48,8 @@ class process {
                     document.getElementById('high').setAttribute("style", "display:block");
                     document.getElementById('middle').setAttribute("style", "display:block");
                     document.getElementById('low').setAttribute("style", "display:block");
+                    document.cookie = "user=" + this.data["user"] +";path=../backend/php/";
+                    document.cookie = "jwt=" + this.data["jwt"]+";path=../backend/php/";
                 }else if (level == 2) {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:block");
