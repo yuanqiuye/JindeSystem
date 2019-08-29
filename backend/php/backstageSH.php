@@ -29,10 +29,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	';
 	$return=array(
 		"JID" => array(),
-		"RID" => array(),
-		"UID" => array(),
 		"SID" => array(),
-		"finished" => array(),
 		"applytime" => array(),
 	);
 	$SID=$_GET["SID"];
@@ -50,10 +47,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$ar -> close();
 	while($arrow = mysqli_fetch_array($arr)){
 		array_push($return["JID"],$arrow["JID"]);
-		array_push($return["RID"],$arrow["RID"]);
-		array_push($return["UID"],$arrow["UID"]);
 		array_push($return["SID"],$arrow["SID"]);
-		array_push($return["finished"],$arrow["finished"]);
 		array_push($return["applytime"],$arrow["applytime"]);
     	}
 	echo '<center>';
