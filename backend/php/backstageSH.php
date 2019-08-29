@@ -24,7 +24,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	while($arrow = mysqli_fetch_array($arr)){
 		array_push($return["RID"],$arrow["RID"]);
     	}
-	for($i=0;$<sizeof($return);$i++){
+	for($i=0;$i<sizeof($return);$i++){
 		echo $return["RID"][$i];
 	}
 //}
