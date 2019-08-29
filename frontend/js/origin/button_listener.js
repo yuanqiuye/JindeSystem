@@ -33,6 +33,10 @@ $(document).ready(function() {
     $("#check_early_jinde").on('click', function() {
         webdata.check_inform();
     });
+    
+    $("#backstage").on('click', function() {
+        webdata.backstage();
+    });
 
     $("#apply_jinde").on('click', function() {
         webdata.reason_infrom();
