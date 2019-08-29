@@ -18,7 +18,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$ar -> execute();
 	$arr = $ar -> get_result();
 	$ar -> close();
-	while($arrow = mysqli_fetch_array($arr)){
+	for($i=0;$arrow = mysqli_fetch_array($arr);$i++){
 		echo $arrow["RID"][$i]."&nbsp;";
 		echo $arrow["UID"][$i]."&nbsp;";
 		echo $arrow["SID"][$i]."&nbsp;";
