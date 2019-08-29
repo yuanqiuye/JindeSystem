@@ -7,6 +7,11 @@ include ("jwt.php");
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     header("Location:http://jindesys.nctu.me");
 }else{*/
+	if(!isset($_COOKIE["user"])) {
+    		echo 123;
+	} else {
+    		echo 456;
+	}
 	echo '<form method="get" action="backstageSH.php">
 			搜尋<br><br>
 			學號<input type="text" name="SID"/>
