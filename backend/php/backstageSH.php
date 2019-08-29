@@ -7,6 +7,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{*/
+	$return=array(
+		"RID" => array(),
+	);
 	$SID=$_POST["SID"];
 	$finished=$_POST["finished"];
 	$RID=$_POST["reason"];
@@ -18,9 +21,11 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$ar -> execute();
 	$arr = $ar -> get_result();
 	$ar -> close();
-	print_r $arr;
 	while($arrow = mysqli_fetch_array($arr)){
-		echo $arrow[0];
+		array_push($return["RID"],$arrow["RID"]);
     	}
+	for($i=0;$<sizeof($return);$i++){
+		echo $return["RID"][i];
+	}
 //}
 ?>
