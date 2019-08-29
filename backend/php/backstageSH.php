@@ -35,12 +35,16 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		array_push($return["finished"],$arrow["finished"]);
 		array_push($return["applytime"],$arrow["applytime"]);
     	}
+	echo '<table border="1">';
 	for($i=0;$i<sizeof($return);$i++){
-		echo $return["RID"][$i];
-		echo $return["UID"][$i];
-		echo $return["SID"][$i];
-		echo $return["finished"][$i];
-		echo $return["applytime"][$i];
+		echo '<tr>';
+		echo '<td>'.$return["RID"][$i].'</td>';
+		echo '<td>'.$return["UID"][$i].'</td>';
+		echo '<td>'.$return["SID"][$i].'</td>';
+		echo '<td>'.$return["finished"][$i].'</td>';
+		echo '<td>'.$return["applytime"][$i].'</td>';
+		echo '</tr>';
 	}
+	echo '</table>';
 //}
 ?>
