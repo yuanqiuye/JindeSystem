@@ -7,7 +7,23 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{*/
+	echo '	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+		<script>
+			function delete(id) {
+				  $.ajax({
+				    type: "POST",
+				    async: true,
+				    url: "BSdelete.php",
+				    data: {"id":id},
+				    cache: false,
+				  }).done(function( msg ) {
+					location.reload();
+				  }).fail(function(){alert("failed");});
+			}
+		</script>
+	';
 	$return=array(
+		"JID" => array(),
 		"RID" => array(),
 		"UID" => array(),
 		"SID" => array(),
@@ -28,6 +44,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$arr = $ar -> get_result();
 	$ar -> close();
 	while($arrow = mysqli_fetch_array($arr)){
+		array_push($return["JID"],$arrow["JID"]);
 		array_push($return["RID"],$arrow["RID"]);
 		array_push($return["UID"],$arrow["UID"]);
 		array_push($return["SID"],$arrow["SID"]);
@@ -37,6 +54,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	echo '<center>';
 	echo '<table style="border-top:3px #FFD382 solid;border-bottom:3px #82FFFF solid;" >';
 	for($i=0;$i<sizeof($return);$i++){
+		echo '<button id="'.$return["JID"].'">刪除</button>';
 		echo '<tr>';
 		echo '<td>'.$return["SID"][$i].'</td>';
 		echo '<td>'.$return["applytime"][$i].'</td>';
