@@ -2,9 +2,11 @@
 ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
-$data = json_decode(file_get_contents('php://input'), true);
+
+$user=$_COOKIE["user"];
+$jwt=$_COOKIE["jwt"];
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
-	header("Location:http://jindesys.nctu.me");
+    header("Location:http://jindesys.nctu.me");
 }else{
 	echo '
 	<head>
