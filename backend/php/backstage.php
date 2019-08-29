@@ -10,7 +10,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	if(!isset($_COOKIE["user"])) {
     		echo 123;
 	} else {
-    		echo 456;
+    		echo $_COOKIE["user"];
 	}
 	echo '<form method="get" action="backstageSH.php">
 			搜尋<br><br>
