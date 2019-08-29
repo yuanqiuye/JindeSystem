@@ -7,7 +7,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{*/
-	echo '<form method="post" action="backstageSH.php">
+	echo '<form method="get" action="backstageSH.php">
 			搜尋<br><br>
 			學號<input type="text" name="SID"/>
 			狀態
