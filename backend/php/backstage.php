@@ -3,12 +3,6 @@ ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
 
-echo '<script>
-	function w(){
-	document.write(document.cookie);
-	}
-	</script>
-';
 if(isset($_COOKIE["user"]))
 {
 	echo $_COOKIE["user"];
@@ -19,7 +13,7 @@ else {
 /*$data = json_decode(file_get_contents('php://input'), true);
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     header("Location:http://jindesys.nctu.me");
-}else{*/echo '<button onclick="w()">12</button>';
+}else{*/echo '<button onclick="javascript:document.write(document.cookie);">12</button>';
 
 	echo '<form method="get" action="backstageSH.php">
 			搜尋<br><br>
