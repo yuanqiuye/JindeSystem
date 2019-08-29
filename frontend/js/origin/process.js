@@ -61,6 +61,8 @@ class process {
                 }
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
+                document.cookie = "user=" + this.data["user"] +";path=../backend/php/";
+                document.cookie = "jwt=" + this.data["jwt"]+";path=../backend/php/";
                 document.getElementById('logined').setAttribute("style", "-1");
                 document.getElementById('show_user').innerHTML=""; 
                 document.getElementById('show_user').append(this.data["user"]);
