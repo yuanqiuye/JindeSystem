@@ -57,5 +57,5 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		echo '<button id="'.$return["JID"][$i-1].'" onclick="deleteJID('.$return["JID"][$i-1].')">刪除</button><br>';
 	}
 	echo '</center>';
-//}
+}
 ?>
