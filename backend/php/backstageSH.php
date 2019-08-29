@@ -54,8 +54,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	echo '<center>';
 	echo '<table style="border-top:3px #FFD382 solid;border-bottom:3px #82FFFF solid;" >';
 	for($i=0;$i<sizeof($return);$i++){
-		echo '<button id="'.$return["JID"].'">刪除</button>';
 		echo '<tr>';
+		echo '<td><button id="'.$return["JID"].'">刪除</button></td>';
 		echo '<td>'.$return["SID"][$i].'</td>';
 		echo '<td>'.$return["applytime"][$i].'</td>';
 		echo '</tr>';
