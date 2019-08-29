@@ -19,6 +19,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     	$ar = $con -> prepare("SELECT * FROM `jinde` WHERE `RID`=? & `SID`=? & `finished`=? & `applytime`=?");
 	$ar -> bind_param("ssis", $RID ,$SID,$finished,$applytime);
 	$ar -> execute();
+	if($ar === false){
+        	die($con->error);
+    	}
 	$arr = $ar -> get_result();
 	$ar -> close();
 	while($arrow = mysqli_fetch_array($arr)){
