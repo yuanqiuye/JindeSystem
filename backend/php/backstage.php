@@ -2,7 +2,7 @@
 ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
-$user=$_COOKIE["user"];
+$user=htmlspecialchars($_COOKIE["user"]);
 echo $user;
 /*$data = json_decode(file_get_contents('php://input'), true);
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
