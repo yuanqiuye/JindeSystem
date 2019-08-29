@@ -2,10 +2,12 @@
 ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
-$data = json_decode(file_get_contents('php://input'), true);
+$user=$_COOKIE["user"];
+echo $user;
+/*$data = json_decode(file_get_contents('php://input'), true);
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     header("Location:http://jindesys.nctu.me");
-}else{
+}else{*/
 	echo '<form method="get" action="backstageSH.php">
 			搜尋<br><br>
 			學號<input type="text" name="SID"/>
@@ -39,5 +41,5 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 			日期<input type="date" name="date"/>
 			<br><br><input type="submit"/>
 		</form>';
-}
+//}
 ?>
