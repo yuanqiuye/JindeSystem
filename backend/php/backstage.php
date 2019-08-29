@@ -3,6 +3,10 @@ ini_set('display_errors','off');
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
 
+echo '<script>
+	document.write(document.cookie);
+	</script>
+';
 if(isset($_COOKIE["user"]))
 {
 	echo $_COOKIE["user"];
