@@ -62,7 +62,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		echo $i.'&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo $return["SID"][$i].'&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo $return["applytime"][$i].'&nbsp;&nbsp;&nbsp;&nbsp;';
-		echo '<button id="'.$return["JID"][$i].'" onclick="deleteJID('.$return["JID"][$i].')">刪除</button>';
+		echo '<button id="'.$return["JID"][$i].'" onclick="deleteJID('.$return["JID"][$i].')">刪除</button><br>';
 	}
 	echo '</table>';
 	echo '</center>';
