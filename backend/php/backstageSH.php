@@ -9,6 +9,10 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 }else{*/
 	$return=array(
 		"RID" => array(),
+		"UID" => array(),
+		"SID" => array(),
+		"finished" => array(),
+		"applytime" => array(),
 	);
 	$SID=$_POST["SID"];
 	$finished=$_POST["finished"];
@@ -26,11 +30,17 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$ar -> close();
 	while($arrow = mysqli_fetch_array($arr)){
 		array_push($return["RID"],$arrow["RID"]);
-		echo 1;
+		array_push($return["UID"],$arrow["UID"]);
+		array_push($return["SID"],$arrow["SID"]);
+		array_push($return["finished"],$arrow["finished"]);
+		array_push($return["applytime"],$arrow["applytime"]);
     	}
 	for($i=0;$i<sizeof($return);$i++){
 		echo $return["RID"][$i];
-		echo 2;
+		echo $return["UID"][$i];
+		echo $return["SID"][$i];
+		echo $return["finished"][$i];
+		echo $return["applytime"][$i];
 	}
 //}
 ?>
