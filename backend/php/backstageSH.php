@@ -8,24 +8,22 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     echo json_encode($return);
 }else{*/
 	echo '<head>
-	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		<script>
-		$(document).ready(
 			function delete(id) {
 				  $.ajax({
-				    type: "POST",
-				    async: true,
-				    url: "BSdelete.php",
-				    data: {"id":id},
-				    cache: false,
+				    	type: "POST",
+				    	async: true,
+				    	url: "BSdelete.php",
+				    	data: {"id":id},
+					cache: false,
 				  }).done(function( msg ) {
 					location.reload();
-				  }).fail(function(){alert("failed");});
-			
-		});
-		</script>
-		</head>
+				  }).fail(function(){
+				  	alert("failed");
+				  });
+	</script>
+</head>
 	';
 	$return=array(
 		"JID" => array(),
