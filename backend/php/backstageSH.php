@@ -7,24 +7,25 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{*/
-	echo '<head>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-		<script>
-			function delete(id) {
-				  $.ajax({
-				    	type: "POST",
-				    	async: true,
-				    	url: "BSdelete.php",
-				    	data: {"id":id},
-					cache: false,
-				  }).done(function( msg ) {
-					location.reload();
-				  }).fail(function(){
-				  	alert("failed");
-				  });
-			} 
-	</script>
-</head>
+	echo '
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+			<script>
+				function deleteJID(id) {
+					  $.ajax({
+						type: "POST",
+						async: true,
+						url: "BSdelete.php",
+						data: {"id":id},
+						cache: false,
+					  }).done(function( msg ) {
+						location.reload();
+					  }).fail(function(){
+						alert("failed");
+					  });
+				} 
+			</script>
+	</head>
 	';
 	$return=array(
 		"JID" => array(),
@@ -59,7 +60,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	echo '<table style="border-top:3px #FFD382 solid;border-bottom:3px #82FFFF solid;" >';
 	for($i=0;$i<sizeof($return);$i++){
 		echo '<tr>';
-		echo '<td><button id="'.$return["JID"][$i].'" onclick="delete('.$return["JID"][$i].')">刪除</button></td>';
+		echo '<td><button id="'.$return["JID"][$i].'" onclick="deleteJID('.$return["JID"][$i].')">刪除</button></td>';
 		echo '<td>'.$return["SID"][$i].'</td>';
 		echo '<td>'.$return["applytime"][$i].'</td>';
 		echo '</tr>';
