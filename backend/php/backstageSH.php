@@ -36,7 +36,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		array_push($return["applytime"],$arrow["applytime"]);
     	}
 	echo '<center>';
-	echo '<table>';
+	echo '<table style="border-top:3px #FFD382 solid;border-bottom:3px #82FFFF solid;" >';
 	for($i=0;$i<sizeof($return);$i++){
 		echo '<tr>';
 		echo '<td>'.$return["RID"][$i].'</td>';
