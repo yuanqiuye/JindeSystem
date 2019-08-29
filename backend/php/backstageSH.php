@@ -22,6 +22,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 				  }).fail(function(){
 				  	alert("failed");
 				  });
+			} 
 	</script>
 </head>
 	';
