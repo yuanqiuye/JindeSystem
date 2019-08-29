@@ -8,7 +8,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     echo json_encode($return);
 }else{*/
 	$return="";
-	$JID=$_POST["id"];
+	$JID=$_GET["id"];
 	$con -> select_db($db_name);
   $ar = $con -> prepare("UPDATE jinde SET finished=1 WHERE JID=?");
 	$ar -> bind_param("s", $JID);
