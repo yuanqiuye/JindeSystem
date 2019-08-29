@@ -13,7 +13,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 			<script>
 				function deleteJID(id) {
 					  $.ajax({
-						type: "POST",
+						type: "GET",
 						async: true,
 						url: "BSdelete.php",
 						data: {"id":id},
@@ -35,10 +35,10 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		"finished" => array(),
 		"applytime" => array(),
 	);
-	$SID=$_POST["SID"];
-	$finished=$_POST["finished"];
-	$RID=$_POST["reason"];
-	$applytime=$_POST["date"];
+	$SID=$_GET["SID"];
+	$finished=$_GET["finished"];
+	$RID=$_GET["reason"];
+	$applytime=$_GET["date"];
 	$con -> select_db($db_name);
     	$ar = $con -> prepare("SELECT * FROM jinde WHERE RID=? AND SID=? AND finished=? AND applytime=?");
 	$ar -> bind_param("ssis", $RID ,$SID,$finished,$applytime);
