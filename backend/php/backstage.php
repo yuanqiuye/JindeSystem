@@ -39,5 +39,5 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 			日期<input type="date" name="date"/>
 			<br><br><input type="submit"/>
 		</form>';
-//}
+}
 ?>
