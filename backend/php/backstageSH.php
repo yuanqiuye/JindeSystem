@@ -35,7 +35,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		array_push($return["finished"],$arrow["finished"]);
 		array_push($return["applytime"],$arrow["applytime"]);
     	}
-	echo '<table border="1">';
+	echo '<center>';
+	echo '<table>';
 	for($i=0;$i<sizeof($return);$i++){
 		echo '<tr>';
 		echo '<td>'.$return["RID"][$i].'</td>';
@@ -46,5 +47,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 		echo '</tr>';
 	}
 	echo '</table>';
+	echo '</center>';
 //}
 ?>
