@@ -52,7 +52,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     	}
 	echo '<center>';
 	echo '<table style="border-top:3px #FFD382 solid;border-bottom:3px #82FFFF solid;" >';
-	for($i=0;$i<sizeof($return);$i++){
+	for($i=0;$i<sizeof($return[JID]);$i++){
 		echo $i.'&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo $return["SID"][$i].'&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo $return["applytime"][$i].'&nbsp;&nbsp;&nbsp;&nbsp;';
