@@ -36,7 +36,7 @@ if($sdr->num_rows > 0){
     $return["err"] = "";
 
     $con -> select_db($db_name);
-    $sjinde = $con->prepare("SELECT applytime, RID FROM jinde WHERE SID = ?");
+    $sjinde = $con->prepare("SELECT applytime, RID FROM jinde WHERE SID = ? AND finished = 0");
     $sjinde->bind_param("s", $user);
     $sjinde->execute();
     $sjinder = $sjinde->get_result();
