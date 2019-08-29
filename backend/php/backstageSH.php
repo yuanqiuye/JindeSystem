@@ -18,6 +18,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 	$ar -> execute();
 	$arr = $ar -> get_result();
 	$ar -> close();
+	echo $arr;
 	while($arrow = mysqli_fetch_array($arr)){
 		echo $arrow[0];
     	}
