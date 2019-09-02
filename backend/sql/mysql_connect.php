@@ -1,30 +1,30 @@
 <?php
 // known bug
 // when you create a whole new database, will get problem, process multiquery
-function this_monday()
+function get_date()
 {
     $date = date('Y-m-d');  
     $first = 1; 
     $w = date('w', strtotime($date));  //Sunday start,return 0~6
-    $now_start = date('md', strtotime("$date -" . ($w ? $w - $first : 6) . ' days')); 
+    $date_array = array (
+
+    );
+    $date_array[0] = date('Y-m-d', strtotime("$date -" . ($w ? $w - $first : 6) . ' days')); 
+    $date_array[1] =  date('Y-m-d', strtotime("$date_array[0] + 4 days")); 
     //Sunday minus 6 days
-    return $now_start;
+    return $date_array[1];
 }
 
-function next_monday(){
-  return date("md",strtotime("next Monday"));
+function this_friday(){
+  return date("Y-m-d",strtotime(""));
 }
 
 $host = 'localhost';
 $sqluser = 'qiuye';
 $password = file_get_contents(__DIR__ ."/../../../../password.txt", FALSE, NULL, 0, 10);
-$db_name = 'd' . this_monday();
-$next_db_name = 'd' . next_monday();
-$check_table = file_get_contents(__DIR__ ."/../../database/week.sql");
-
 
 // 之後可以再做優化
-$con = mysqli_connect($host, $sqluser, $password);
+$con = mysqli_connect($host, $sqluser, $password,  "resourse");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
