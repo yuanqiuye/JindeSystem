@@ -14,7 +14,6 @@ $return = array(
     "member" => "",
     "jwt" => "");
 
-$con -> select_db("resourse");
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
 $sd->execute();
@@ -35,8 +34,7 @@ if($sdr->num_rows > 0){
     $return["jwt"] = $jwt;
     $return["err"] = "";
 
-    $con -> select_db($db_name);
-    $sjinde = $con->prepare("SELECT applytime, RID FROM jinde WHERE SID = ? AND finished = 0");
+    $sjinde = $con->prepare("SELECT applytime, RID FROM jinde WHERE SID = ? AND finished = 0  AND (BETWEEN  $date_array[0] AND $date_array[1])");
     $sjinde->bind_param("s", $user);
     $sjinde->execute();
     $sjinder = $sjinde->get_result();
@@ -52,7 +50,6 @@ if($sdr->num_rows > 0){
 
     while($row=mysqli_fetch_array($sjinder)){
         $RID = $row["RID"];
-        $con -> select_db("resourse");
         $reasonp = $con -> prepare("SELECT description FROM reason WHERE RID = ?");
         $reasonp -> bind_param("s", $RID);
         $reasonp -> execute();
@@ -72,7 +69,6 @@ if($sdr->num_rows > 0){
 
     echo json_encode($return);
 }else if($tdr->num_rows > 0){
-    $con -> select_db("resourse");
     $tlevelresultp = $con -> prepare("SELECT level FROM teacher WHERE UID = ?");
     $tlevelresultp->bind_param("s", $user);
     $tlevelresultp->execute();

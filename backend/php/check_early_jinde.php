@@ -17,11 +17,10 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{
-    $con -> select_db($db_name);
      $checklength = sizeof($EID);
      for($i = 0; $i < $checklength; $i++){
         $nowEID = $EID[$i];
-        $con -> query("UPDATE event SET finished = 1 WHERE EID = $nowEID");
+        $con -> query("UPDATE event SET finished = 1 WHERE EID = $nowEID ");
         $JIDr = $con ->query("SELECT JID FROM event WHERE EID = $nowEID");
         $JIDrr = mysqli_fetch_array($JIDr);
         $nowJID = $JIDrr["JID"];

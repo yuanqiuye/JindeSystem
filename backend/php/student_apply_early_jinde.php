@@ -23,7 +23,6 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     echo json_encode($return);
 } else {
 
-    $con->select_db("resourse");
     if($timeID=="1"){
         $checkdo = $con-> query("SELECT applyday1 FROM student WHERE SID = $SID");
         $checkdor = mysqli_fetch_array($checkdo);
@@ -42,12 +41,11 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
             exit();
         }
     }
-        
-        
-    $con->select_db($db_name);
+
 
     $sjp = $con->prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
-    AND NOT EXISTS (SELECT * FROM event WHERE jinde.JID = event.JID)");
+    AND NOT EXISTS (SELECT * FROM event WHERE jinde.JID = event.JID) 
+    WHERE (jinde.applytime BETWEEN $date_array[3] AND $date_array[4])");
     $sjp->bind_param("s", $SID);
     $sjp->execute();
     if ($sjp === false) {
@@ -56,7 +54,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $sjpr = $sjp->get_result();
     $sjp->close();
 
-    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ?");
+    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ?  (BETWEEN $date_array [0]  AND $date_array[1])");
     if ($officecheckp === false) {
         $return["failed_times"] = $number;
         echo json_encode($return);
@@ -93,7 +91,6 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $return["failed_times"] = $number;
     $return["success_location"] = $office;
     
-    $con->select_db("resourse");
     if($timeID=="1"){
         $dp = $con-> prepare("UPDATE student SET applyday1 = ? WHERE SID = $SID");
         $dp -> bind_param("s", $nowdate);

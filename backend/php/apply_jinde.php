@@ -20,7 +20,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{
-    $con -> select_db("resourse");
     $sd = $con->prepare("SELECT SID FROM student WHERE SID = ?");
     $sd->bind_param('s', $SID);
     $sd->execute();
@@ -30,10 +29,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
         $return["err"].= "找不到".(string)$SID."這個學號!";
         echo json_encode($return);
     }else{
-        $con -> select_db($next_db_name);
         for($i = $times; $i > 0 ; $i--){
             $ar = $con -> prepare("INSERT INTO jinde (UID, SID, RID, applytime) VALUES (?, ?, ?, ?)");
-            $ar -> bind_param("ssss", $user, $SID, $RID, $applytime);
+            $ar -> bind_param("ssss", $user, $SID, $RID, $applytime );
             $ar -> execute();
             $ar -> close();
         }
