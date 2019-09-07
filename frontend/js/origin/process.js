@@ -58,7 +58,11 @@ class process {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:none");
                     document.getElementById('low').setAttribute("style", "display:block");
-                }
+                } else if(level == 0){
+                    document.getElementById('high').setAttribute("style", "display:none");
+                    document.getElementById('middle').setAttribute("style", "display:none");
+                    document.getElementById('low').setAttribute("style", "display:none");
+		}
                 document.cookie = "user=" + this.data["user"]+";path=/";
                 document.cookie = "jwt=" + this.data["jwt"]+";path=/";
                 document.getElementById('logined').setAttribute("style", "-1");
