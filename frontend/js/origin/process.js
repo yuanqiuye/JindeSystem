@@ -35,22 +35,20 @@ class process {
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
-                document.getElementById('show_user').innerHTML=""; 
+                document.getElementById('show_user').innerHTML = "";
                 document.getElementById('show_user').append(this.data["user"]);
 
 
-                this.direction = "student";
+                this.direction = "student_apply_early_jinde";
                 this.status = "loginsuccess";
                 break;
             case "teacher":
                 var level = this.data["level"];
-                if(level == 3){
+                if (level == 3) {
                     document.getElementById('high').setAttribute("style", "display:block");
                     document.getElementById('middle').setAttribute("style", "display:block");
                     document.getElementById('low').setAttribute("style", "display:block");
-                    document.cookie = "user=" + this.data["user"] +";path=../backend/php/";
-                    document.cookie = "jwt=" + this.data["jwt"]+";path=../backend/php/";
-                }else if (level == 2) {
+                } else if (level == 2) {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:block");
                     document.getElementById('low').setAttribute("style", "display:block");
@@ -58,15 +56,15 @@ class process {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:none");
                     document.getElementById('low').setAttribute("style", "display:block");
-                } else if(level == 0){
+                } else if (level == 0) {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:none");
                     document.getElementById('low').setAttribute("style", "display:none");
-		}
-                document.cookie = "user=" + this.data["user"]+";path=/";
-                document.cookie = "jwt=" + this.data["jwt"]+";path=/";
+                }
+                document.cookie = "user=" + this.data["user"];
+                document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
-                document.getElementById('show_user').innerHTML=""; 
+                document.getElementById('show_user').innerHTML = "";
                 document.getElementById('show_user').append(this.data["user"]);
 
                 this.direction = "selection";
@@ -175,15 +173,14 @@ class process {
     huge_check_jinde() {
         var spage = document.getElementById('success');
         spage.innerHTML = "";
-        if (this.data["failed_SID"].length !=0 ) {
-            for(var i=0;i<this.data["failed_SID"].length;i++){
+        if (this.data["failed_SID"].length != 0) {
+            for (var i = 0; i < this.data["failed_SID"].length; i++) {
                 spage.innerHTML += this.data["failed_SID"][i] + "查無此學號XDD<br>";
             }
             this.status = "studentsuccess";
-        }
-        else {this.status = "applysuccess";}
+        } else { this.status = "applysuccess"; }
         this.direction = "selection";
-        
+
     }
 
     upload_jinde() {

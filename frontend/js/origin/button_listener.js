@@ -33,7 +33,7 @@ $(document).ready(function() {
     $("#check_early_jinde").on('click', function() {
         webdata.check_inform();
     });
-    
+
     $("#backstage").on('click', function() {
         webdata.backstage();
     });
@@ -117,13 +117,13 @@ $(document).ready(function() {
 
         var Today = new Date();
 
-        //if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() <= 7 || Today.getHours() >= 11) {
-        //    alert("已超時，請在當日11:00以前登記完畢");
-        //} else {
+        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() <= 7 || Today.getHours() >= 11) {
+            alert("已超時，請在當日11:00以前登記完畢");
+        } else {
 
             webdata.student_apply_early_jinde();
 
-        //}
+        }
         //給你寫檢查
     });
 });
