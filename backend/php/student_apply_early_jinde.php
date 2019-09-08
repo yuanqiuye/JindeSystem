@@ -54,7 +54,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $sjpr = $sjp->get_result();
     $sjp->close();
 
-    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ? AND r_date BETWEEN '$date_array [3]'  AND '$date_array[4]'");
+    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ? AND r_date BETWEEN '$date_array[0]'  AND '$date_array[1]'");
     if ($officecheckp === false) {
         $return["failed_times"] = $number;
         echo json_encode($return);
