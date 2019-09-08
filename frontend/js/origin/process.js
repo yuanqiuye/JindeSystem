@@ -44,7 +44,7 @@ class process {
                 break;
             case "teacher":
                 var level = this.data["level"];
-                if (level == 3) {
+                /* if (level == 3) {
                     document.getElementById('high').setAttribute("style", "display:block");
                     document.getElementById('middle').setAttribute("style", "display:block");
                     document.getElementById('low').setAttribute("style", "display:block");
@@ -52,7 +52,8 @@ class process {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:block");
                     document.getElementById('low').setAttribute("style", "display:block");
-                } else if (level == 1) {
+                } else  */
+                if (level == 1) {
                     document.getElementById('high').setAttribute("style", "display:none");
                     document.getElementById('middle').setAttribute("style", "display:none");
                     document.getElementById('low').setAttribute("style", "display:block");
