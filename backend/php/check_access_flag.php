@@ -23,7 +23,8 @@ function check_access_flag($SID){
     }
 }
 
-$result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'");
+$result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'
+AND check_date BETWEEN '$date_array[0]' AND '$date_array[1]'");
 
 $checkdate = mysqli_fetch_array($result);
 
