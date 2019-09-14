@@ -34,4 +34,5 @@ if(sizeof($checkdate) == 0){
     for($i = 0; $i < sizeof($SID); $i++){
         check_access_flag($SID[$i]);
     }
+    $con -> query("UPDATE system_inform SET check_date = '$date' WHERE type = 'access_flag'");
 }
