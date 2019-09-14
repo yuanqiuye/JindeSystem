@@ -23,9 +23,10 @@ function check_access_flag($SID){
     }
 }
 
-$result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'
-AND applytime BETWEEN '$date_array[0]' AND '$date_array[1]'");
+$result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'");
+
 $checkdate = mysqli_fetch_array($result);
+
 if(sizeof($checkdate) == 0){
     $result = $con -> query("SELECT SID FROM student");
     $SID = mysqli_fetch_array($result);
