@@ -1,6 +1,5 @@
 <?php
-// known bug
-// when you create a whole new database, will get problem, process multiquery
+
 function get_date()
 {
     $date = date('Y-m-d');  
@@ -18,7 +17,7 @@ function get_date()
 }
 
 $date_array = get_date();
-
+$date = date('Y-m-d');
 $host = 'localhost';
 $sqluser = 'qiuye';
 $password = file_get_contents(__DIR__ ."/../../../../password.txt", FALSE, NULL, 0, 10);

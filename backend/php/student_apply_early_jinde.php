@@ -1,6 +1,7 @@
 <?php
 include("../sql/mysql_connect.php");
 include("jwt.php");
+include("check_access_flag.php");
 
 $data = json_decode(file_get_contents('php://input'), true);
 $jwt = $data["jwt"];
@@ -43,7 +44,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     }
 
 
-    $sjp = $con->prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
+    $sjp = $con->prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 AND access_flag = 1 
     AND NOT EXISTS (SELECT * FROM event WHERE jinde.JID = event.JID) 
     AND jinde.applytime BETWEEN '$date_array[3]' AND '$date_array[4]'");
     $sjp->bind_param("s", $SID);

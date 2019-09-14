@@ -2,6 +2,7 @@
 
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
+include ("check_access_flag.php");
 
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
@@ -12,7 +13,9 @@ $return = array(
     "type"=>"huge_check_jinde",
     "err" => "",
     "user" => $user,
-    "failed_SID" =>array()
+    "failed_SID" =>array(),
+    "non_jinde_SID" =>array(),
+    "non_jinde_times" => array()
 );
 
 if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
@@ -27,9 +30,17 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             array_push($return["failed_SID"],(string)$nowSID);
         }else{
             $nowtimes = $times[$i];
-            for($ii = 0; $ii < $nowtimes ; $ii++){
-                $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0) AND (applytime BETWEEN $date_array[0] AND $date_array[1])");
-                $JIDr = mysqli_fetch_array($result,MYSQLI_NUM);
+            $result = $con -> query("SELECT JID FROM jinde WHERE (SID = $nowSID && finished = 0 && access_flag = 1) AND (applytime BETWEEN $date_array[3] AND $date_array[4])");
+            $JIDr = mysqli_fetch_array($result,MYSQLI_NUM);
+            $non_jinde_times = $nowtimes - sizeof($JIDr);
+            if($non_jinde_times > 0){
+                array_push($return["non_jinde_SID"],(string)$nowSID);
+                array_push($return["non_jinde_times"],(string)$non_jinde_times);
+                $loop_times = sizeof($JIDr);
+            }else{
+                $loop_times = $nowtimes;
+            }
+            for($ii = 0; $ii < $looptimes ; $ii++){
                 $ar = $con -> prepare("UPDATE jinde SET finished = 1 where JID = ?");
                 $ar -> bind_param("s", $JIDr[0]);
                 $ar -> execute();
@@ -37,9 +48,6 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             }
         }
     }
-
-    /* 修改TIP:
-    1.  錯誤反饋(php and js) */
     
     echo json_encode($return);
 }

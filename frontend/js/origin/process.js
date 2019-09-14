@@ -174,12 +174,17 @@ class process {
     huge_check_jinde() {
         var spage = document.getElementById('success');
         spage.innerHTML = "";
-        if (this.data["failed_SID"].length != 0) {
+        if (this.data["failed_SID"].length != 0 && this.data["non_jinde_SID"].length != 0) {
             for (var i = 0; i < this.data["failed_SID"].length; i++) {
                 spage.innerHTML += this.data["failed_SID"][i] + "查無此學號XDD<br>";
             }
+            for (var i = 0; i < this.data["non_jinde_SID"].length; i++) {
+                spage.innerHTML += this.data["non_jinde_SID"][i] + "這隻學號多銷" + this.data["non_jinde_times"][i] + "喔!<br>";
+            }
             this.status = "studentsuccess";
-        } else { this.status = "applysuccess"; }
+        } else {
+            this.status = "applysuccess";
+        }
         this.direction = "selection";
 
     }

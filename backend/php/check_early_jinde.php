@@ -1,6 +1,7 @@
 <?php
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
+include ("check_access_flag.php");
 
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
@@ -20,8 +21,8 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
      $checklength = sizeof($EID);
      for($i = 0; $i < $checklength; $i++){
         $nowEID = $EID[$i];
-        $con -> query("UPDATE event SET finished = 1 WHERE EID = $nowEID ");
-        $JIDr = $con ->query("SELECT JID FROM event WHERE EID = $nowEID");
+        $con -> query("UPDATE event SET finished = 1 WHERE EID = $nowEID");
+        $JIDr = $con -> query("SELECT JID FROM event WHERE EID = $nowEID");
         $JIDrr = mysqli_fetch_array($JIDr);
         $nowJID = $JIDrr["JID"];
         $con ->  query("UPDATE jinde SET finished = 1 WHERE JID = $nowJID");
