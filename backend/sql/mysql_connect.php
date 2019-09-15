@@ -42,17 +42,17 @@ function check_access_flag($SID){
   $sjinde->close();
   $jinde_number = mysqli_fetch_array($sjinder);
 
-  if(TRUE){
+  //if(TRUE){
       for($i = 0; $i < sizeof($jinde_number); $i++){
           (int)$nowJID = $jinde_number[$i];
           $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = $nowJID");
       }
-  }else{
-      for($i = 0; $i < sizeof($jinde_number); $i++){
-          (int)$nowJID = $jinde_number[$i];
-          $con ->  query("UPDATE jinde SET access_flag = 1 WHERE JID = $nowJID");
-      }
-  }
+  //}else{
+  //    for($i = 0; $i < sizeof($jinde_number); $i++){
+  //        (int)$nowJID = $jinde_number[$i];
+   //       $con ->  query("UPDATE jinde SET access_flag = 1 WHERE JID = $nowJID");
+   //   }
+  //}
 }
 
 $result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'
