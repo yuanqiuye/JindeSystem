@@ -32,9 +32,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $nowtimes = $times[$i];
             $sp = $con -> prepare("SELECT JID FROM jinde WHERE 
             (SID = ? && finished = 0 && access_flag = 1) 
-            AND (applytime BETWEEN '$date_array[3]' AND '$date_array[4]')");
-            
-            $sp -> bind_param("s",$nowJID);
+            AND applytime BETWEEN '$date_array[3]' AND '$date_array[4]'");
+
+            $sp -> bind_param("s",$nowSID);
             $sp -> execute();
             $spr = $sp -> get_result();
             $sp -> close();
