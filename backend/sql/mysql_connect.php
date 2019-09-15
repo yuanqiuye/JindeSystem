@@ -44,8 +44,8 @@ function check_access_flag($SID){
   echo $jinde_number;
   //if(TRUE){
       for($i = 0; $i < sizeof($jinde_number); $i++){
-          (int)$nowJID = $jinde_number[$i];
-          $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = $nowJID");
+          $nowJID = $jinde_number[$i];
+          $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = 3");
       }
   //}else{
   //    for($i = 0; $i < sizeof($jinde_number); $i++){
