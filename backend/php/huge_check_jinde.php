@@ -30,11 +30,18 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             array_push($return["failed_SID"],(string)$nowSID);
         }else{
             $nowtimes = $times[$i];
-            $result = $con -> query("SELECT JID FROM jinde WHERE 
-            (SID = $nowSID && finished = 0 && access_flag = 1) 
-            AND (applytime BETWEEN $date_array[3] AND $date_array[4])");
+            $sp = $con -> prepare("SELECT JID FROM jinde WHERE 
+            (SID = ? && finished = 0 && access_flag = 1) 
+            AND (applytime BETWEEN '$date_array[3]' AND '$date_array[4]')");
+            
+            $sp -> bind_param("s",$nowJID);
+            $sp -> execute();
+            $spr = $sp -> get_result();
+            $sp -> close();
+
             $JID = array();
-            while($row = mysqli_fetch_array($result)){
+
+            while($row = mysqli_fetch_array($spr)){
                 array_push($JID,$row["JID"]);
             }
             
