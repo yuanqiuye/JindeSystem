@@ -32,21 +32,16 @@ function check_access_flag($SID){
 
   global $date_array, $con;
 
-  $sjinde = $con -> prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
+  $sjinde = $con -> prepare("SELECT JID FROM jinde WHERE SID = '$SID' AND finished = 0 
   AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
   ");
 
-  $sjinde->bind_param("s", $SID);
-  $sjinde->execute();
-  $sjinder = $sjinde->get_result();
-  $sjinde->close();
-  $jinde_number = mysqli_fetch_array($sjinder);
-  echo $jinde_number;
+  $jinde_number = mysqli_fetch_array($sjinde);
   //if(TRUE){
-      //for($i = 0; $i < sizeof($jinde_number); $i++){
-          $nowJID = $jinde_number[$i];
-          $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = 3");
-      //}
+      for($i = 0; $i < sizeof($jinde_number); $i++){
+          $nowJID = (int)$jinde_number[$i];
+          $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = $nowJID");
+      }
   //}else{
   //    for($i = 0; $i < sizeof($jinde_number); $i++){
   //        (int)$nowJID = $jinde_number[$i];
