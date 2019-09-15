@@ -1,7 +1,7 @@
 <?php
 
 function check_access_flag($SID){
-    include("../sql/mysql_connect.php");
+    include_once("../sql/mysql_connect.php");
     $sjinde = $con -> prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
     AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.EID = 'g1')
     AND applytime BETWEEN '$date_array[3]' AND '$date_array[4]'");

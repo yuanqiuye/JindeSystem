@@ -2,7 +2,7 @@
 
 function get_date()
 {
-    $date_time = date('Y-m-d');  
+    $date = date('Y-m-d');  
     $first = 1; 
     $w = date('w', strtotime($date_time));  //Sunday start,return 0~6
     $date_array = array (
