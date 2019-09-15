@@ -2,7 +2,7 @@
 
 include ("../sql/mysql_connect.php");
 include ("jwt.php");
-include ("check_access_flag.php");
+  
 
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
