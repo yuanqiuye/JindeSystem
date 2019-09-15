@@ -32,9 +32,9 @@ function check_access_flag($SID){
 
   global $date_array, $con;
 
-  $sjinde = $con -> prepare("SELECT JID FROM jinde WHERE finished = 0 
-  AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
-  ");
+  $sjinde = $con -> prepare("SELECT JID FROM jinde");// WHERE finished = 0 
+  //AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
+  //");
 
   //$sjinde->bind_param($SID);
   $sjinde->execute();
@@ -63,8 +63,8 @@ $date_time = date('Y-m-d');
 if(TRUE){
   $result = $con -> query("SELECT SID FROM student");
   $SID = mysqli_fetch_array($result);
-  for($i = 0; $i < sizeof($SID); $i++){
-      check_access_flag($SID[$i]);
-  }
+  //for($i = 0; $i < sizeof($SID); $i++){
+      check_access_flag($SID[0]);
+  //}
   $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
 }
