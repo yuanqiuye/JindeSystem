@@ -50,7 +50,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             if($non_jinde_times > 0){
                 array_push($return["non_jinde_SID"],(string)$nowSID);
                 array_push($return["non_jinde_times"],(string)$non_jinde_times);
-                $loop_times = sizeof($JIDr);
+                $loop_times = sizeof($JID);
             }else{
                 $loop_times = $nowtimes;
             }
