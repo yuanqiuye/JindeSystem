@@ -42,7 +42,7 @@ function check_access_flag($SID){
   //$sjinde->close();
   $jinde_number = mysqli_fetch_array($sjinde);
   //if(TRUE){
-      for($i = 0; $i < sizeof($jinde_number); $i++){
+      for($i = 1; $i < sizeof($jinde_number); $i++){
           $nowJID = $jinde_number[$i];
           $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = $nowJID");
       }
