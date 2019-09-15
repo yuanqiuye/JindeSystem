@@ -31,7 +31,7 @@ if (!$con){
 function check_access_flag($SID){
   global $date_array, $con;
   $sjinde = $con -> prepare("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
-  AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.EID = 'g1')
+  AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
   AND applytime BETWEEN '$date_array[3]' AND '$date_array[4]'");
   $sjinde->bind_param("s", $SID);
   $sjinde->execute();
