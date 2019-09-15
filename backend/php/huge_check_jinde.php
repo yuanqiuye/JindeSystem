@@ -58,7 +58,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             array_push($return,$JID);
             array_push($return,$loop_times);
 
-            for($ii = 0; $ii < $looptimes ; $ii++){
+            for($ii = 0; $ii < $loop_times ; $ii++){
                 $nowJID = $JID[$ii];
                 $con -> query("UPDATE jinde SET finished = 1 where JID = $nowJID");
             }
