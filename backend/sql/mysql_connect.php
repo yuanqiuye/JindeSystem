@@ -32,9 +32,9 @@ $jinde_number = array();
 
 function check_access_flag($SID){
 
-  global $date_array, $con, $jinde_number;
+  global $date_array, $con;
 
-  $sjinde = $con -> query("SELECT JID FROM jinde WHERE finished = 0 
+  $sjinde = $con -> query("SELECT JID FROM jinde WHERE SID = ? AND finished = 0 
   AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
   ");
 
