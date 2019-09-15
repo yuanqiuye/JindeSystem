@@ -60,7 +60,7 @@ AND check_date BETWEEN '$date_array[0]' AND '$date_array[1]'");
 $checkdate = mysqli_fetch_array($result);
 $date_time = date('Y-m-d');
 
-if(sizeof($checkdate) == 0){
+if(TRUE){
   $result = $con -> query("SELECT SID FROM student");
   $SID = mysqli_fetch_array($result);
   for($i = 0; $i < sizeof($SID); $i++){
