@@ -12,8 +12,7 @@ $return = array(
     "err" => "",
     "user" => "",
     "member" => "",
-    "jwt" => "",
-    "status" => sizeof($jinde_number));
+    "jwt" => "");
 
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
