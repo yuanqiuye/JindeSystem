@@ -18,13 +18,21 @@ class process {
                 var jindetimes = this.data["applytime"].length;
                 var table = document.getElementById('student');
 
-                document.getElementById('jindetimes').innerHTML = jindetimes;
                 while (table.rows.length - 1) {
                     table.deleteRow(table.rows.length - 1);
                 }
+
+                var red_jinde = 0;
+                var jingaotimes = 0;
                 for (var i = 0; i < jindetimes; i++) {
                     var num = table.rows.length;
                     var tr = table.insertRow(num);
+                    if (this.data["reason"][i] === "遲到") {
+                        tr.setAttribute("class", "positive")
+                    } else {
+                        tr.setAttribute("class", "negative")
+                        red_jinde++;
+                    }
 
                     var td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["applytime"][i];
@@ -32,6 +40,18 @@ class process {
                     var td = tr.insertCell(tr.cells.length);
                     td.innerHTML = this.data["reason"][i];
                 }
+
+                if (red_jinde >= 3) {
+                    jindetimes = jindetimes - red_jinde;
+                    jingaotimes = 1;
+                    if (red_jinde >= 5) {
+                        jingaotimes = 2;
+                    }
+                }
+
+                document.getElementById('jindetimes').innerHTML = jindetimes;
+                document.getElementById('jindgaotimes').innerHTML = jindgaotimes;
+
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
                 document.getElementById('logined').setAttribute("style", "-1");
@@ -42,6 +62,7 @@ class process {
                 this.direction = "student";
                 this.status = "loginsuccess";
                 break;
+
             case "teacher":
                 var level = this.data["level"];
                 if (level == 3) {
