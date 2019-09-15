@@ -34,26 +34,31 @@ function check_access_flag($SID){
 
   global $date_array, $con, $jinde_number;
 
-  $sjinde = $con -> query("SELECT JID FROM jinde");// WHERE finished = 0 
-  //AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
-  //");
+  $sjinde = $con -> query("SELECT JID FROM jinde WHERE finished = 0 
+  AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
+  ");
 
-  //$sjinde->bind_param($SID);
-  //$sjinde->execute();
-  //$sjinder = $sjinde->get_result();
-  //$sjinde->close();
-  $jinde_number = mysqli_fetch_array($sjinde);
-  //if(TRUE){
-      for($i = 0; $i < 3; $i++){
-          $nowJID = $jinde_number[$i];
+  $sjinde->bind_param("s",$SID);
+  $sjinde->execute();
+  $sjinder = $sjinde->get_result();
+  $sjinde->close();
+
+  $JID = array();
+  while ($row = mysql_fetch_array($sjinder)) {
+    array_push($JID,$row["JID"]);
+  }
+
+  if(sizeof($JID) >= 3){
+      for($i = 0; $i < sizeof($JID); $i++){
+          $nowJID = $JID[$i];
           $con ->  query("UPDATE jinde SET access_flag = 0 WHERE JID = $nowJID");
       }
-  //}else{
-  //    for($i = 0; $i < sizeof($jinde_number); $i++){
-  //        (int)$nowJID = $jinde_number[$i];
-   //       $con ->  query("UPDATE jinde SET access_flag = 1 WHERE JID = $nowJID");
-   //   }
-  //}
+  }else{
+      for($i = 0; $i < sizeof($JID); $i++){
+          (int)$nowJID = $JID[$i];
+          $con ->  query("UPDATE jinde SET access_flag = 1 WHERE JID = $nowJID");
+      }
+  }
 }
 
 $result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'access_flag'
@@ -62,11 +67,10 @@ AND check_date BETWEEN '$date_array[0]' AND '$date_array[1]'");
 $checkdate = mysqli_fetch_array($result);
 $date_time = date('Y-m-d');
 
-if(TRUE){
+if(sizeof($checkdate) == 0){
   $result = $con -> query("SELECT SID FROM student");
-  $SID = mysqli_fetch_array($result);
-  //for($i = 0; $i < sizeof($SID); $i++){
-      check_access_flag($SID[0]);
-  //}
+  while($SID = mysqli_fetch_array($result)){
+      check_access_flag($SID["SID"]);
+  }
   $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
 }
