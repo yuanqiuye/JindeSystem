@@ -27,6 +27,7 @@ $result = $con -> query("SELECT check_date FROM system_inform WHERE type = 'acce
 AND check_date BETWEEN '$date_array[0]' AND '$date_array[1]'");
 
 $checkdate = mysqli_fetch_array($result);
+$date_time = date('Y-m-d');
 
 if(sizeof($checkdate) == 0){
     $result = $con -> query("SELECT SID FROM student");
@@ -34,5 +35,5 @@ if(sizeof($checkdate) == 0){
     for($i = 0; $i < sizeof($SID); $i++){
         check_access_flag($SID[$i]);
     }
-    $con -> query("UPDATE system_inform SET check_date = '$date' WHERE type = 'access_flag'");
+    $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
 }

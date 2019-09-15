@@ -2,9 +2,9 @@
 
 function get_date()
 {
-    $date = date('Y-m-d');  
+    $date_time = date('Y-m-d');  
     $first = 1; 
-    $w = date('w', strtotime($date));  //Sunday start,return 0~6
+    $w = date('w', strtotime($date_time));  //Sunday start,return 0~6
     $date_array = array (
 
     );
@@ -17,7 +17,7 @@ function get_date()
 }
 
 $date_array = get_date();
-$date = date('Y-m-d');
+$date_time = date('Y-m-d');
 $host = 'localhost';
 $sqluser = 'qiuye';
 $password = file_get_contents(__DIR__ ."/../../../../password.txt", FALSE, NULL, 0, 10);
