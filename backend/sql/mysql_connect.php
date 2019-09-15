@@ -41,7 +41,7 @@ function check_access_flag($SID){
   $sjinder = $sjinde->get_result();
   $sjinde->close();
   $jinde_number = mysqli_fetch_array($sjinder);
-
+  echo $jinde_number;
   //if(TRUE){
       for($i = 0; $i < sizeof($jinde_number); $i++){
           (int)$nowJID = $jinde_number[$i];
