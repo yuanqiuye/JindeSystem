@@ -44,7 +44,7 @@ function check_access_flag($SID){
   $sjinde->close();
 
   $JID = array();
-  while ($row = mysql_fetch_array($sjinder)) {
+  while ($row = mysqli_fetch_array($sjinder)) {
     array_push($JID,$row["JID"]);
   }
 
