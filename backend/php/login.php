@@ -13,7 +13,7 @@ $return = array(
     "user" => "",
     "member" => "",
     "jwt" => "",
-    "status" => $jinde_number);
+    "status" => $date_array);
 
 $sd = $con->prepare("SELECT SID FROM student WHERE SID = ? AND pwd = ?");
 $sd->bind_param('ss', $user, $password);
