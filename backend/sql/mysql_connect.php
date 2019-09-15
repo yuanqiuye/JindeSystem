@@ -32,15 +32,15 @@ function check_access_flag($SID){
 
   global $date_array, $con;
 
-  $sjinde = $con -> prepare("SELECT JID FROM jinde");// WHERE finished = 0 
+  $sjinde = $con -> query("SELECT JID FROM jinde");// WHERE finished = 0 
   //AND NOT EXISTS (SELECT * FROM jinde WHERE jinde.RID = 'g1')
   //");
 
   //$sjinde->bind_param($SID);
-  $sjinde->execute();
-  $sjinder = $sjinde->get_result();
-  $sjinde->close();
-  $jinde_number = mysqli_fetch_array($sjinder);
+  //$sjinde->execute();
+  //$sjinder = $sjinde->get_result();
+  //$sjinde->close();
+  $jinde_number = mysqli_fetch_array($sjinde);
   //if(TRUE){
       for($i = 0; $i < sizeof($jinde_number); $i++){
           $nowJID = $jinde_number[$i];
