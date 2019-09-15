@@ -50,7 +50,7 @@ class process {
                 }
 
                 document.getElementById('jindetimes').innerHTML = jindetimes;
-                document.getElementById('jindgaotimes').innerHTML = jindgaotimes;
+                document.getElementById('jingaotimes').innerHTML = jingaotimes;
 
                 document.cookie = "user=" + this.data["user"];
                 document.cookie = "jwt=" + this.data["jwt"];
