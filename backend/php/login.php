@@ -1,7 +1,7 @@
 <?php
 use function PHPSTORM_META\type;
 
-include ("../sql/mysql_connect.php");
+include ("common.php");
 include ("jwt.php");
 
 $data = json_decode(file_get_contents('php://input'), true);

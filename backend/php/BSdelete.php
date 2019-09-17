@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors','off');
-include ("../sql/mysql_connect.php");
+include ("common.php");
 include ("jwt.php");
 
 $user=$_COOKIE["user"];

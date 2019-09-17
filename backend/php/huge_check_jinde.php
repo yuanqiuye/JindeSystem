@@ -1,6 +1,6 @@
 <?php
 
-include ("../sql/mysql_connect.php");
+include ("common.php");
 include ("jwt.php");
   
 
