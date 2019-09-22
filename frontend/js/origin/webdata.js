@@ -88,7 +88,7 @@ class webdata {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var class_number = $("input[name='class_number']").val();
-        var data = { "user": user, "jwt": jwt , "classnumber": class_number };
+        var data = { "user": user, "jwt": jwt , "class_number": class_number };
         animate_havadata("backstage_search.php", data);
     }
 
