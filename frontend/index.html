@@ -184,6 +184,58 @@
         </div>
     </div>
 
+    <!-- 教官後臺查詢頁面開始 -->
+    <div class="backstage_search" style="display:none">
+        <div class="ts huge center aligned header">
+            教官後臺
+            <div class="sub header">請輸入學生班級座號查詢</div>
+        </div>
+        <div class="ts centered secondary segment">
+            <form class="ts form" method="POST" target="rfFrame">
+
+                <div class="field">
+                    <label>班級座號六碼：</label>
+                    <input type="text" placeholder="例:21824" name="class_number">
+                </div>
+
+                <button class="ts positive fluid button" id="search">登入</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 教官後臺查看頁面開始 -->
+    <div class="backstage" style="display:none">
+        <div class="ts huge center aligned header" id="backstage_class">
+            
+            <div class="sub header">的進德紀錄</div>
+        </div>
+        <div class="ts centered center aligned secondary raised segment">
+            <div class="ts positive statistic">
+                <div class="value" id="backstage_jindetimes"></div>
+                <div class="label">這周進德</div>
+            </div>
+            <div class="ts negative statistic">
+                <div class="value" id="backstage_jingaotimes"></div>
+                <div class="label">這周警告</div>
+            </div>
+            <table class="ts table" id="backstage">
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>原因</th>
+                        <th>刪除</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <button class="ts positive fluid button" id="backstage_apply">登記提早進德</button>
+        </div>
+    </div>
+
+
     <!-- 大量銷進德頁面開始 -->
     <div class="huge_check_jinde" style="display:none">
         <div class="ts huge center aligned header">

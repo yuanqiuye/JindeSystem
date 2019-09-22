@@ -191,6 +191,15 @@ class process {
         this.direction = "selection";
     }
 
+    backstage_search(){
+        var table = document.getElementById("backstage");
+
+        while (table.rows.length - 1) {
+            table.deleteRow(table.rows.length - 1);
+        }
+
+    }
+
     huge_check_jinde() {
         var spage = document.getElementById('success');
         spage.innerHTML = "";

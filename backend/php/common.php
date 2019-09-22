@@ -73,3 +73,12 @@ if(sizeof($checkdate) == 0){
   }
   $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
 }
+
+function get_SID($class_number){
+  global $con;
+  $class = (int)substr($class_number, 0, 3); 
+  $number = (int)substr($class_number, 3, 2);
+  $result = $con -> query("SELECT SID FROM student WHERE class = $class AND seat_id = $number");
+  $SID = mysqli_fetch_array($result);
+  return $SID;
+}

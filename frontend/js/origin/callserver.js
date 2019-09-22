@@ -38,6 +38,9 @@ function callserver(url, send, callback) {
                 case "check_early_jinde":
                     dowhat.check_early_jinde();
                     break;
+                case "backstage_search":
+                    dowhat.backstage_search();
+                    break;
                 case "huge_check_jinde":
                     dowhat.huge_check_jinde();
                     break;

@@ -84,11 +84,12 @@ class webdata {
         animate_havadata("huge_check_jinde.php", data);
     }
 
-    static check_jinde() {
+    static backstage_search() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = { "user": user, "jwt": jwt };
-        animate_havadata("check_jinde.php", data);
+        var class_number = $("input[name='class_number']").val();
+        var data = { "user": user, "jwt": jwt , "classnumber": class_number };
+        animate_havadata("backstage_search.php", data);
     }
 
     static upload_jinde() {
