@@ -251,7 +251,7 @@ class process {
         document.getElementById('backstage_jingaotimes').innerHTML = jingaotimes;
     
         this.direction = "backstage";
-        this.status = "applysuccess";
+        this.status = null;
     }
 
     huge_check_jinde() {
