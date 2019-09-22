@@ -16,7 +16,8 @@ function callserver(url, send, callback) {
         get = JSON.parse(data);
         console.log(get);
         dowhat.freshdata(get);
-        if (get["err"] == "查無此班級座號！") {
+        if (get["err"] === "don't find!") {
+            get["err"] = "查無此班級座號!"
             status_handler(get["err"], "backstage_search");
         } else {
             if(get["err"] !== ""){

@@ -18,7 +18,7 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     echo json_encode($return);
 }else{
     if ($SID == null){
-        $return["err"] = "查無此班際座號！";
+        $return["err"] = "don't find!";
         echo json_encode($return);
         exit();
     }
