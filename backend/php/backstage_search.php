@@ -7,6 +7,12 @@ $user = $data["user"];
 $jwt = $data["jwt"];
 $SID = get_SID($data["class_number"]);
 
+$return = array(
+    "type"=> "backstage_search",
+    "err" => "",
+    "user" => $user
+);
+
 if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
