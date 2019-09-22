@@ -16,10 +16,10 @@ function callserver(url, send, callback) {
         get = JSON.parse(data);
         console.log(get);
         dowhat.freshdata(get);
-        if (get["err"] !== "") {
+        if (get["err"] == "查無此班級座號！") {
+            status_handler(get["err"], "backstage_search");
+        } else if(get["err"] !== ""){
             status_handler(get["err"], "login");
-        } else if(get["err"] == "查無此班際座號！"){
-            status_handler(get["err"], "selection");
         }else{
             switch (get["type"]) {
                 case "login":
