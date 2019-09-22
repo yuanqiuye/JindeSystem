@@ -31,10 +31,10 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 
     );
 
-    $flag = false;
+   
 
     while($row=mysqli_fetch_array($sjinder)){
-        $flag = true;
+      
         $RID = $row["RID"];
         $reasonp = $con -> prepare("SELECT description FROM reason WHERE RID = ?");
         $reasonp -> bind_param("s", $RID);
@@ -52,11 +52,11 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
         array_push($JIDarray, $JID);
     }
 
-    if($flag === false){
-        $return["err"] = "查無此班際座號！";
-        echo json_encode($return);
-        exit();
-    }
+    // if($flag === false){
+    //     $return["err"] = "查無此班際座號！";
+    //     echo json_encode($return);
+    //     exit();
+    // }
     $return["reason"] = $reasonarray;
     $return["applytime"] = $applytimearray;
     $return["JID"] = $JIDarray;
