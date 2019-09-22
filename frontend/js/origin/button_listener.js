@@ -35,8 +35,12 @@ $(document).ready(function() {
     });
 
     $("#backstage").on('click', function() {
-        webdata.backstage();
+        animate_nondata("backstage_search", null);
     });
+
+    $("#search").on('click', function() {
+        webdata.backstage_search();
+    })
 
     $("#apply_jinde").on('click', function() {
         webdata.reason_infrom();
@@ -124,6 +128,5 @@ $(document).ready(function() {
             webdata.student_apply_early_jinde();
 
         }
-        //給你寫檢查
     });
 });

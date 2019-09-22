@@ -191,13 +191,68 @@ class process {
         this.direction = "selection";
     }
 
-    backstage_search(){
-        var table = document.getElementById("backstage");
+    backstage_search() {
+        var jindetimes = this.data["applytime"].length;
+        var table = document.getElementById('backstage_data');
+
+        var SID = document.getElementById("backstage_SID");
+        SID.innerHTML = this.data["SID"];
 
         while (table.rows.length - 1) {
             table.deleteRow(table.rows.length - 1);
         }
 
+        var red_jinde = 0;
+        var jingaotimes = 0;
+        for (var i = 0; i < jindetimes; i++) {
+            var div = document.createElement("DIV");
+            div.setAttribute("class", "ts toggle checkbox");
+
+            var input = document.createElement("INPUT");
+            var label = document.createElement("LABEL");
+
+            input.setAttribute("id", this.data["JID"][i]);
+            input.setAttribute("type", "checkbox");
+
+            label.setAttribute("for", this.data["JID"][i]);
+
+            div.appendChild(input);
+            div.appendChild(label);
+
+            var num = table.rows.length;
+            var tr = table.insertRow(num);
+            if (this.data["reason"][i] === "遲到") {
+                tr.setAttribute("class", "positive")
+            } else {
+                tr.setAttribute("class", "negative")
+                red_jinde++;
+            }
+
+            var td = tr.insertCell(tr.cells.length);
+            td.innerHTML = this.data["applytime"][i];
+
+            var td = tr.insertCell(tr.cells.length);
+            td.innerHTML = this.data["reason"][i];
+
+            var td = tr.insertCell(tr.cells.length);
+            td.setAttribute("class", "collapsing");
+            td.appendChild(div);
+        }
+
+        if (red_jinde >= 3) {
+            jindetimes = jindetimes - red_jinde;
+            jingaotimes = 1;
+            if (red_jinde >= 5) {
+                jingaotimes = 2;
+            }
+        }
+
+        document.getElementById('backstage_jindetimes').innerHTML = jindetimes;
+        document.getElementById('backstage_jingaotimes').innerHTML = jingaotimes;
+    
+        this.direction = "backstage";
+        this.status = "applysuccess";
+        break;
     }
 
     huge_check_jinde() {

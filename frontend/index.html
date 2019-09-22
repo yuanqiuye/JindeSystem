@@ -76,6 +76,7 @@
             </div>
             <div id="high">
                 <br><br><button class='ts large button' id="huge_check_jinde">大量銷進德</button>
+                <br><br><button class='ts large button' id="backstage">教官後台</button>
                 <!--<br><br><button class='ts large button' id="upload">上傳遲到紀錄</button>
                 <br><br><button class='ts large button' id="download">匯出進德紀錄</button> -->
             </div>
@@ -198,7 +199,7 @@
                     <input type="text" placeholder="例:21824" name="class_number">
                 </div>
 
-                <button class="ts positive fluid button" id="search">登入</button>
+                <button class="ts positive fluid button" id="search">查詢</button>
 
             </form>
         </div>
@@ -206,7 +207,7 @@
 
     <!-- 教官後臺查看頁面開始 -->
     <div class="backstage" style="display:none">
-        <div class="ts huge center aligned header" id="backstage_class">
+        <div class="ts huge center aligned header" id="backstage_SID">
             
             <div class="sub header">的進德紀錄</div>
         </div>
@@ -219,7 +220,7 @@
                 <div class="value" id="backstage_jingaotimes"></div>
                 <div class="label">這周警告</div>
             </div>
-            <table class="ts table" id="backstage">
+            <table class="ts table" id="backstage_data">
                 <thead>
                     <tr>
                         <th>日期</th>
@@ -231,7 +232,7 @@
 
                 </tbody>
             </table>
-            <button class="ts positive fluid button" id="backstage_apply">登記提早進德</button>
+            <button class="ts positive fluid button" id="backstage_apply">確認</button>
         </div>
     </div>
 

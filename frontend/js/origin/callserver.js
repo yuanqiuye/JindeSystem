@@ -18,7 +18,9 @@ function callserver(url, send, callback) {
         dowhat.freshdata(get);
         if (get["err"] !== "") {
             status_handler(get["err"], "login");
-        } else {
+        } else if(get["err"] == "查無此班際座號！"){
+            status_handler(get["err"], "selection");
+        }else{
             switch (get["type"]) {
                 case "login":
                     dowhat.login();
