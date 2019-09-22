@@ -80,5 +80,5 @@ function get_SID($class_number){
   $number = (int)substr($class_number, 3, 2);
   $result = $con -> query("SELECT SID FROM student WHERE class = $class AND seat_id = $number");
   $SID = mysqli_fetch_array($result);
-  return $SID;
+  return $SID[0];
 }
