@@ -5,7 +5,7 @@ include ("jwt.php");
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $jwt = $data["jwt"];
-$SID = (int)get_SID($data["class_number"]);
+$SID = get_SID($data["class_number"]);
 
 $return = array(
     "type"=> "backstage_search",
@@ -17,8 +17,7 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["err"] = "登入逾時,不然就是你想亂來哈哈";
     echo json_encode($return);
 }else{
-    $result = $con -> query("SELECT SID FROM student WHERE SID = $SID");
-    if (mysqli_fetch_array($result) == 0){
+    if ($SID == null){
         $return["err"] = "查無此班際座號！";
         echo json_encode($return);
         exit();
