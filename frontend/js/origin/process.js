@@ -252,7 +252,6 @@ class process {
     
         this.direction = "backstage";
         this.status = "applysuccess";
-        break;
     }
 
     huge_check_jinde() {
