@@ -191,6 +191,11 @@ class process {
         this.direction = "selection";
     }
 
+    backstage(){
+        this.status = "applysuccess";
+        this.direction = "selection";
+    }
+
     backstage_search() {
         var jindetimes = this.data["applytime"].length;
         var table = document.getElementById('backstage_data');

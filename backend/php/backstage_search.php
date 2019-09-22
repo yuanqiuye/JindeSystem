@@ -26,7 +26,7 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 
     $sjinde = $con->prepare("SELECT JID, applytime, RID FROM jinde WHERE SID = ? 
     AND finished = 0 
-    AND applytime BETWEEN '$date_array[3]' AND '$date_array[4]'");
+    AND applytime BETWEEN '$date_array[0]' AND '$date_array[1]'");
     $sjinde->bind_param("s", $SID);
     $sjinde->execute();
     $sjinder = $sjinde->get_result();

@@ -58,6 +58,10 @@ class webdata {
         var data = { "user": user, "jwt": jwt, "SID": [], "EID": [] };
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
+            var what_table = checked[i].parentElement.parentElement.parentElement.getAttribute("id");
+            if (what_table != "teacher"){
+                continue;
+            }
             var nowrow = checked[i].parentElement.parentElement.parentElement;
             var SID = nowrow.cells[1].textContent;
             var EID = checked[i].getAttribute("id");
@@ -90,6 +94,23 @@ class webdata {
         var class_number = $("input[name='class_number']").val();
         var data = { "user": user, "jwt": jwt , "class_number": class_number };
         animate_havadata("backstage_search.php", data);
+    }
+
+    static backstage(){
+        var user = readcookie("user");
+        var jwt = readcookie("jwt");
+        var data = { "user": user, "jwt": jwt, "JID": []};
+        var checked = $("input[type='checkbox']:checked").get();
+        for (var i = 0; i < checked.length; i++) {
+            var what_table = checked[i].parentElement.parentElement.parentElement.getAttribute("id");
+            if (what_table != "backstage_data"){
+                continue;
+            }
+            var JID = checked[i].getAttribute("id");
+            data["SID"].push(JID);
+        }
+
+        animate_havadata("backstage.php", data);
     }
 
     static upload_jinde() {
