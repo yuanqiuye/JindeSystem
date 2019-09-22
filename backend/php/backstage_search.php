@@ -52,6 +52,7 @@ if(decode_jwt($user,$jwt) === false || (int)decode_jwt($user, $jwt) < 3){
     $return["reason"] = $reasonarray;
     $return["applytime"] = $applytimearray;
     $return["JID"] = $JIDarray;
+    $return["SID"] = $SID;
 
     echo json_encode($return);
     }
