@@ -21,7 +21,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
      $checklength = sizeof($JID);
      for($i = 0; $i < $checklength; $i++){
         $nowJID = $JID[$i];
-        $con -> query("UPDATE jinde SET finished = 1 WHERE EID = $nowJID");
+        $con -> query("UPDATE jinde SET finished = 1 WHERE JID = $nowJID");
      }
      echo json_encode($return);
 }
