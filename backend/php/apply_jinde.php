@@ -5,7 +5,7 @@ include ("jwt.php");
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $jwt = $data["jwt"];
-$SID = $data["SID"];
+$SID = (int)get_SID($data["SID"]);
 $RID = $data["RID"];
 $times = $data["times"];
 $applytime = date("Y-m-d");
@@ -26,7 +26,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 2){
     $sdr = $sd->get_result();
     $sd -> close();
     if($sdr->num_rows === 0){
-        $return["err"].= "找不到".(string)$SID."這個學號!";
+        $return["err"].= "找不到".(string)$SID."這個班級座號!";
         echo json_encode($return);
     }else{
         for($i = $times; $i > 0 ; $i--){

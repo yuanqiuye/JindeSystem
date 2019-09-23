@@ -24,10 +24,10 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
 }else{
     $checklength = sizeof($SID);
     for($i = 0; $i < $checklength; $i++){
-        $nowSID = $SID[$i];
+        $nowSID = (int)get_SID($SID[$i]);
         $SIDr = $con -> query("SELECT SID FROM student WHERE SID = $nowSID");
         if ($SIDr->num_rows < 1){
-            array_push($return["failed_SID"],(string)$nowSID);
+            array_push($return["failed_SID"],(string)$SID[$i]);
         }else{
             $nowtimes = $times[$i];
             $sp = $con -> prepare("SELECT JID FROM jinde WHERE 
@@ -48,7 +48,7 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
             $non_jinde_times = $nowtimes - sizeof($JID);
 
             if($non_jinde_times > 0){
-                array_push($return["non_jinde_SID"],(string)$nowSID);
+                array_push($return["non_jinde_SID"],(string)$SID[$i]);
                 array_push($return["non_jinde_times"],(string)$non_jinde_times);
                 $loop_times = sizeof($JID);
             }else{
