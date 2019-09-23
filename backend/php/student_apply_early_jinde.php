@@ -54,7 +54,7 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $sjpr = $sjp->get_result();
     $sjp->close();
 
-    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ? AND r_date BETWEEN '$date_array[0]'  AND '$date_array[1]'");
+    $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ? AND applytime BETWEEN '$date_array[0]'  AND '$date_array[1]'");
     $officecheckp -> bind_param("ss", $nowday, $timeID);
     $officecheckp->execute();
     $officecheckpr = $officecheckp->get_result();
