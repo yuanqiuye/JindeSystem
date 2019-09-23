@@ -107,7 +107,7 @@ class webdata {
                 continue;
             }
             var JID = checked[i].getAttribute("id");
-            data["SID"].push(JID);
+            data["JID"].push(JID);
         }
 
         animate_havadata("backstage.php", data);
