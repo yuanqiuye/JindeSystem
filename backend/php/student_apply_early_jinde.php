@@ -91,14 +91,12 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
         $dp -> bind_param("s", $nowdate);
         $dp -> execute();
         $dp -> close();
-        echo json_encode($return);
     }
     else if($timeID=="2" && $number == 0){
         $dp = $con-> prepare("UPDATE student SET applyday2 = ? WHERE SID = $SID");
         $dp -> bind_param("s", $nowdate);
         $dp -> execute();
         $dp -> close();
-        echo json_encode($return);
     }
-        
+    echo json_encode($return);
 }
