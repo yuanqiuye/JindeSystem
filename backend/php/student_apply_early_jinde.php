@@ -55,11 +55,6 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $sjp->close();
 
     $officecheckp = $con->prepare("SELECT office, EID FROM event WHERE JID is null AND wantday = ? AND wanttime = ? AND r_date BETWEEN '$date_array[0]'  AND '$date_array[1]'");
-    if ($officecheckp === false) {
-        $return["failed_times"] = $number;
-        echo json_encode($return);
-        exit();
-    }
     $officecheckp -> bind_param("ss", $nowday, $timeID);
     $officecheckp->execute();
     $officecheckpr = $officecheckp->get_result();
@@ -91,14 +86,14 @@ if (decode_jwt($SID, $jwt) === false || (int) decode_jwt($SID, $jwt) !== 0) {
     $return["failed_times"] = $number;
     $return["success_location"] = $office;
     
-    if($timeID=="1"){
+    if($timeID=="1" && $number == 0){
         $dp = $con-> prepare("UPDATE student SET applyday1 = ? WHERE SID = $SID");
         $dp -> bind_param("s", $nowdate);
         $dp -> execute();
         $dp -> close();
         echo json_encode($return);
     }
-    else if($timeID=="2"){
+    else if($timeID=="2" && $number == 0){
         $dp = $con-> prepare("UPDATE student SET applyday2 = ? WHERE SID = $SID");
         $dp -> bind_param("s", $nowdate);
         $dp -> execute();
