@@ -45,6 +45,9 @@ function callserver(url, send, callback) {
                     case "backstage_search":
                         dowhat.backstage_search();
                         break;
+                    case "backstage":
+                        dowhat.backstage();
+                        break;
                     case "huge_check_jinde":
                         dowhat.huge_check_jinde();
                         break;

@@ -40,7 +40,11 @@ $(document).ready(function() {
 
     $("#search").on('click', function() {
         webdata.backstage_search();
-    })
+    });
+
+    $('#backstage_apply').on('click', function(){
+        webdata.backstage();
+    });
 
     $("#apply_jinde").on('click', function() {
         webdata.reason_infrom();
