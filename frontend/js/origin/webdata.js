@@ -58,7 +58,7 @@ class webdata {
         var data = { "user": user, "jwt": jwt, "SID": [], "EID": [] };
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
-            var what_table = checked[i].parentElement.parentElement.parentElement.getAttribute("id");
+            var what_table = checked[i].parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
             if (what_table != "teacher"){
                 continue;
             }
@@ -102,7 +102,7 @@ class webdata {
         var data = { "user": user, "jwt": jwt, "JID": []};
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
-            var what_table = checked[i].parentElement.parentElement.parentElement.getAttribute("id");
+            var what_table = checked[i].parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
             if (what_table != "backstage_data"){
                 continue;
             }
