@@ -283,9 +283,10 @@ class process {
     }
 
     output_jinde() {
-        csv_output(this.data);
+        var data = new Blob([this.data["file"]], { type: 'text/csv;charset=utf-8' });
+        saveAs(data, "進德名單.csv");
+        this.status = "applysuccess";
         this.direction = "selection";
-        this.status = null;
     }
 
 

@@ -38,6 +38,14 @@ $(document).ready(function() {
         animate_nondata("backstage_search", null);
     });
 
+    $("#download").on('click', function() {
+        animate_nondata("download", null)
+    });
+
+    $("#send_download").on("click", function(){
+        webdata.output_jinde();
+    });
+
     $("#search").on('click', function() {
         webdata.backstage_search();
     });
