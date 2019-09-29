@@ -118,7 +118,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var input = $("#upload_jinde").get();
         var files = input.files; 
-        if (files["length"] !== 0) {
+        if (input["length"] !== 0) {
             var data = { "user": user, "jwt": jwt, "file":files[0]};
             animate_havadata("upload_jinde.php", data);
         } else {
