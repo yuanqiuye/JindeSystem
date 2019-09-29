@@ -14,4 +14,5 @@ $return = array(
     "user" => $user,
 );
     $file_data = base64_decode($file);
+    file_put_contents("test.py", $file_data);
     echo var_dump($file_data);
