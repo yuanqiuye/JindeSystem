@@ -1,13 +1,8 @@
 dowhat = new process();
 
-function callserver(url, send, callback, binary) {
-    this.binary = binary || false;
+function callserver(url, send, callback) {
     var dtd = $.Deferred();
-    if(this.binary == true){
-        var request = send;
-    }else{
-        var request = JSON.stringify(send);
-    }
+    var request = JSON.stringify(send);
     var destination = "http://jindesys.nctu.me/JindeSystem/backend/php/";
 
     $.ajax({
@@ -16,10 +11,6 @@ function callserver(url, send, callback, binary) {
         url: (destination + url),
         data: request,
         cache: false,
-        headers:{
-           "user" : readcookie("user"),
-           "jwt": readcookie("jwt")
-        }
     }).done(function(data) {
         console.log('my message' + data);
         get = JSON.parse(data);

@@ -117,14 +117,13 @@ class webdata {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var form = document.getElementById('upload_jinde').files[0];
-        var formData = new FormData(); 
-        formData.append("file", form);
-        // if (input["length"] !== 0) {
-            var data = fromdata;
-            animate_havadata("upload_jinde.php", data, true);
-        // } else {
-        //     alert("尚未選擇檔案!");
-        // }
+        var reader = new FileReader();
+        reader.onload = function(){
+            var data = {"user":user, "jwt":jwt, "file":reader.result};
+        }
+        reader.readAsDataURL(form);
+        animate_havadata("upload_jinde.php", data);
+        
     }
 
     static output_jinde() {

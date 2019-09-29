@@ -1,5 +1,4 @@
-function animate_havadata(url, send, binary) {
-    this.binary = binary || false;
+function animate_havadata(url, send) {
     const $start = $('#now');
     const $animation = $('.animation');
     $start.attr('id', '');
@@ -15,6 +14,6 @@ function animate_havadata(url, send, binary) {
             } else {
                 status_handler(dowhat.status, dowhat.direction);
             }
-        }, this.binary)
+        })
     });
 }
