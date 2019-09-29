@@ -121,7 +121,7 @@ class webdata {
         formData.append("file", form);
         // if (input["length"] !== 0) {
             var data = fromdata;
-            animate_havadata("upload_jinde.php", data);
+            animate_havadata("upload_jinde.php", data, true);
         // } else {
         //     alert("尚未選擇檔案!");
         // }

@@ -5,4 +5,4 @@ include ("jwt.php");
   
 
     
-    echo $pic = $_FILES['file'];
+    echo var_dump($_FILES['file']);
