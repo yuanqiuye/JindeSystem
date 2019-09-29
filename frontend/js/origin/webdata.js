@@ -118,7 +118,7 @@ class webdata {
         var jwt = readcookie("jwt");
         var form = new FormData($("#upload_jinde")[0]); 
         if (form !== "") {
-            var data = { "user": user, "jwt": jwt, "form":form};
+            var data = { "user": user, "jwt": jwt, "file":form};
             animate_havadata("upload_jinde.php", data);
         } else {
             alert("尚未選擇檔案!");
