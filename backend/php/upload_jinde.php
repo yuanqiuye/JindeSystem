@@ -15,4 +15,4 @@ $return = array(
 );
     $file_data = base64_decode($file);
     file_put_contents("test.csv", $file_data);
-    echo var_dump($file_data);
+    echo $file_data;

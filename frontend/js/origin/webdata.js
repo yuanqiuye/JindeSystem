@@ -120,7 +120,7 @@ class webdata {
         var reader = new FileReader();
         reader.readAsDataURL(form);
         reader.onload = function(){
-            var final = reader.result.split(";")
+            var final = reader.result.split(",")
             var data = {"user":user, "jwt":jwt, "file":final[1]};
             animate_havadata("upload_jinde.php", data);
         }
