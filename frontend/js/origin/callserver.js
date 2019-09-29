@@ -60,8 +60,6 @@ function callserver(url, send, callback) {
                     case "student_apply_early_jinde":
                         dowhat.student_apply_early_jinde();
                         break;
-                    case "output_jinde":
-                        dowhat.output_jinde();
                 }
                 if (typeof callback === 'function') {
                     callback();

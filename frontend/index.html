@@ -77,7 +77,7 @@
             <div id="high">
                 <br><br><button class='ts large button' id="huge_check_jinde">大量銷進德</button>
                 <br><br><button class='ts large button' id="backstage">教官後台</button>
-                <!-- <br><br><button class='ts large button' id="upload">上傳遲到紀錄</button> -->
+                <br><br><button class='ts large button' id="upload">上傳進德紀錄</button>
                 <br><br><button class='ts large button' id="download">匯出進德紀錄</button>
             </div>
         </div>
@@ -270,15 +270,24 @@
     <!-- 上傳遲到頁面開始 -->
     <div class="upload" style="display:none">
         <div class="ts huge center aligned header">
-            上傳遲到紀錄
-            <div class="sub header">若有使用上的疑問或系統故障</div>
-            <div class="sub header">請洽詢生輔組，我們會盡快解決</div>
+            上傳進德紀錄
+            <div class="sub header">千萬別上傳錯誤的類型!</div>
+            <div class="sub header">不然會導致GG</div>
         </div>
 
         <div class="ts centered center aligned secondary raised segment">
-            <input type="file" id="file-uploader" accept="text/x-csv" class="ts positive fluid button">
+            <select class="ts basic dropdown" id="upload_type">
+                <option value="1">遲到</option>
+                <option value="2">未刷卡</option>
+                <option value="3">紅單違規</option>
+                <option value="4">銷家長遲到</option>
+            </select>
             <br>
-            <button class="ts positive fluid button" id="send_upload">上傳</button>
+            <br>
+            <form id="upload_jinde" class="ts form" method="POST" target="rfFrame">
+                    上傳文件：<input type="file" name="file">
+                    <button class="ts positive fluid button" id="send_upload">上傳</button>  
+            </form>
         </div>
     </div>
 

@@ -116,17 +116,9 @@ class webdata {
     static upload_jinde() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        const fileUploader = document.querySelector('#file-uploader');
-        var result = null;
-        if (fileUploader.files !== "") {
-            var reader = new FileReader();
-
-            reader.onload = function() {
-                result = csv_input(reader.result);
-            }
-            reader.readAsText(fileUploader.files[0]);
-
-            var data = { "user": user, "jwt": jwt, "time": result, "SID": result };
+        var form = new FormData($("#upload_jinde")[0]); 
+        if (form !== "") {
+            var data = { "user": user, "jwt": jwt, "form":form};
             animate_havadata("upload_jinde.php", data);
         } else {
             alert("尚未選擇檔案!");

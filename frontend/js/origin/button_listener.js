@@ -42,8 +42,16 @@ $(document).ready(function() {
         animate_nondata("download", null)
     });
 
+    $("#upload").on('click', function() {
+        animate_nondata("upload", null)
+    });
+
     $("#send_download").on("click", function(){
         webdata.output_jinde();
+    });
+
+    $("#send_upload").on("click", function(){
+        webdata.upload_jinde();
     });
 
     $("#search").on('click', function() {
