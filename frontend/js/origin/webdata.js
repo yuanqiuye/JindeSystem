@@ -118,13 +118,11 @@ class webdata {
         var jwt = readcookie("jwt");
         var form = document.getElementById('upload_jinde').files[0];
         var reader = new FileReader();
-        var data = {};
-        reader.onload = function(){
-            data = {"user":user, "jwt":jwt, "file":reader.result};
-        }
         reader.readAsDataURL(form);
-        animate_havadata("upload_jinde.php", data);
-        
+        reader.onload = function(){
+            var data = {"user":user, "jwt":jwt, "file":reader.result};
+            animate_havadata("upload_jinde.php", data);
+        }
     }
 
     static output_jinde() {
