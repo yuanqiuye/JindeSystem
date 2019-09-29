@@ -7,7 +7,7 @@ include ("jwt.php");
 $data = json_decode(file_get_contents('php://input'), true);
 $user = $data["user"];
 $jwt = $data["jwt"];
-$file = $_FILES["file"];
+$file = $data["file"];
 $return = array(
     "type"=>"upload_jinde",
     "err" => "",
