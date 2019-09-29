@@ -118,8 +118,9 @@ class webdata {
         var jwt = readcookie("jwt");
         var form = document.getElementById('upload_jinde').files[0];
         var reader = new FileReader();
+        var data = {};
         reader.onload = function(){
-            var data = {"user":user, "jwt":jwt, "file":reader.result};
+            data = {"user":user, "jwt":jwt, "file":reader.result};
         }
         reader.readAsDataURL(form);
         animate_havadata("upload_jinde.php", data);
