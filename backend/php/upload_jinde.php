@@ -13,5 +13,5 @@ $return = array(
     "err" => "",
     "user" => $user,
 );
-
-    echo var_dump($file);
+    $file_data = base64_decode($file);
+    echo var_dump($file_data);
