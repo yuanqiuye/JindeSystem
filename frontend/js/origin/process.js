@@ -59,7 +59,7 @@ class process {
                 document.getElementById('show_user').append(this.data["user"]);
 
 
-                this.direction = "student";
+                this.direction = "student_apply_early_jinde";
                 this.status = "loginsuccess";
                 break;
 
