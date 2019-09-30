@@ -116,12 +116,20 @@ class webdata {
     static upload_jinde() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
+        var upload_type = $("#upload_type").val();
+        var upload_time = $("#upload_time").val();
         var form = document.getElementById('upload_jinde').files[0];
         var reader = new FileReader();
         reader.readAsDataURL(form);
         reader.onload = function(){
             var final = reader.result.split(",")
-            var data = {"user":user, "jwt":jwt, "file":final[1]};
+            var data = {
+                "user":user,
+                "jwt":jwt,
+                "file":final[1],
+                "upload_type":upload_type,
+                "upload_time":upload_time
+            };
             animate_havadata("upload_jinde.php", data);
         }
     }
