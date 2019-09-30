@@ -19,5 +19,7 @@ $return = array(
 );
 
 $file_data = base64_decode($file);
-file_put_contents("late.csv", $file_data);
+file_put_contents("/var/www/html/jinde_csv/late.csv", $file_data);
+
+echo $file_data;
 
