@@ -18,8 +18,41 @@ $return = array(
     "user" => $user,
 );
 
-$file_data = base64_decode($file);
-file_put_contents("/var/www/html/jinde_csv/late.csv", $file_data);
+function late_csv($file){
+    while (($data = fgetcsv($file, 1000, ",")) !== FALSE) {
+        $SID = $data[10];
+        $time = $data[8];
+        
+    }
+}
 
-echo $file_data;
+function bibi_csv($file){
 
+}
+
+function red_csv($file){
+
+}
+
+function leave_call_csv($file){
+
+}
+
+if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 3){
+    $return["err"] = "登入逾時,不然就是你想亂來哈哈";
+    echo json_encode($return);
+}else{
+    
+    if($upload_time == "this_week"){
+        $red_time = $date_array[1];
+    }else{
+        $red_time = $date_array[4];
+    }
+    $file_data = base64_decode($file);
+
+    switch($upload_type){
+        case "late":
+
+    }
+    echo $file_data;
+}

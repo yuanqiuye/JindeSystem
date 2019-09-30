@@ -9,9 +9,9 @@ function get_date()
 
     );
     $date_array[0] = date('Y-m-d', strtotime("$date -" . ($w ? $w - $first : 6) . ' days'));  //this monday
-    $date_array[1] =  date('Y-m-d', strtotime("$date_array[0] + 6 days"));  //this friday
+    $date_array[1] =  date('Y-m-d', strtotime("$date_array[0] + 6 days"));  //this Sunday
     $date_array[3] = date('Y-m-d', strtotime("$date_array[0] - 7 days")); //last monday
-    $date_array[4] =  date('Y-m-d', strtotime("$date_array[3] + 6 days")); //last friday
+    $date_array[4] =  date('Y-m-d', strtotime("$date_array[3] + 6 days")); //last sunday
     //Sunday minus 6 days
     return $date_array;
 }
