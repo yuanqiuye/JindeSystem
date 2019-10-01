@@ -145,7 +145,7 @@ class process {
             spage.innerHTML += "成功申請! 地點:" + this.data["success_location"];
         }
         this.status = "studentsuccess";
-        this.direction = "student";
+        this.direction = "student_apply_early_jinde";
     }
 
     check_inform() {
