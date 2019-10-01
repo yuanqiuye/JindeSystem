@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $("#back").on('click', function() {
         if (dowhat.data['member'] == "student") {
-            animate_nondata("student", null);
+            animate_nondata("student_apply_early_jinde", null);
         } else {
             animate_nondata("selection", null);
         }
