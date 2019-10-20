@@ -6,7 +6,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $jwt = $data["jwt"];
 $SID = $data["user"];
 $timeID = $data["timeID"];
-$nowday = date("w-1"); //臨時修改
+$nowday = date("w"); 
 $nowdate = date("Y-m-d");
 $number="1";
 
