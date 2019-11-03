@@ -141,7 +141,7 @@ $(document).ready(function() {
 
         var Today = new Date();
 
-        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() <= 7 || Today.getHours() >= 12) {
+        if (Today.getDay() > 3 || Today.getDay() < 1 || Today.getHours() <= 6 || Today.getHours() >= 12) {
             alert("已超時，請在 (一)~(三) 7:00~11:50以前登記完畢");
         } else {
 
