@@ -97,6 +97,6 @@ function get_classnum($SID){
   }else{
     $seat = (string)$final["seat_id"];
   }
-  $id = (string)$final["class"] + $seat;
+  $id = (string)$final["class"];
   return $id;
 }
