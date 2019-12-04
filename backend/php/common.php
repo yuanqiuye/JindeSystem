@@ -66,21 +66,37 @@ AND check_date BETWEEN '$date_array[0]' AND '$date_array[1]'");
 $checkdate = mysqli_fetch_array($result);
 $date_time = date('Y-m-d');
 
-if(sizeof($checkdate) == 0){
-  $result = $con -> query("SELECT SID FROM student");
-  while($SID = mysqli_fetch_array($result)){
-      check_access_flag($SID["SID"]);
-  }
-  $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
-}
+// if(sizeof($checkdate) == 0){
+//   $result = $con -> query("SELECT SID FROM student");
+//   while($SID = mysqli_fetch_array($result)){
+//       check_access_flag($SID["SID"]);
+//   }
+//   $con -> query("UPDATE system_inform SET check_date = '$date_time' WHERE type = 'access_flag'");
+// }
+
 
 function get_SID($class_number){
   global $con;
   $class = (int)substr($class_number, 0, 3); 
   $number = (int)substr($class_number, 3, 2);
   $result = $con -> query("SELECT SID FROM student WHERE class = $class AND seat_id = $number");
-  if( ($SID = mysqli_fetch_array($result)) == 0){
+  if( ( $SID = mysqli_fetch_array($result) ) == 0 ){
     return null;
   }
   return $SID[0];
+}
+
+function get_classnum($SID){
+  global $con;
+  $result = $con -> query("SELECT class, seat_id FROM student WHERE SID = $SID");
+  if ( ($final = mysqli_fetch_array($result) ) == 0 ){
+    return null;
+  }
+  if ((int)$final[1] <= 10){
+    $seat = "0" + (string)$final[1];
+  }else{
+    $seat = (string)$final[1];
+  }
+  $id = (string)$final[0] + $seat;
+  return $id;
 }

@@ -30,7 +30,9 @@ if(decode_jwt($user, $jwt) === false || (int)decode_jwt($user, $jwt) < 1){
         $sr = $con -> query("SELECT SID FROM jinde WHERE JID = $JID");
         $srr = mysqli_fetch_array($sr);
         $SID = $srr["SID"];
-        array_push($return["SID"], $SID);
+        $JID = get_classnum($SID);
+        
+        array_push($return["SID"], $JID);
         array_push($return["EID"], $EID);
     }
 
