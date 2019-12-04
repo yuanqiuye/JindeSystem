@@ -92,11 +92,11 @@ function get_classnum($SID){
   if ( ($final = mysqli_fetch_array($result) ) == 0 ){
     return null;
   }
-  if ((int)$final[1] <= 10){
-    $seat = "0" + (string)$final[1];
+  if ((int)$final["seat_id"] <= 10){
+    $seat = "0" + (string)$final["seat_id"];
   }else{
-    $seat = (string)$final[1];
+    $seat = (string)$final["seat_id"];
   }
-  $id = (string)$final[0] + $seat;
+  $id = (string)$final["class"] + $seat;
   return $id;
 }
