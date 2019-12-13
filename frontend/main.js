@@ -10,6 +10,7 @@ function win(){
 }
 
 function restart(){
+    window.correct = null;
     var guess_button = document.getElementById("guess");
     guess_button.setAttribute("class", "ts positive button");
 
