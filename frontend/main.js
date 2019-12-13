@@ -18,9 +18,9 @@ function restart(){
     win_messenge.setAttribute("style","display:none");
 
     var log = document.getElementById("log");
-    for(var i=0; i<=log.childElementCount;i++){
+    do{
         log.removeChild(log.lastChild);
-    }
+    }while(log.childElementCount != 0)
     var times = document.getElementById("value");
     times.innerHTML = "0";
 }
@@ -37,15 +37,15 @@ function get_random(){
 }
 
 function get_A_B(input, correct){
-    var d1 = input[1];
-    var d2 = input[2];
-    var d3 = input[3];
-    var d4 = input[4];
+    var d1 = input[0];
+    var d2 = input[1];
+    var d3 = input[2];
+    var d4 = input[3];
 
-    var a = correct[1];
-    var b = correct[2];
-    var c = correct[3];
-    var d = correct[4];
+    var a = correct[0];
+    var b = correct[1];
+    var c = correct[2];
+    var d = correct[3];
 
     var num_A = 0;
     var num_B = 0;
