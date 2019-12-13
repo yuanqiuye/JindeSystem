@@ -20,6 +20,8 @@ function restart(){
     for(var i=0; i<log.childElementCount;i++){
         log.removeChild(log.lastChild);
     }
+    var times = document.getElementById("value");
+    times.innerHTML = "0";
 }
 
 function get_random(){
@@ -102,7 +104,7 @@ function user_input(){
         div.setAttribute("class", "item");
         div.innerHTML = input + "的結果是" 
                         + result[0] + "A" + result[1] + "B";
-        document.getElementById("log").appendChild(div);
+        document.getElementById("log").prepend(div);
     }
     
 
