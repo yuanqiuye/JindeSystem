@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+    <title>邊緣人小遊戲 - 幾A幾B</title>
+    <script src="button_listener.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="ts huge center aligned header" style="margin-top:50px">
+        邊緣人小遊戲 - 幾A幾B
+    </div>
+
+    <div class="ts tertiary menu">
+        <div class="right menu">
+            <a class="item" href="index.html">返回進德系統</a>
+        </div>
+    </div>
+
+    <div class="ts centered secondary center aligned segment" 
+         style="width:500px">
+
+        <div id="failed_times" class="ts negative statistic">
+            <div id="value" class="value">0</div>
+            <div class="label">猜的次數</div>
+        </div>
+        
+        <div id="correct_messenge" style="display:none">
+            <div class="ts positive header">猜對啦!</div>
+            <button class="ts positive button" id="restart"
+                style="margin-bottom: 20px">重新開始
+            </button>
+        </div>
+        
+        <div class="ts centered relaxed grid">
+            <div class="six wide column">
+                <div class="ts form">
+                    <div class="field">
+                        <label>要猜甚麼數字呢?</label>
+                        <input id="input" type="number">
+                    </div>
+                    <button id="guess" class="ts positive button">猜猜看囉</button>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <div id="log" class="ts segmented list">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
