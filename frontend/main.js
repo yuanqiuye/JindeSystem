@@ -18,7 +18,7 @@ function restart(){
     win_messenge.setAttribute("style","display:none");
 
     var log = document.getElementById("log");
-    for(var i=0; i<log.childElementCount;i++){
+    for(var i=0; i<=log.childElementCount;i++){
         log.removeChild(log.lastChild);
     }
     var times = document.getElementById("value");
