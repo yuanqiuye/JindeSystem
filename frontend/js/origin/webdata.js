@@ -59,7 +59,7 @@ class webdata {
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var what_table = checked[i].parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
-            if (what_table != "teacher"){
+            if (what_table != "teacher") {
                 continue;
             }
             var nowrow = checked[i].parentElement.parentElement.parentElement;
@@ -92,18 +92,18 @@ class webdata {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
         var class_number = $("input[name='class_number']").val();
-        var data = { "user": user, "jwt": jwt , "class_number": class_number };
+        var data = { "user": user, "jwt": jwt, "class_number": class_number };
         animate_havadata("backstage_search.php", data);
     }
 
-    static backstage(){
+    static backstage() {
         var user = readcookie("user");
         var jwt = readcookie("jwt");
-        var data = { "user": user, "jwt": jwt, "JID": []};
+        var data = { "user": user, "jwt": jwt, "JID": [] };
         var checked = $("input[type='checkbox']:checked").get();
         for (var i = 0; i < checked.length; i++) {
             var what_table = checked[i].parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
-            if (what_table != "backstage_data"){
+            if (what_table != "backstage_data") {
                 continue;
             }
             var JID = checked[i].getAttribute("id");
@@ -114,24 +114,30 @@ class webdata {
     }
 
     static upload_jinde() {
-        var user = readcookie("user");
-        var jwt = readcookie("jwt");
         var upload_type = $("#upload_type").val();
-        var upload_time = $("#upload_time").val();
-        var form = document.getElementById('upload_jinde').files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(form);
-        reader.onload = function(){
-            var final = reader.result.split(",")
-            var data = {
-                "user":user,
-                "jwt":jwt,
-                "file":final[1],
-                "upload_type":upload_type,
-                "upload_time":upload_time
-            };
-            animate_havadata("upload_jinde.php", data);
+        if (!$("#upload_jinde")[0].files.length) {
+            alert("請選擇檔案");
+            return null;
         }
+        var filename = $("#upload_jinde")[0].files[0].name;
+        if (isCSV(filename) === true) {
+            $('#upload_jinde').parse({
+                config: buildConfig(), //config redirect to csv_upload
+                before: function(file, inputElem) {
+
+                },
+                error: function(err, file, inputElem, reason) {
+                    alert("發生錯誤ww");
+                    console.log("ERROR:", err, file);
+                },
+                complete: function() {
+
+                }
+            });
+        } else {
+            alert("這不是.csv喔！")
+        }
+        //animated_havedata is in csv_upload.js
     }
 
     static output_jinde() {

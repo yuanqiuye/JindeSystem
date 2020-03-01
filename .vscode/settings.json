@@ -1,0 +1,7 @@
+{
+    "clang.cflags": [
+        "-std=c++11"
+    ],
+    "clang.completion.completeMacros": false,
+    "clang.completion.enable": false
+}
