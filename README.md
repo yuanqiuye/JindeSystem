@@ -16,7 +16,7 @@
     2. 查詢學生資料 (遠大的夢想
  
 ### 學生API解說
-1. Login（POST jindesys.nctu.me/login.php）：
+1. Login（POST http://jindesys.nctu.me/JindeSystem/backend/php/login.php）：
 ```javascript=
 request:
 
