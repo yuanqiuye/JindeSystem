@@ -25,7 +25,7 @@ $password = file_get_contents(__DIR__ ."/../../../../password.txt", FALSE, NULL,
 $con = mysqli_connect($host, $sqluser, $password,  "resourse");
 
 if (!$con){
-  die('Could not connect: ' . mysql_error());
+  die( 'Could not connect: ');
 }
 
 $jinde_number = array();
