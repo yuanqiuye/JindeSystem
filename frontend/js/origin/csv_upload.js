@@ -54,26 +54,31 @@ function completeFn(results) {
                 alert("格式不正確喔！");
                 return null;
             }
-        case ("did_wrong"):
-            console.log(results.data[0].length);
-            console.log(results.data);
-            if (results.data[0][0] != "刷備卡" &&
-                results.data[0][17] != "其他" &&
-                results.data[0].length != 18) {
-                alert("格式不正確喔！");
-                return null;
-            }
-        case ("leave_call"):
-            console.log(results.data[0].length);
-            console.log(results.data);
-            if (results.data[0][0] != "學號" &&
-                results.data[0][1] != "日期" &&
-                results.data[1][1].length != 8) {
-                alert("格式不正確喔！");
-                return null;
-            }
-            var data = { "user": user, "jwt": jwt, "upload_type": upload_type, "results": results.data };
-            animate_havadata("csv_upload.php", data);
+            case ("did_wrong"):
+                console.log(results.data[0].length);
+                console.log(results.data);
+                if (results.data[0][0] != "刷備卡" &&
+                    results.data[0][17] != "其他" &&
+                    results.data[0].length != 18) {
+                    alert("格式不正確喔！");
+                    return null;
+                }
+                case ("leave_call"):
+                    console.log(results.data[0].length);
+                    console.log(results.data);
+                    if (results.data[0][0] != "學號" &&
+                        results.data[0][1] != "日期" &&
+                        results.data[1][1].length != 8) {
+                        alert("格式不正確喔！");
+                        return null;
+                    }
+                    var data = {
+                        "user": user,
+                        "jwt": jwt,
+                        "upload_type": upload_type,
+                        "results": results.data
+                    };
+                    animate_havadata("csv_upload.php", data);
     }
 }
 

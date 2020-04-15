@@ -46,11 +46,11 @@ $(document).ready(function() {
         animate_nondata("upload", null)
     });
 
-    $("#send_download").on("click", function(){
+    $("#send_download").on("click", function() {
         webdata.output_jinde();
     });
 
-    $("#send_upload").on("click", function(){
+    $("#send_upload").on("click", function() {
         webdata.upload_jinde();
     });
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
         webdata.backstage_search();
     });
 
-    $('#backstage_apply').on('click', function(){
+    $('#backstage_apply').on('click', function() {
         webdata.backstage();
     });
 
